@@ -1,0 +1,59 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load i18n static humanize %}
+{% block title %}{% translate "لوحة التحكم" %}{% endblock %}
+{% block dash_content %}
+<div class="welcome">
+  <div>
+    <h1>{% translate "أهلاً" %} {{ user.first_name|default:user.display_name }} 👋</h1>
+    <p>{% translate "إليك ملخص نشاطك وفرص مقترحة لك اليوم." %}</p>
+    <a class="btn btn--light btn--sm mt-2" href="{% url 'jobs:list' %}">{% icon "search" 16 %}{% translate "ابحث عن وظيفة" %}</a>
+  </div>
+  <img class="anim-float hide-sm" src="{% static 'img/illustrations/cv-3d.svg' %}" alt="" width="150" height="150">
+</div>
+
+<div class="kpis" data-stagger=".08">
+  <div class="kpi"><div class="kpi__icon">{% icon "inbox" 20 %}</div><div class="kpi__num" data-count="{{ app_total }}">{{ app_total }}</div><div class="kpi__label">{% translate "طلبات مقدمة" %}</div></div>
+  <div class="kpi"><div class="kpi__icon">{% icon "users" 20 %}</div><div class="kpi__num" data-count="{{ app_interviews }}">{{ app_interviews }}</div><div class="kpi__label">{% translate "مقابلات وعروض" %}</div></div>
+  <div class="kpi"><div class="kpi__icon">{% icon "send" 20 %}</div><div class="kpi__num" data-count="{{ proposals_total }}">{{ proposals_total }}</div><div class="kpi__label">{% translate "عروض على مشاريع" %}</div></div>
+  <div class="kpi"><div class="kpi__icon">{% icon "bookmark" 20 %}</div><div class="kpi__num" data-count="{{ saved_total }}">{{ saved_total }}</div><div class="kpi__label">{% translate "وظائف محفوظة" %}</div></div>
+</div>
+
+<div class="dash-grid">
+  <div class="stack" style="gap:20px">
+    <div class="panel">
+      <div class="panel__head"><h2>{% translate "آخر طلباتك" %}</h2><a class="btn btn--ghost btn--sm" href="{% url 'dashboard:seeker_applications' %}">{% translate "عرض الكل" %}</a></div>
+      {% for a in applications %}
+        <div class="list-row">{% logo a.job.company 42 %}<div class="list-row__main"><strong><a href="{{ a.job.get_absolute_url }}">{{ a.job.title }}</a></strong><small>{{ a.job.company.name }} · {{ a.created_at|naturaltime }}</small></div><span class="badge badge--{{ a.status }}">{{ a.get_status_display }}</span></div>
+      {% empty %}
+        <p class="muted mb-0">{% translate "لم تتقدم لأي وظيفة بعد." %} <a href="{% url 'jobs:list' %}" style="color:var(--blue);font-weight:700">{% translate "ابدأ الآن" %}</a></p>
+      {% endfor %}
+    </div>
+    <div class="panel">
+      <div class="panel__head"><h2>{% icon "sparkles" 18 %} {% translate "وظائف مقترحة لك" %}</h2><a class="btn btn--ghost btn--sm" href="{% url 'dashboard:seeker_recommended' %}">{% translate "المزيد" %}</a></div>
+      {% if recommended %}<div class="grid grid-2">{% for job in recommended %}{% include "partials/job_card.html" %}{% endfor %}</div>
+      {% else %}<p class="muted mb-0">{% translate "أضف مهاراتك وتخصصك لنقترح عليك وظائف مناسبة." %}</p>{% endif %}
+    </div>
+  </div>
+  <div class="stack" style="gap:20px">
+    <div class="panel text-center">
+      <h2 style="font-size:1.05rem">{% translate "اكتمال الملف الشخصي" %}</h2>
+      <div class="ring-progress" style="--p:{{ completion.percent }};margin:14px auto"><strong>{{ completion.percent }}%</strong></div>
+      {% if completion.missing %}
+        <p class="muted" style="font-size:.88rem">{% translate "أكمل العناصر التالية لزيادة فرص ظهورك:" %}</p>
+        <div class="chips" style="justify-content:center">{% for m in completion.missing %}<span class="chip">{{ m }}</span>{% endfor %}</div>
+        <a class="btn btn--primary btn--block mt-2" href="{% url 'dashboard:seeker_profile' %}"><span>{% translate "أكمل ملفك" %}</span></a>
+      {% else %}
+        <p class="muted mb-0">{% translate "ملفك مكتمل! 🎉" %}</p>
+      {% endif %}
+    </div>
+    <div class="panel">
+      <h2 style="font-size:1.05rem">{% translate "روابط سريعة" %}</h2>
+      <div class="stack" style="gap:8px">
+        <a class="btn btn--outline btn--block" href="{{ profile.get_absolute_url }}">{% icon "eye" 18 %}{% translate "معاينة ملفي العام" %}</a>
+        <a class="btn btn--outline btn--block" href="{% url 'projects:list' %}">{% icon "layers" 18 %}{% translate "تصفح المشاريع" %}</a>
+        <a class="btn btn--ghost btn--block" href="{% url 'reviews:testimonial' %}">{% icon "star" 18 %}{% translate "شارك رأيك في المنصة" %}</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

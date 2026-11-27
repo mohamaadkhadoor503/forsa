@@ -1,0 +1,13 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load i18n %}
+{% block title %}{% translate "المرشحون المفضلون" %}{% endblock %}
+{% block dash_content %}
+<div class="dash__head"><div><h1>{% translate "المرشحون المفضلون" %}</h1><p>{% translate "قائمتك المختصرة من المواهب للرجوع إليها." %}</p></div><a class="btn btn--primary" href="{% url 'talents:list' %}"><span>{% icon "search" 18 %}</span><span>{% translate "ابحث عن مواهب" %}</span></a></div>
+{% if favorites %}
+<div class="grid grid-3" data-stagger>
+  {% for f in favorites %}{% with p=f.profile %}{% include "partials/talent_card.html" %}{% endwith %}{% endfor %}
+</div>
+{% else %}
+<div class="panel">{% translate "لا يوجد مرشحون مفضلون" as t %}{% translate "اضغط على أيقونة القلب في ملف أي موهبة لإضافتها هنا." as tx %}{% translate "تصفح المواهب" as al %}{% url 'talents:list' as au %}{% include "partials/empty.html" with title=t text=tx action_url=au action_label=al %}</div>
+{% endif %}
+{% endblock %}

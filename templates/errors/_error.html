@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load i18n static %}
+{% block title %}{{ code }} — {{ site_settings.site_name }}{% endblock %}
+{% block content %}
+<section class="error-page">
+  <span class="orb orb--blue" style="width:400px;height:400px;top:-100px;inset-inline-start:-100px" aria-hidden="true"></span>
+  <span class="orb orb--violet" style="width:400px;height:400px;bottom:-100px;inset-inline-end:-100px" aria-hidden="true"></span>
+  <div style="position:relative">
+    <img class="anim-float" src="{% static image %}" alt="" width="220" height="200" style="width:200px;margin:0 auto -20px">
+    <div class="error-page__code">{{ code }}</div>
+    <h1 style="font-size:clamp(1.4rem,3vw,2rem)">{{ heading }}</h1>
+    <p class="lead" style="max-width:520px;margin-inline:auto">{{ text }}</p>
+    <div class="row" style="justify-content:center"><a class="btn btn--primary btn--lg" href="{% url 'core:home' %}"><span>{% translate "العودة للرئيسية" %}</span></a><a class="btn btn--outline btn--lg" href="{% url 'jobs:list' %}">{% translate "تصفح الوظائف" %}</a></div>
+  </div>
+</section>
+{% endblock %}

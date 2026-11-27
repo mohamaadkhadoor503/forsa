@@ -1,0 +1,17 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load i18n %}
+{% block title %}{% translate "الملف المهني" %}{% endblock %}
+{% block dash_content %}
+<div class="dash__head"><div><h1>{% translate "الملف المهني والمهارات" %}</h1><p>{% translate "هذه المعلومات تظهر لأصحاب العمل في صفحة ملفك العام." %}</p></div><a class="btn btn--outline" href="{{ profile.get_absolute_url }}">{% icon "eye" 18 %}{% translate "معاينة" %}</a></div>
+<div class="panel mb-2">
+  <div class="row row--between"><strong>{% translate "اكتمال الملف" %}</strong><strong style="font-family:var(--font-en)">{{ completion.percent }}%</strong></div>
+  <div class="progress mt-1"><span data-progress="{{ completion.percent }}"></span></div>
+</div>
+<div class="panel">
+  <form method="post" novalidate>{% csrf_token %}
+    {% include "partials/form_fields.html" with wide_fields="headline bio skills is_public" %}
+    <datalist id="skills-datalist"></datalist>
+    <div class="form-actions"><button class="btn btn--primary btn--lg" type="submit"><span>{% translate "حفظ التغييرات" %}</span></button></div>
+  </form>
+</div>
+{% endblock %}

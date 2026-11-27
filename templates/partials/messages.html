@@ -1,0 +1,2 @@
+{% if messages %}<div hidden>{% for m in messages %}<span data-flash="{{ m }}" data-type="{{ m.tags|default:'info' }}"></span>{% endfor %}</div>
+<noscript><div class="container mt-2">{% for m in messages %}<div class="alert">{{ m }}</div>{% endfor %}</div></noscript>{% endif %}

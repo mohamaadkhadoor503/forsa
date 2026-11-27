@@ -1,0 +1,12 @@
+{% extends "listing_base.html" %}
+{% load i18n %}
+{% block title %}{% translate "الشركات" %} — {{ site_settings.site_name }}{% endblock %}
+{% block eyebrow %}{% translate "الشركات" %}{% endblock %}
+{% block heading %}{% translate "تعرّف على" %} <span class="text-grad">{% translate "الشركات" %}</span>{% endblock %}
+{% block lead %}{% translate "استكشف الشركات وأصحاب الأعمال المسجلين، وتعرّف على ثقافتهم ووظائفهم المتاحة." %}{% endblock %}
+{% block search_placeholder %}{% translate "اسم الشركة..." %}{% endblock %}
+{% block filters %}
+  {% include "partials/filter_categories.html" with current=request.GET.industry name="industry" %}
+  {% translate "حجم الشركة" as t1 %}{% include "partials/filter_radio.html" with title=t1 name="size" options=sizes current=request.GET.size %}
+{% endblock %}
+{% block results %}{% include "companies/_results.html" %}{% endblock %}

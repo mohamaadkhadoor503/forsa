@@ -1,0 +1,2799 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\nLanguage: en\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "$/ساعة حتى"
+msgstr "Max $/hour"
+
+msgid "%(name)s تقدّم للوظيفة."
+msgstr "%(name)s applied for the job."
+
+msgid "%(name)s قدم عرضاً بقيمة $%(amount)s"
+msgstr "%(name)s sent a proposal of $%(amount)s"
+
+msgid "/ شهرياً"
+msgstr "/ month"
+
+msgid "/ساعة"
+msgstr "/hr"
+
+msgid "1 - 10 موظفين"
+msgstr "1 - 10 employees"
+
+msgid "1. البيانات التي نجمعها"
+msgstr "1. Data we collect"
+
+msgid "1. القبول"
+msgstr "1. Acceptance"
+
+msgid "11 - 50 موظفاً"
+msgstr "11 - 50 employees"
+
+msgid "2. الحسابات"
+msgstr "2. Accounts"
+
+msgid "2. كيف نستخدم بياناتك"
+msgstr "2. How we use your data"
+
+msgid "201 - 1000 موظف"
+msgstr "201 - 1000 employees"
+
+msgid "3. المحتوى المنشور"
+msgstr "3. Published content"
+
+msgid "3. مشاركة البيانات"
+msgstr "3. Data sharing"
+
+msgid "4. التعاملات بين المستخدمين"
+msgstr "4. Dealings between users"
+
+msgid "4. حقوقك"
+msgstr "4. Your rights"
+
+msgid "5. التعديلات"
+msgstr "5. Changes"
+
+msgid "5. ملفات تعريف الارتباط"
+msgstr "5. Cookies"
+
+msgid "51 - 200 موظف"
+msgstr "51 - 200 employees"
+
+msgid "English"
+msgstr "English"
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+msgid "؟"
+msgstr "?"
+
+msgid "آخر تحديث"
+msgstr "Updated at"
+
+msgid "آخر تحديث:"
+msgstr "Last updated:"
+
+msgid "آخر طلباتك"
+msgstr "Your latest applications"
+
+msgid "آخر موعد"
+msgstr "Deadline"
+
+msgid "آخر موعد للتقديم"
+msgstr "Application deadline"
+
+msgid "آراء المستخدمين"
+msgstr "Testimonials"
+
+msgid "آراء بانتظار المراجعة"
+msgstr "Testimonials pending review"
+
+msgid "آلاف الفرص تنتظرك. استخدم الفلاتر للعثور على ما يناسب مهاراتك وطموحك."
+msgstr "Opportunities are waiting. Use the filters to find what fits your skills and ambitions."
+
+msgid "آمن"
+msgstr "Secure"
+
+msgid "أبحث عن عمل أو مشاريع"
+msgstr "I'm looking for work or projects"
+
+msgid "أحدث الطلبات"
+msgstr "Latest applications"
+
+msgid "أحدث المستخدمين"
+msgstr "Newest users"
+
+msgid "أحدث الوظائف"
+msgstr "Latest jobs"
+
+msgid "أخرى"
+msgstr "Other"
+
+msgid "أدخل بريدك الإلكتروني وسنرسل لك رابطاً لتعيين كلمة مرور جديدة."
+msgstr "Enter your email and we'll send you a link to set a new password."
+
+msgid "أدر الطلبات والعروض بسهولة"
+msgstr "Manage applications and proposals easily"
+
+msgid "أرسل لنا رسالة"
+msgstr "Send us a message"
+
+msgid "أريد التوظيف أو نشر مشروع"
+msgstr "I want to hire or post a project"
+
+msgid "أضف مسيرتك المهنية ومؤهلاتك العلمية."
+msgstr "Add your career history and qualifications."
+
+msgid "أضف مهاراتك وتخصصك في ملفك، أو تصفح كل الوظائف."
+msgstr "Add skills and a specialty to your profile, or browse all jobs."
+
+msgid "أضف مهاراتك وتخصصك لنقترح عليك وظائف مناسبة."
+msgstr "Add your skills and specialty so we can recommend suitable jobs."
+
+msgid "أعمل هنا حالياً"
+msgstr "I currently work here"
+
+msgid "أفضل المواهب"
+msgstr "top talent"
+
+msgid "أقصى سعر بالساعة"
+msgstr "Maximum hourly rate"
+
+msgid "أقل عدد سنوات خبرة"
+msgstr "Minimum years of experience"
+
+msgid "أكثر التصنيفات نشاطاً"
+msgstr "Most active categories"
+
+msgid "أكثر من 1000"
+msgstr "1000+"
+
+msgid "أكمل العناصر التالية لزيادة فرص ظهورك:"
+msgstr "Complete these items to increase your visibility:"
+
+msgid "أكمل ملفك"
+msgstr "Complete your profile"
+
+msgid "أنت مسؤول عن صحة بياناتك وسرية كلمة المرور. يحق لنا تعليق الحسابات المخالفة."
+msgstr "You are responsible for accurate data and keeping your password secret. We may suspend violating accounts."
+
+msgid "أنشئ حسابك"
+msgstr "Create your account"
+
+msgid "أنشئ حسابك وملفك المهني"
+msgstr "Create your account & profile"
+
+msgid "أنشئ ملفاً مهنياً وسيرة ذاتية"
+msgstr "Build a professional profile and CV"
+
+msgid "أنشئ ملفك"
+msgstr "Create your profile"
+
+msgid "أنشئ ملفك المهني وكن من أوائل المواهب على المنصة."
+msgstr "Create your profile and be among the first talents on the platform."
+
+msgid "أهلاً"
+msgstr "Hi"
+
+msgid "أهلاً بعودتك"
+msgstr "Welcome back"
+
+msgid "أوافق على"
+msgstr "I agree to the"
+
+msgid "أوافق على الشروط والأحكام وسياسة الخصوصية"
+msgstr "I agree to the Terms and Privacy Policy"
+
+msgid "إجابات سريعة لأكثر الأسئلة تكراراً."
+msgstr "Quick answers to the most common questions."
+
+msgid "إجراءات"
+msgstr "Actions"
+
+msgid "إجمالي الطلبات"
+msgstr "Total applications"
+
+msgid "إحصائيات المنصة"
+msgstr "Platform statistics"
+
+msgid "إحصائيات حقيقية، وتقييمات لا تُكتب إلا بعد إنجاز عمل فعلي، وشركات موثّقة."
+msgstr "Real statistics, ratings only after real completed work, and verified companies."
+
+msgid "إخفاء"
+msgstr "Hide"
+
+msgid "إدارة التصنيفات"
+msgstr "Manage categories"
+
+msgid "إدارة الشركات"
+msgstr "Manage companies"
+
+msgid "إدارة الطلبات"
+msgstr "Manage applications"
+
+msgid "إدارة المستخدمين"
+msgstr "Manage users"
+
+msgid "إدارة المشاريع"
+msgstr "Manage projects"
+
+msgid "إدارة الوظائف"
+msgstr "Manage jobs"
+
+msgid "إدارة الوظائف المنشورة"
+msgstr "Manage posted jobs"
+
+msgid "إدارة طلبات التوظيف"
+msgstr "Manage applications"
+
+msgid "إذا كان البريد مسجلاً لدينا فستصلك رسالة تحتوي على رابط لتعيين كلمة مرور جديدة خلال دقائق."
+msgstr "If this email is registered, you'll receive a link to set a new password within minutes."
+
+msgid "إذا لم تطلب ذلك، تجاهل هذه الرسالة."
+msgstr "If you didn't request this, ignore this email."
+
+msgid "إرسال"
+msgstr "Send"
+
+msgid "إرسال إشعارات تتعلق بطلباتك ورسائلك."
+msgstr "To send notifications about your applications and messages."
+
+msgid "إرسال البلاغ"
+msgstr "Submit report"
+
+msgid "إرسال الرسالة"
+msgstr "Send message"
+
+msgid "إرسال الطلب"
+msgstr "Submit application"
+
+msgid "إرسال العرض"
+msgstr "Send proposal"
+
+msgid "إرسال رابط الاستعادة"
+msgstr "Send reset link"
+
+msgid "إزالة"
+msgstr "Remove"
+
+msgid "إزالة جميع الفلاتر"
+msgstr "Remove all filters"
+
+msgid "إشعار"
+msgstr "Notification"
+
+msgid "إشعارات البريد الإلكتروني"
+msgstr "Email notifications"
+
+msgid "إضافة"
+msgstr "Add"
+
+msgid "إضافة خبرة"
+msgstr "Add experience"
+
+msgid "إضافة عمل"
+msgstr "Add work"
+
+msgid "إضافة عمل جديد"
+msgstr "Add new work"
+
+msgid "إضافة للمفضلين"
+msgstr "Add to shortlist"
+
+msgid "إضافة مؤهل"
+msgstr "Add qualification"
+
+msgid "إظهار"
+msgstr "Show"
+
+msgid "إعدادات الحساب"
+msgstr "Account settings"
+
+msgid "إعدادات المنصة"
+msgstr "Platform settings"
+
+msgid "إغلاق"
+msgstr "Close"
+
+msgid "إلغاء"
+msgstr "Cancel"
+
+msgid "إلغاء التمييز"
+msgstr "Unfeature"
+
+msgid "إلغاء التوثيق"
+msgstr "Unverify"
+
+msgid "إلغاء المشروع؟"
+msgstr "Cancel the project?"
+
+msgid "إلى"
+msgstr "To"
+
+msgid "إليك ملخص نشاطك وفرص مقترحة لك اليوم."
+msgstr "Here's your activity summary and today's suggested opportunities."
+
+msgid "إنشاء الحساب"
+msgstr "Create account"
+
+msgid "إنشاء حساب"
+msgstr "Sign up"
+
+msgid "إنشاء حساب جديد"
+msgstr "Create a new account"
+
+msgid "إنهاء"
+msgstr "Complete"
+
+msgid "ابحث"
+msgstr "Search"
+
+msgid "ابحث بالفلاتر الذكية عن الوظائف والمشاريع المناسبة، أو استعرض المواهب وصفّها حسب المهارة والخبرة."
+msgstr "Use smart filters to find the right jobs and projects, or browse talent by skill and experience."
+
+msgid "ابحث بين المستقلين والباحثين عن عمل وصفّهم حسب المهارة والخبرة والتوفر."
+msgstr "Search freelancers and job seekers by skill, experience and availability."
+
+msgid "ابحث عن"
+msgstr "Find"
+
+msgid "ابحث عن عمل"
+msgstr "Find a job"
+
+msgid "ابحث عن مواهب"
+msgstr "Find talent"
+
+msgid "ابحث عن وظيفة"
+msgstr "Find a job"
+
+msgid "ابحث عن وظيفة، انشر مشروعك، ووظّف أفضل المواهب العربية."
+msgstr "Find a job, post your project, and hire the best Arab talent."
+
+msgid "ابحث في المواهب وصفّها"
+msgstr "Search and filter talent"
+
+msgid "ابدأ الآن"
+msgstr "Start now"
+
+msgid "ابدأ المحادثة بإرسال رسالة 👋"
+msgstr "Start the conversation by sending a message 👋"
+
+msgid "ابدأ بأحدث خبراتك وإنجازاتك بالأرقام"
+msgstr "Lead with recent experience and quantified achievements"
+
+msgid "ابدأ مجاناً"
+msgstr "Get started"
+
+msgid "اتركه فارغاً لاستخدام السيرة الذاتية المرفوعة في ملفك"
+msgstr "Leave empty to use the CV from your profile"
+
+msgid "اجعلها صفحة أو صفحتين كحد أقصى"
+msgstr "Keep it to one or two pages"
+
+msgid "احتيال أو نصب"
+msgstr "Fraud or scam"
+
+msgid "اختر المشروع المناسب، حدّد سعرك ومدة التنفيذ، وقدّم عرضك مباشرة لصاحب المشروع."
+msgstr "Pick a project, set your price and timeline, and send your proposal directly to the owner."
+
+msgid "اختر محادثة"
+msgstr "Select a conversation"
+
+msgid "اختر محادثة من القائمة لعرض الرسائل."
+msgstr "Choose a conversation from the list to view messages."
+
+msgid "اختر نوع الحساب"
+msgstr "Choose account type"
+
+msgid "اختر نوع الحساب المناسب لك — يمكنك البدء مجاناً."
+msgstr "Choose the account that fits you — it's free to start."
+
+msgid "ارفع سيرتك الذاتية لتُرفق تلقائياً مع طلبات التوظيف."
+msgstr "Upload your CV to attach it automatically to your applications."
+
+msgid "استعادة الحساب"
+msgstr "Account recovery"
+
+msgid "استعادة كلمة المرور"
+msgstr "Reset password"
+
+msgid "استكشف الشركات وأصحاب الأعمال المسجلين، وتعرّف على ثقافتهم ووظائفهم المتاحة."
+msgstr "Explore registered companies and employers, their culture and open roles."
+
+msgid "استكشف الفرص حسب"
+msgstr "Explore opportunities by"
+
+msgid "استكشف المشاريع المفتوحة وقدّم عرضك الأول."
+msgstr "Explore open projects and send your first proposal."
+
+msgid "اسم الشركة"
+msgstr "Company name"
+
+msgid "اسم الشركة / الجهة"
+msgstr "Company / organisation name"
+
+msgid "اسم الشركة..."
+msgstr "Company name..."
+
+msgid "اسم العائلة"
+msgstr "Last name"
+
+msgid "اسم المستخدم"
+msgstr "Username"
+
+msgid "اسم المنصة"
+msgstr "Platform name"
+
+msgid "اشرح خطتك لتنفيذ المشروع وخبراتك المشابهة..."
+msgstr "Describe your plan and relevant experience..."
+
+msgid "اضغط على أيقونة الحفظ في أي وظيفة لتظهر هنا."
+msgstr "Tap the bookmark icon on any job to see it here."
+
+msgid "اضغط على أيقونة القلب في ملف أي موهبة لإضافتها هنا."
+msgstr "Tap the heart icon on any talent profile to add it here."
+
+msgid "اعتماد"
+msgstr "Approve"
+
+msgid "اعتمد آراء المستخدمين قبل نشرها، وراجع الوظائف المعلّقة ورسائل التواصل."
+msgstr "Approve testimonials before publishing, and review pending jobs and contact messages."
+
+msgid "اعرض أفضل أعمالك السابقة ليراها أصحاب العمل."
+msgstr "Showcase your best past work for employers."
+
+msgid "افصل بين المهارات بفاصلة"
+msgstr "Separate skills with commas"
+
+msgid "اكتب رسالتك..."
+msgstr "Type your message..."
+
+msgid "اكتشف"
+msgstr "Discover"
+
+msgid "اكتشف أفضل المواهب"
+msgstr "Discover top talent"
+
+msgid "اكتشف الفرص أو المواهب"
+msgstr "Discover opportunities or talent"
+
+msgid "اكتمال الملف"
+msgstr "Profile completeness"
+
+msgid "اكتمال الملف الشخصي"
+msgstr "Profile completeness"
+
+msgid "الأحدث"
+msgstr "Newest"
+
+msgid "الأسئلة"
+msgstr "Frequently asked"
+
+msgid "الأسئلة الشائعة"
+msgstr "FAQ"
+
+msgid "الأساسيات"
+msgstr "Core"
+
+msgid "الأعلى تقييماً"
+msgstr "Top rated"
+
+msgid "الأعلى راتباً"
+msgstr "Highest salary"
+
+msgid "الأعلى ميزانية"
+msgstr "Highest budget"
+
+msgid "الأعمال السابقة تزيد فرص قبولك بشكل كبير."
+msgstr "Past work greatly increases your chances."
+
+msgid "الأقل عروضاً"
+msgstr "Fewest proposals"
+
+msgid "الأكثر خبرة"
+msgstr "Most experienced"
+
+msgid "الأكثر ملاءمة"
+msgstr "Most relevant"
+
+msgid "الأكثر وظائف"
+msgstr "Most jobs"
+
+msgid "الأيقونات المتاحة: code, shield, palette, megaphone, cog, calculator, film, cpu, chart, wifi, briefcase, users, layers ..."
+msgstr "Available icons: code, shield, palette, megaphone, cog, calculator, film, cpu, chart, wifi, briefcase, users, layers ..."
+
+msgid "الأيقونة"
+msgstr "Icon"
+
+msgid "الإبلاغ عن الشركة"
+msgstr "Report company"
+
+msgid "الإبلاغ عن المشروع"
+msgstr "Report project"
+
+msgid "الإبلاغ عن الملف"
+msgstr "Report profile"
+
+msgid "الإبلاغ عن محتوى"
+msgstr "Report content"
+
+msgid "الإبلاغ عن هذه الوظيفة"
+msgstr "Report this job"
+
+msgid "الإجابة"
+msgstr "Answer"
+
+msgid "الإجابة (إنجليزي)"
+msgstr "Answer (English)"
+
+msgid "الإحصائيات والتحليلات"
+msgstr "Statistics & analytics"
+
+msgid "الإدارة"
+msgstr "Administration"
+
+msgid "الإشعارات"
+msgstr "Notifications"
+
+msgid "الإعدادات"
+msgstr "Settings"
+
+msgid "الإعلانات الواضحة والمفصلة تجذب مرشحين أفضل."
+msgstr "Clear, detailed postings attract better candidates."
+
+msgid "الاسم"
+msgstr "Name"
+
+msgid "الاسم (إنجليزي)"
+msgstr "Name (English)"
+
+msgid "الاسم الأول"
+msgstr "First name"
+
+msgid "الاسم، المسمى المهني، أو مهارة..."
+msgstr "Name, title or skill..."
+
+msgid "الاسم، معلومات التواصل، روابط التواصل الاجتماعي وخيارات التسجيل."
+msgstr "Name, contact info, social links and registration options."
+
+msgid "البحث عن المواهب"
+msgstr "Search talent"
+
+msgid "البريد الإلكتروني"
+msgstr "Email"
+
+msgid "البريد الإلكتروني أو كلمة المرور غير صحيحة."
+msgstr "Incorrect email or password."
+
+msgid "البريد الإلكتروني للتواصل"
+msgstr "Contact email"
+
+msgid "البلاغات"
+msgstr "Reports"
+
+msgid "البلاغات والشكاوى"
+msgstr "Reports & complaints"
+
+msgid "البيانات الشخصية"
+msgstr "Personal details"
+
+msgid "التأسيس"
+msgstr "Founded"
+
+msgid "التاريخ"
+msgstr "Date"
+
+msgid "التالي"
+msgstr "Next"
+
+msgid "التخصص"
+msgstr "Category"
+
+msgid "التخصصات"
+msgstr "Categories"
+
+msgid "الترتيب"
+msgstr "Order"
+
+msgid "التسجيل"
+msgstr "Joined"
+
+msgid "التسجيل متوقف مؤقتاً."
+msgstr "Registration is temporarily closed."
+
+msgid "التسجيلات الشهرية"
+msgstr "Monthly sign-ups"
+
+msgid "التصنيفات"
+msgstr "Categories"
+
+msgid "التعليق"
+msgstr "Comment"
+
+msgid "التعليم"
+msgstr "Education"
+
+msgid "التفاصيل"
+msgstr "Details"
+
+msgid "التقديم على"
+msgstr "Apply for"
+
+msgid "التقديم مغلق"
+msgstr "Applications closed"
+
+msgid "التقييم"
+msgstr "Rating"
+
+msgid "التقييمات"
+msgstr "Ratings"
+
+msgid "التقييمات والبلاغات"
+msgstr "Ratings & reports"
+
+msgid "التنقل الرئيسي"
+msgstr "Main navigation"
+
+msgid "التنقل السريع"
+msgstr "Quick navigation"
+
+msgid "التوثيق"
+msgstr "Verification"
+
+msgid "التوظيف"
+msgstr "Hiring"
+
+msgid "الجهة"
+msgstr "Company"
+
+msgid "الحالة"
+msgstr "Status"
+
+msgid "الحالة الجديدة"
+msgstr "New status"
+
+msgid "الحجم"
+msgstr "Size"
+
+msgid "الحسابات"
+msgstr "Accounts"
+
+msgid "الخبرات"
+msgstr "Experience"
+
+msgid "الخبرات العملية"
+msgstr "Work experience"
+
+msgid "الخبرات والتعليم"
+msgstr "Experience & education"
+
+msgid "الخبرة"
+msgstr "Experience"
+
+msgid "الخبرة والسعر"
+msgstr "Experience & rate"
+
+msgid "الخصوصية"
+msgstr "Privacy"
+
+msgid "الدرجة / الشهادة"
+msgstr "Degree / certificate"
+
+msgid "الرئيسية"
+msgstr "Home"
+
+msgid "الرابط غير صالح"
+msgstr "Invalid link"
+
+msgid "الراتب الأدنى"
+msgstr "Minimum salary"
+
+msgid "الراتب الأعلى"
+msgstr "Maximum salary"
+
+msgid "الراتب الشهري ($)"
+msgstr "Monthly salary ($)"
+
+msgid "الراتب الشهري المتوقع"
+msgstr "Expected monthly salary"
+
+msgid "الراتب المتوقع"
+msgstr "Expected salary"
+
+msgid "الراتب المتوقع:"
+msgstr "Expected salary:"
+
+msgid "الراتب حسب الخبرة"
+msgstr "Salary based on experience"
+
+msgid "الرسائل"
+msgstr "Messages"
+
+msgid "الرسائل والمحادثات"
+msgstr "Messages & conversations"
+
+msgid "الرسالة"
+msgstr "Message"
+
+msgid "السؤال"
+msgstr "Question"
+
+msgid "السؤال (إنجليزي)"
+msgstr "Question (English)"
+
+msgid "السابق"
+msgstr "Previous"
+
+msgid "السبب"
+msgstr "Reason"
+
+msgid "السرعة والبساطة"
+msgstr "Speed & simplicity"
+
+msgid "السعر بالساعة"
+msgstr "Hourly rate"
+
+msgid "السعر بالساعة ($)"
+msgstr "Hourly rate ($)"
+
+msgid "السماح بالتسجيل"
+msgstr "Allow registration"
+
+msgid "السيرة الذاتية"
+msgstr "CV / Resume"
+
+msgid "السيرة الذاتية (PDF)"
+msgstr "CV (PDF)"
+
+msgid "السيرة الذاتية الحالية"
+msgstr "Current CV"
+
+msgid "الشائعة"
+msgstr "questions"
+
+msgid "الشركات"
+msgstr "Companies"
+
+msgid "الشركة"
+msgstr "Company"
+
+msgid "الشروط"
+msgstr "Terms"
+
+msgid "الشروط والأحكام"
+msgstr "Terms & Conditions"
+
+msgid "الشعار"
+msgstr "Logo"
+
+msgid "الشعار النصي"
+msgstr "Tagline"
+
+msgid "الشفافية والثقة"
+msgstr "Transparency & trust"
+
+msgid "الصفحات"
+msgstr "Pages"
+
+msgid "الصفحة غير موجودة"
+msgstr "Page not found"
+
+msgid "الصلاحيات"
+msgstr "Permissions"
+
+msgid "الصورة الشخصية"
+msgstr "Profile photo"
+
+msgid "الصيغ المدعومة: PDF, DOC, DOCX — الحد الأقصى 5 ميغابايت."
+msgstr "Supported formats: PDF, DOC, DOCX — max 5 MB."
+
+msgid "الطلبات"
+msgstr "Applications"
+
+msgid "العربية"
+msgstr "العربية"
+
+msgid "العرض"
+msgstr "Bid"
+
+msgid "العروض"
+msgstr "Proposals"
+
+msgid "العروض المقدمة"
+msgstr "Proposals received"
+
+msgid "العروض على:"
+msgstr "Proposals for:"
+
+msgid "العمل الحر"
+msgstr "Freelance"
+
+msgid "العملة"
+msgstr "Currency"
+
+msgid "العنصر غير موجود."
+msgstr "Item not found."
+
+msgid "العنوان"
+msgstr "Address"
+
+msgid "العودة لتسجيل الدخول"
+msgstr "Back to login"
+
+msgid "العودة للرئيسية"
+msgstr "Back to home"
+
+msgid "العودة للوظيفة"
+msgstr "Back to job"
+
+msgid "الفرص"
+msgstr "Opportunities"
+
+msgid "الفرصة المناسبة"
+msgstr "the right opportunity"
+
+msgid "الفلاتر"
+msgstr "Filters"
+
+msgid "القائمة الجانبية"
+msgstr "Sidebar"
+
+msgid "الكل"
+msgstr "All"
+
+msgid "اللغة"
+msgstr "Language"
+
+msgid "اللغة المفضلة"
+msgstr "Preferred language"
+
+msgid "اللون"
+msgstr "Color"
+
+msgid "المؤسسة التعليمية"
+msgstr "Institution"
+
+msgid "المالك"
+msgstr "Owner"
+
+msgid "المتطلبات"
+msgstr "Requirements"
+
+msgid "المتقدمون"
+msgstr "Applicants"
+
+msgid "المجال"
+msgstr "Industry"
+
+msgid "المحادثات"
+msgstr "Conversations"
+
+msgid "المخرجات المطلوبة"
+msgstr "Deliverables"
+
+msgid "المدة"
+msgstr "Duration"
+
+msgid "المدينة أو الدولة"
+msgstr "City or country"
+
+msgid "المرشحون المفضلون"
+msgstr "Shortlisted candidates"
+
+msgid "المزايا"
+msgstr "Benefits"
+
+msgid "المزيد"
+msgstr "More"
+
+msgid "المسؤوليات"
+msgstr "Responsibilities"
+
+msgid "المساعدة"
+msgstr "Help"
+
+msgid "المستخدم"
+msgstr "User"
+
+msgid "المستخدمون"
+msgstr "Users"
+
+msgid "المستقل المنفذ"
+msgstr "Assigned freelancer"
+
+msgid "المستوى"
+msgstr "Level"
+
+msgid "المسمى"
+msgstr "Title"
+
+msgid "المسمى / التخصص"
+msgstr "Title / specialty"
+
+msgid "المسمى المهني"
+msgstr "Professional title"
+
+msgid "المسمى الوظيفي"
+msgstr "Job title"
+
+msgid "المسمى الوظيفي، مهارة، أو شركة..."
+msgstr "Job title, skill or company..."
+
+msgid "المشاريع"
+msgstr "Projects"
+
+msgid "المشاريع الحرة"
+msgstr "Freelance projects"
+
+msgid "المشاريع المفتوحة"
+msgstr "Open projects"
+
+msgid "المشاهدات"
+msgstr "Views"
+
+msgid "المشروع"
+msgstr "Project"
+
+msgid "المشروع لا يستقبل عروضاً حالياً."
+msgstr "This project isn't accepting proposals right now."
+
+msgid "المعرّف"
+msgstr "Slug"
+
+msgid "المقر"
+msgstr "Headquarters"
+
+msgid "الملف"
+msgstr "Profile"
+
+msgid "الملف التعريفي للشركة"
+msgstr "Company profile"
+
+msgid "الملف الشخصي"
+msgstr "Profile"
+
+msgid "الملف المهني"
+msgstr "Professional profile"
+
+msgid "الملف المهني والمهارات"
+msgstr "Profile & skills"
+
+msgid "المنصة"
+msgstr "Platform"
+
+msgid "المنصة وسيط يربط بين الأطراف، والاتفاقات المالية والتعاقدية تتم بين صاحب العمل والمستقل أو الموظف مباشرة."
+msgstr "The platform connects parties; financial and contractual agreements are made directly between the employer and the freelancer or employee."
+
+msgid "المنفذ:"
+msgstr "Freelancer:"
+
+msgid "المهارات"
+msgstr "Skills"
+
+msgid "المهارات (3 على الأقل)"
+msgstr "Skills (at least 3)"
+
+msgid "المهارات المطلوبة"
+msgstr "Required skills"
+
+msgid "المهارة"
+msgstr "Skill"
+
+msgid "المواهب"
+msgstr "Talent"
+
+msgid "المواهب والمستقلون"
+msgstr "Talent & freelancers"
+
+msgid "الموضوع"
+msgstr "Subject"
+
+msgid "الموقع"
+msgstr "Location"
+
+msgid "الموقع الإلكتروني"
+msgstr "Website"
+
+msgid "الموقع الشخصي"
+msgstr "Website"
+
+msgid "الموهبة والفرصة"
+msgstr "talent and opportunity"
+
+msgid "الميزانية"
+msgstr "Budget"
+
+msgid "الميزانية ($)"
+msgstr "Budget ($)"
+
+msgid "الميزانية إلى ($)"
+msgstr "Budget to ($)"
+
+msgid "الميزانية من ($)"
+msgstr "Budget from ($)"
+
+msgid "النبذة"
+msgstr "Bio"
+
+msgid "النشر"
+msgstr "Posted"
+
+msgid "النص"
+msgstr "Body"
+
+msgid "النوع"
+msgstr "Type"
+
+msgid "الهاتف"
+msgstr "Phone"
+
+msgid "الوصف"
+msgstr "Description"
+
+msgid "الوظائف"
+msgstr "Jobs"
+
+msgid "الوظائف الأكثر طلباً"
+msgstr "Most applied jobs"
+
+msgid "الوظائف التي حفظتها للرجوع إليها لاحقاً."
+msgstr "Jobs you saved for later."
+
+msgid "الوظائف المتاحة"
+msgstr "Open jobs"
+
+msgid "الوظائف المحفوظة"
+msgstr "Saved jobs"
+
+msgid "الوظائف المنشورة شهرياً"
+msgstr "Jobs posted per month"
+
+msgid "الوظيفة"
+msgstr "Job"
+
+msgid "انتقل إلى المحتوى"
+msgstr "Skip to content"
+
+msgid "انتهت صلاحية الرابط أو تم استخدامه مسبقاً. اطلب رابطاً جديداً."
+msgstr "This link has expired or was already used. Request a new one."
+
+msgid "انشر"
+msgstr "Post"
+
+msgid "انشر الوظائف والمشاريع"
+msgstr "Post jobs and projects"
+
+msgid "انشر مشروعك"
+msgstr "Post your project"
+
+msgid "انشر مشروعك الأول واستقبل عروض المستقلين."
+msgstr "Post your first project and receive freelancer proposals."
+
+msgid "انشر مشروعك واستقبل عروض المستقلين خلال دقائق."
+msgstr "Post your project and receive freelancer proposals within minutes."
+
+msgid "انشر وظيفة"
+msgstr "Post a job"
+
+msgid "انشر وظيفتك الأولى وابدأ باستقبال الطلبات."
+msgstr "Post your first job and start receiving applications."
+
+msgid "انضم إلى مجتمع من المحترفين والشركات، وابدأ رحلتك المهنية بثقة."
+msgstr "Join a community of professionals and companies, and start your career journey with confidence."
+
+msgid "انضم إلينا"
+msgstr "Join us"
+
+msgid "انضم الآن مجاناً"
+msgstr "Join now for free"
+
+msgid "باحث"
+msgstr "seekers"
+
+msgid "باحث عن عمل"
+msgstr "job seekers"
+
+msgid "باحث عن عمل / مستقل"
+msgstr "Job seeker / freelancer"
+
+msgid "باحث عن عمل أو مستقل"
+msgstr "Job seeker or freelancer"
+
+msgid "باستخدامك للمنصة فإنك توافق على هذه الشروط. إن لم توافق عليها يرجى عدم استخدام المنصة."
+msgstr "By using the platform you agree to these terms. If you do not agree, please do not use the platform."
+
+msgid "بالساعة"
+msgstr "Hourly"
+
+msgid "بانتظار الرد"
+msgstr "Pending"
+
+msgid "بانتظار المراجعة"
+msgstr "Pending review"
+
+msgid "بحث"
+msgstr "Search"
+
+msgid "بحث..."
+msgstr "Search..."
+
+msgid "بطاقات"
+msgstr "Cards"
+
+msgid "بلاغ"
+msgstr "Report"
+
+msgid "بلاغات جديدة"
+msgstr "New reports"
+
+msgid "بياناتك الشخصية، اللغة، الإشعارات وكلمة المرور."
+msgstr "Your personal details, language, notifications and password."
+
+msgid "تأكيد إنهاء المشروع؟"
+msgstr "Mark the project as completed?"
+
+msgid "تأكيد كلمة المرور"
+msgstr "Confirm password"
+
+msgid "تابع حالة العروض التي قدمتها."
+msgstr "Track the status of the proposals you sent."
+
+msgid "تابع حالة طلباتك لحظة بلحظة"
+msgstr "Track your applications in real time"
+
+msgid "تابع حالة طلبك لحظة بلحظة، تواصل عبر المحادثات، وابدأ العمل نحو النجاح."
+msgstr "Track your application live, chat directly, and start working towards success."
+
+msgid "تابع كل مرحلة من مراحل التوظيف"
+msgstr "Follow every hiring stage"
+
+msgid "تابع كل مرحلة من مراحل طلبك."
+msgstr "Follow every stage of your application."
+
+msgid "تابع وظائفك وطلبات المرشحين ومشاريعك من مكان واحد."
+msgstr "Track your jobs, applications and projects in one place."
+
+msgid "تاريخ الإنشاء"
+msgstr "Created at"
+
+msgid "تاريخ البداية"
+msgstr "Start date"
+
+msgid "تاريخ النهاية"
+msgstr "End date"
+
+msgid "تبديل الوضع الليلي"
+msgstr "Toggle dark mode"
+
+msgid "تحديث"
+msgstr "Update"
+
+msgid "تحديث على طلبك: %(job)s"
+msgstr "Update on your application: %(job)s"
+
+msgid "تحديث على عرضك"
+msgstr "Update on your proposal"
+
+msgid "تحديث فوري لطلبك"
+msgstr "Instant application updates"
+
+msgid "تحديث مهاراتي"
+msgstr "Update my skills"
+
+msgid "تحديد الكل كمقروء"
+msgstr "Mark all as read"
+
+msgid "تحسين المنصة وحمايتها من إساءة الاستخدام."
+msgstr "To improve the platform and protect it from abuse."
+
+msgid "تحقق من بريدك"
+msgstr "Check your inbox"
+
+msgid "تحقق من بريدك الإلكتروني"
+msgstr "Check your email"
+
+msgid "تحقق من بيانات العرض."
+msgstr "Please check the proposal details."
+
+msgid "تخصصك"
+msgstr "specialty"
+
+msgid "تدريب"
+msgstr "Internship"
+
+msgid "تذكرني"
+msgstr "Remember me"
+
+msgid "ترتيب"
+msgstr "Sort"
+
+msgid "تسجيل الخروج"
+msgstr "Log out"
+
+msgid "تسجيل الدخول"
+msgstr "Log in"
+
+msgid "تشغيل حسابك وتمكينك من التقديم على الوظائف والمشاريع."
+msgstr "To operate your account and let you apply to jobs and projects."
+
+msgid "تصفح أحدث الوظائف في البرمجة والتصميم والتسويق والهندسة وغيرها، حضورياً أو عن بعد."
+msgstr "Browse the latest jobs in programming, design, marketing, engineering and more — on-site or remote."
+
+msgid "تصفح المشاريع"
+msgstr "Browse projects"
+
+msgid "تصفح المواهب"
+msgstr "Browse talent"
+
+msgid "تصفح الوظائف"
+msgstr "Browse jobs"
+
+msgid "تصفح كل الوظائف"
+msgstr "Browse all jobs"
+
+msgid "تصفية"
+msgstr "Filter"
+
+msgid "تصفية النتائج"
+msgstr "Filter results"
+
+msgid "تصفية حسب الحالة"
+msgstr "Filter by status"
+
+msgid "تصنيف"
+msgstr "Category"
+
+msgid "تصنيف جديد"
+msgstr "New category"
+
+msgid "تطبيق الفلاتر"
+msgstr "Apply filters"
+
+msgid "تعديل"
+msgstr "Edit"
+
+msgid "تعديل التصنيف"
+msgstr "Edit category"
+
+msgid "تعديل المشروع"
+msgstr "Edit project"
+
+msgid "تعديل الوظيفة"
+msgstr "Edit job"
+
+msgid "تعديل مشروع"
+msgstr "Edit project"
+
+msgid "تعديل ملفي"
+msgstr "Edit my profile"
+
+msgid "تعديل وظيفة"
+msgstr "Edit job"
+
+msgid "تعذر إرسال الرسالة"
+msgstr "Couldn't send the message"
+
+msgid "تعرّف على"
+msgstr "Meet the"
+
+msgid "تعطيل"
+msgstr "Deactivate"
+
+msgid "تعليم"
+msgstr "Education"
+
+msgid "تعيين كلمة مرور جديدة"
+msgstr "Set a new password"
+
+msgid "تغيير اللغة"
+msgstr "Change language"
+
+msgid "تغيير كلمة المرور"
+msgstr "Change password"
+
+msgid "تغيير نوع الحساب"
+msgstr "Change account type"
+
+msgid "تفاصيل العرض"
+msgstr "Proposal details"
+
+msgid "تفاصيل المشروع"
+msgstr "Project details"
+
+msgid "تفعيل"
+msgstr "Activate"
+
+msgid "تقدمت لهذه الوظيفة"
+msgstr "You applied"
+
+msgid "تقييم"
+msgstr "ratings"
+
+msgid "تلقينا طلباً لإعادة تعيين كلمة المرور لحسابك. اضغط على الرابط التالي لتعيين كلمة مرور جديدة:"
+msgstr "We received a request to reset your password. Click the link below to set a new password:"
+
+msgid "تم إرسال طلبك بنجاح! سنُعلمك بأي تحديث."
+msgstr "Application sent! We'll notify you of any update."
+
+msgid "تم إرسال عرضك بنجاح!"
+msgstr "Your proposal was sent!"
+
+msgid "تم إسناد هذا المشروع مسبقاً."
+msgstr "This project has already been awarded."
+
+msgid "تم إسنادك لمشروع %(p)s"
+msgstr "You've been awarded the project %(p)s"
+
+msgid "تم إلغاء المشروع."
+msgstr "Project cancelled."
+
+msgid "تم إنشاء حسابك بنجاح! أكمل ملفك لتبدأ."
+msgstr "Your account was created! Complete your profile to get started."
+
+msgid "تم إنهاء المشروع. يمكنك الآن تقييم المستقل."
+msgstr "Project completed. You can now rate the freelancer."
+
+msgid "تم استلام البلاغ وسيتم مراجعته. شكراً لك."
+msgstr "Report received and will be reviewed. Thank you."
+
+msgid "تم استلام رسالتك! سنعود إليك قريباً."
+msgstr "Message received! We'll get back to you soon."
+
+msgid "تم التقديم"
+msgstr "Submitted"
+
+msgid "تم التوظيف"
+msgstr "Hired"
+
+msgid "تم الحذف."
+msgstr "Deleted."
+
+msgid "تم الحل"
+msgstr "Resolved"
+
+msgid "تم السحب"
+msgstr "Withdrawn"
+
+msgid "تم تحديث حالة الطلب."
+msgstr "Application status updated."
+
+msgid "تم تحديث حالة العرض."
+msgstr "Proposal status updated."
+
+msgid "تم تحديث ملف الشركة."
+msgstr "Company profile updated."
+
+msgid "تم تسجيل الخروج بنجاح."
+msgstr "You've been logged out."
+
+msgid "تم تغيير كلمة المرور"
+msgstr "Password changed"
+
+msgid "تم تغيير كلمة المرور بنجاح"
+msgstr "Your password was changed successfully"
+
+msgid "تم تغيير كلمة المرور."
+msgstr "Password changed."
+
+msgid "تم تنفيذ الإجراء."
+msgstr "Action completed."
+
+msgid "تم توظيفهم"
+msgstr "Hired"
+
+msgid "تم حفظ إعدادات الحساب."
+msgstr "Account settings saved."
+
+msgid "تم حفظ إعدادات المنصة."
+msgstr "Platform settings saved."
+
+msgid "تم حفظ التصنيف."
+msgstr "Category saved."
+
+msgid "تم حفظ المشروع بنجاح."
+msgstr "Project saved successfully."
+
+msgid "تم حفظ الوظيفة"
+msgstr "Job saved"
+
+msgid "تم حفظ الوظيفة بنجاح."
+msgstr "Job saved successfully."
+
+msgid "تم حفظ ملفك المهني."
+msgstr "Your profile was saved."
+
+msgid "تم رفع السيرة الذاتية."
+msgstr "CV uploaded."
+
+msgid "تم سحب الطلب."
+msgstr "Application withdrawn."
+
+msgid "تم سحب العرض."
+msgstr "Proposal withdrawn."
+
+msgid "تم قبول العرض وإسناد المشروع."
+msgstr "Proposal accepted and project awarded."
+
+msgid "تمت إزالة الوظيفة من المحفوظات"
+msgstr "Job removed from saved"
+
+msgid "تمت إضافة الخبرة."
+msgstr "Experience added."
+
+msgid "تمت إضافة العمل إلى معرضك."
+msgstr "Work added to your portfolio."
+
+msgid "تمت إضافة المؤهل."
+msgstr "Qualification added."
+
+msgid "تمت الإزالة من المرشحين المفضلين"
+msgstr "Removed from shortlist"
+
+msgid "تمت الإضافة إلى المرشحين المفضلين"
+msgstr "Added to shortlist"
+
+msgid "تمت المعالجة"
+msgstr "Handled"
+
+msgid "تمييز"
+msgstr "Feature"
+
+msgid "تواريخ"
+msgstr "Dates"
+
+msgid "تواصل"
+msgstr "Contact"
+
+msgid "تواصل / وظّف"
+msgstr "Contact / Hire"
+
+msgid "تواصل معنا"
+msgstr "Contact us"
+
+msgid "تواصل، اتفق، وانطلق"
+msgstr "Connect, agree, and launch"
+
+msgid "توثيق"
+msgstr "Verify"
+
+msgid "توصيات مخصصة لك"
+msgstr "Personalised recommendations"
+
+msgid "توظيف ناجح"
+msgstr "successful hires"
+
+msgid "ثلاث خطوات تفصلك عن"
+msgstr "Three steps to"
+
+msgid "جديد"
+msgstr "new"
+
+msgid "جرّب البحث باسم آخر أو إزالة الفلاتر."
+msgstr "Try another name or remove some filters."
+
+msgid "جرّب تعديل الفلاتر أو عد لاحقاً، تُنشر مشاريع جديدة باستمرار."
+msgstr "Adjust the filters or check back later — new projects are posted all the time."
+
+msgid "جرّب تقليل الفلاتر أو استخدام كلمات بحث مختلفة."
+msgstr "Try fewer filters or different keywords."
+
+msgid "جرّب تقليل الفلاتر أو البحث بكلمات أخرى."
+msgstr "Try fewer filters or other keywords."
+
+msgid "جميع الحقوق محفوظة."
+msgstr "All rights reserved."
+
+msgid "حالة التوفر"
+msgstr "Availability"
+
+msgid "حالة الطلب الآن: %(status)s"
+msgstr "Application status is now: %(status)s"
+
+msgid "حالة غير صالحة."
+msgstr "Invalid status."
+
+msgid "حتى الآن"
+msgstr "Present"
+
+msgid "حجم الشركة"
+msgstr "Company size"
+
+msgid "حدث خطأ أثناء تحميل النتائج، حاول مجدداً."
+msgstr "Something went wrong while loading results. Please try again."
+
+msgid "حديثاً"
+msgstr "jobs"
+
+msgid "حذف"
+msgstr "Delete"
+
+msgid "حذف هذا المؤهل؟"
+msgstr "Delete this qualification?"
+
+msgid "حذف هذه الخبرة؟"
+msgstr "Delete this experience?"
+
+msgid "حساب باحث عن عمل / مستقل"
+msgstr "Job seeker / freelancer account"
+
+msgid "حساب صاحب عمل"
+msgstr "Employer account"
+
+msgid "حسابي"
+msgstr "My account"
+
+msgid "حسب الخبرة"
+msgstr "Based on experience"
+
+msgid "حضوري"
+msgstr "On-site"
+
+msgid "حفظ"
+msgstr "Save"
+
+msgid "حفظ الإعدادات"
+msgstr "Save settings"
+
+msgid "حفظ التغييرات"
+msgstr "Save changes"
+
+msgid "حفظ الوظيفة"
+msgstr "Save job"
+
+msgid "حفظ كلمة المرور"
+msgstr "Save password"
+
+msgid "حفظ كمسودة"
+msgstr "Save as draft"
+
+msgid "خبرة"
+msgstr "Experience"
+
+msgid "خبرة من"
+msgstr "Experience from"
+
+msgid "خبرتك"
+msgstr "your expertise"
+
+msgid "خبير"
+msgstr "Senior"
+
+msgid "خصّصها حسب الوظيفة المستهدفة"
+msgstr "Tailor it to the target role"
+
+msgid "دخول"
+msgstr "Log in"
+
+msgid "دوام جزئي"
+msgstr "Part-time"
+
+msgid "دوام كامل"
+msgstr "Full-time"
+
+msgid "رأي مستخدم"
+msgstr "Testimonial"
+
+msgid "رأيك في المنصة"
+msgstr "Your opinion of the platform"
+
+msgid "رابط"
+msgstr "Link"
+
+msgid "رابط X / تويتر"
+msgstr "X / Twitter URL"
+
+msgid "رابط إنستغرام"
+msgstr "Instagram URL"
+
+msgid "رابط فيسبوك"
+msgstr "Facebook URL"
+
+msgid "رابط لينكدإن"
+msgstr "LinkedIn URL"
+
+msgid "راتب حتى"
+msgstr "Salary up to"
+
+msgid "راتب من"
+msgstr "Salary from"
+
+msgid "راجع العروض وأسند المشاريع وتابع تنفيذها."
+msgstr "Review proposals, award projects and track delivery."
+
+msgid "راجع المرشحين وانقلهم بين مراحل التوظيف."
+msgstr "Review candidates and move them through hiring stages."
+
+msgid "ربما تجد إجابتك هنا"
+msgstr "You may find your answer here"
+
+msgid "رجوع"
+msgstr "Back"
+
+msgid "رسائل التواصل"
+msgstr "Contact messages"
+
+msgid "رسالة"
+msgstr "Message"
+
+msgid "رسالة التقديم"
+msgstr "Cover letter"
+
+msgid "رسالة تواصل"
+msgstr "Contact message"
+
+msgid "رسالة جديدة من %(n)s"
+msgstr "New message from %(n)s"
+
+msgid "رسالة من صاحب العمل"
+msgstr "Message from an employer"
+
+msgid "رسالتك"
+msgstr "Your message"
+
+msgid "رسم بياني شهري"
+msgstr "Monthly chart"
+
+msgid "رفض"
+msgstr "Reject"
+
+msgid "رفع السيرة الذاتية"
+msgstr "Upload CV"
+
+msgid "رفعها في ملفك"
+msgstr "upload it to your profile"
+
+msgid "رقم الهاتف"
+msgstr "Phone number"
+
+msgid "روابط سريعة"
+msgstr "Quick links"
+
+msgid "سؤال شائع"
+msgstr "FAQ item"
+
+msgid "ساعدنا في إبقاء المنصة آمنة. سيراجع فريقنا البلاغ بسرية."
+msgstr "Help us keep the platform safe. Our team will review your report confidentially."
+
+msgid "ستظهر هنا طلبات المرشحين فور تقديمها."
+msgstr "Candidate applications will appear here as they come in."
+
+msgid "ستظهر هنا عروض المستقلين فور تقديمها."
+msgstr "Freelancer proposals will appear here as they arrive."
+
+msgid "ستُنشر الوظيفة بعد مراجعة الإدارة."
+msgstr "The job will be published after admin review."
+
+msgid "سجّل الدخول"
+msgstr "Log in"
+
+msgid "سجّل الدخول كمستقل لتقديم عرضك على هذا المشروع."
+msgstr "Log in as a freelancer to send a proposal."
+
+msgid "سجّل الدخول للتقديم"
+msgstr "Log in to apply"
+
+msgid "سجّل الدخول للتواصل"
+msgstr "Log in to contact"
+
+msgid "سجّل دخولك لمتابعة طلباتك ومشاريعك."
+msgstr "Log in to follow your applications and projects."
+
+msgid "سجّل كباحث عن عمل"
+msgstr "Join as a job seeker"
+
+msgid "سجّل كباحث عن عمل أو صاحب عمل، وأضف سيرتك الذاتية ومهاراتك ومعرض أعمالك في دقائق."
+msgstr "Sign up as a job seeker or employer, and add your CV, skills and portfolio in minutes."
+
+msgid "سجّل كصاحب عمل"
+msgstr "Join as an employer"
+
+msgid "سحب"
+msgstr "Withdraw"
+
+msgid "سحب الطلب"
+msgstr "Withdraw"
+
+msgid "سحب العرض؟"
+msgstr "Withdraw proposal?"
+
+msgid "سريع"
+msgstr "Fast"
+
+msgid "سطر لكل متطلب"
+msgstr "One requirement per line"
+
+msgid "سطر لكل مخرج"
+msgstr "One deliverable per line"
+
+msgid "سطر لكل مسؤولية"
+msgstr "One responsibility per line"
+
+msgid "سطر لكل ميزة"
+msgstr "One benefit per line"
+
+msgid "سعر ثابت"
+msgstr "Fixed price"
+
+msgid "سعر حتى"
+msgstr "Rate up to"
+
+msgid "سماعك"
+msgstr "hear from you"
+
+msgid "سنة البداية"
+msgstr "Start year"
+
+msgid "سنة التأسيس"
+msgstr "Founded year"
+
+msgid "سنة التخرج"
+msgstr "Graduation year"
+
+msgid "سنوات +"
+msgstr "Years +"
+
+msgid "سنوات الخبرة"
+msgstr "Years of experience"
+
+msgid "سنوات خبرة"
+msgstr "years experience"
+
+msgid "سنُعلمك هنا بكل جديد يخص طلباتك ورسائلك."
+msgstr "We'll notify you here about your applications and messages."
+
+msgid "سواء كنت تبحث عن وظيفة أحلامك أو عن الشخص المناسب لفريقك — مكانك هنا."
+msgstr "Whether you're looking for your dream job or the right person for your team — you belong here."
+
+msgid "سياسة الخصوصية"
+msgstr "Privacy Policy"
+
+msgid "سيرة ذاتية + معرض أعمال"
+msgstr "CV + portfolio"
+
+msgid "سيظهر رأيك في الصفحة الرئيسية بعد مراجعته من الإدارة."
+msgstr "Your opinion will appear on the homepage after admin review."
+
+msgid "شارك رأيك"
+msgstr "Share your opinion"
+
+msgid "شارك رأيك في المنصة"
+msgstr "Share your opinion about the platform"
+
+msgid "شركاء المنصة"
+msgstr "Platform partners"
+
+msgid "شركات تثق بالمنصة وتوظف من خلالها"
+msgstr "Companies that trust us and hire through the platform"
+
+msgid "شركة"
+msgstr "companies"
+
+msgid "شركة أو صاحب مشروع"
+msgstr "Company or project owner"
+
+msgid "شركة موثّقة"
+msgstr "Verified company"
+
+msgid "شركة وصاحب مشروع"
+msgstr "companies & project owners"
+
+msgid "شريك بالرئيسية"
+msgstr "Homepage partner"
+
+msgid "شريك معتمد يظهر في الرئيسية"
+msgstr "Official partner shown on homepage"
+
+msgid "شكراً لمشاركتك! سيظهر رأيك بعد مراجعته من الإدارة."
+msgstr "Thanks for sharing! Your opinion will appear after admin review."
+
+msgid "شكراً! تم نشر تقييمك."
+msgstr "Thanks! Your rating was published."
+
+msgid "صاحب المشروع"
+msgstr "Project owner"
+
+msgid "صاحب عمل"
+msgstr "employers"
+
+msgid "صاحب عمل / شركة"
+msgstr "Employer / company"
+
+msgid "صف مشروعك بوضوح وحدد الميزانية والمدة لتصلك أفضل العروض."
+msgstr "Describe your project clearly and set a budget and timeline to get the best proposals."
+
+msgid "صفحة الشركة"
+msgstr "Company page"
+
+msgid "صورة"
+msgstr "Image"
+
+msgid "صورة الغلاف"
+msgstr "Cover image"
+
+msgid "طبيعة العمل"
+msgstr "Workplace"
+
+msgid "طريقة العرض"
+msgstr "View mode"
+
+msgid "طلب توظيف"
+msgstr "Application"
+
+msgid "طلب جديد على وظيفة %(job)s"
+msgstr "New application for %(job)s"
+
+msgid "طلب رابط جديد"
+msgstr "Request a new link"
+
+msgid "طلبات التوظيف"
+msgstr "Applications"
+
+msgid "طلبات التوظيف المقدمة"
+msgstr "My applications"
+
+msgid "طلبات التوظيف شهرياً"
+msgstr "Applications per month"
+
+msgid "طلبات مقدمة"
+msgstr "Applications sent"
+
+msgid "طلبات:"
+msgstr "Applications:"
+
+msgid "عام"
+msgstr "General"
+
+msgid "عدّل وظائفك وتابع عدد المتقدمين لكل وظيفة."
+msgstr "Edit your jobs and track applicants for each one."
+
+msgid "عرض"
+msgstr "View"
+
+msgid "عرض السيرة الذاتية"
+msgstr "View CV"
+
+msgid "عرض الكل"
+msgstr "View all"
+
+msgid "عرض جديد"
+msgstr "new proposals"
+
+msgid "عرض جديد على مشروع %(p)s"
+msgstr "New proposal on project %(p)s"
+
+msgid "عرض جديد على مشروعك"
+msgstr "New proposal on your project"
+
+msgid "عرض كل المشاريع"
+msgstr "Show all projects"
+
+msgid "عرض كل الوظائف"
+msgstr "Show all jobs"
+
+msgid "عرض مشروع"
+msgstr "Project proposal"
+
+msgid "عرض وظيفي"
+msgstr "Offer"
+
+msgid "عرضك"
+msgstr "your proposal"
+
+msgid "عرضك على %(p)s: %(s)s"
+msgstr "Your proposal on %(p)s: %(s)s"
+
+msgid "عروض"
+msgstr "proposals"
+
+msgid "عروض على مشاريع"
+msgstr "Project proposals"
+
+msgid "عروضي"
+msgstr "My proposals"
+
+msgid "عروضي على المشاريع"
+msgstr "My project proposals"
+
+msgid "عرّف بنفسك ولماذا أنت مناسب لهذه الوظيفة..."
+msgstr "Introduce yourself and why you're a great fit..."
+
+msgid "عضو منذ"
+msgstr "Member since"
+
+msgid "عقد"
+msgstr "Contract"
+
+msgid "عمل حر"
+msgstr "Freelance"
+
+msgid "عمل سابق"
+msgstr "Portfolio item"
+
+msgid "عملية توظيف ناجحة"
+msgstr "successful hires"
+
+msgid "عن الشركة"
+msgstr "About the company"
+
+msgid "عن الوظيفة"
+msgstr "About the job"
+
+msgid "عن بعد"
+msgstr "Remote"
+
+msgid "عندما تتقدم لوظيفة ستظهر هنا مع خط زمني لحالتها."
+msgstr "When you apply to a job it will appear here with a status timeline."
+
+msgid "عنوان العمل"
+msgstr "Work title"
+
+msgid "عنوان المشروع"
+msgstr "Project title"
+
+msgid "عنوان المشروع أو مهارة..."
+msgstr "Project title or skill..."
+
+msgid "غير متاح حالياً"
+msgstr "Not available"
+
+msgid "غير مصرح لك بالوصول"
+msgstr "Access denied"
+
+msgid "غير موثّقة"
+msgstr "Not verified"
+
+msgid "فتح"
+msgstr "Open"
+
+msgid "فتح القائمة"
+msgstr "Open menu"
+
+msgid "فرص التدريب"
+msgstr "Internships"
+
+msgid "فرص بلا حدود، ومواهب تصنع الفرق"
+msgstr "Limitless opportunities, talent that makes a difference"
+
+msgid "فرص للجميع"
+msgstr "Opportunities for all"
+
+msgid "فرصة"
+msgstr "opportunities"
+
+msgid "فرصة متاحة"
+msgstr "opportunities"
+
+msgid "فرصتك القادمة"
+msgstr "your next opportunity"
+
+msgid "فريق يتعاون على مشروع"
+msgstr "A team collaborating on a project"
+
+msgid "فريقاً استثنائياً"
+msgstr "an exceptional team"
+
+msgid "فعّلها فقط للشركات المتعاونة فعلياً مع المنصة"
+msgstr "Enable only for companies that actually partner with the platform"
+
+msgid "في القائمة المختصرة"
+msgstr "Shortlisted"
+
+msgid "قائمة"
+msgstr "List"
+
+msgid "قائمة الهاتف"
+msgstr "Mobile menu"
+
+msgid "قائمة لوحة التحكم"
+msgstr "Dashboard menu"
+
+msgid "قائمة مختصرة"
+msgstr "Shortlist"
+
+msgid "قائمتك المختصرة من المواهب للرجوع إليها."
+msgstr "Your talent shortlist for later."
+
+msgid "قارن العروض واختر الأنسب"
+msgstr "Compare proposals and pick the best"
+
+msgid "قانوني"
+msgstr "Legal"
+
+msgid "قبول هذا العرض وإسناد المشروع؟ سيتم رفض باقي العروض."
+msgstr "Accept this proposal and award the project? Other proposals will be rejected."
+
+msgid "قبول وإسناد"
+msgstr "Accept & award"
+
+msgid "قد نحدّث هذه الشروط من وقت لآخر، وسيتم إشعار المستخدمين بالتغييرات الجوهرية."
+msgstr "We may update these terms from time to time and will notify users of material changes."
+
+msgid "قدّم الآن"
+msgstr "Apply now"
+
+msgid "قدّم عرضاً"
+msgstr "Send proposal"
+
+msgid "قدّم عرضك"
+msgstr "Submit your proposal"
+
+msgid "قدّم عرضك، حدّد سعرك ومدة التنفيذ، وابدأ العمل مع أصحاب المشاريع مباشرة."
+msgstr "Send your proposal, set your price and timeline, and work with project owners directly."
+
+msgid "قدّم على الوظائف والمشاريع"
+msgstr "Apply to jobs and projects"
+
+msgid "قيادي"
+msgstr "Lead"
+
+msgid "قيد التنفيذ"
+msgstr "In progress"
+
+msgid "قيد المراجعة"
+msgstr "Under review"
+
+msgid "قيمة العرض"
+msgstr "Bid amount"
+
+msgid "قيمة العرض ($)"
+msgstr "Bid amount ($)"
+
+msgid "قيمنا"
+msgstr "Our values"
+
+msgid "قيّم المستقل"
+msgstr "Rate the freelancer"
+
+msgid "قُدّم"
+msgstr "Applied"
+
+msgid "كفاءات جاهزة"
+msgstr "Skilled people ready"
+
+msgid "كل التخصصات"
+msgstr "All categories"
+
+msgid "كل الطلبات"
+msgstr "All applications"
+
+msgid "كل المشاريع"
+msgstr "All projects"
+
+msgid "كل الوظائف"
+msgstr "All jobs"
+
+msgid "كلمة"
+msgstr "Keyword"
+
+msgid "كلمة المرور"
+msgstr "Password"
+
+msgid "كلمة مرور جديدة"
+msgstr "New password"
+
+msgid "كلمة مفتاحية..."
+msgstr "Keyword..."
+
+msgid "كلمتا المرور غير متطابقتين."
+msgstr "Passwords don't match."
+
+msgid "كن أول من ينشر وظيفة على المنصة."
+msgstr "Be the first to post a job on the platform."
+
+msgid "كيف تريد استخدام"
+msgstr "How do you want to use"
+
+msgid "كيف تعمل المنصة؟"
+msgstr "How it works"
+
+msgid "لا توجد آراء بعد."
+msgstr "No testimonials yet."
+
+msgid "لا توجد أسئلة بعد"
+msgstr "No questions yet"
+
+msgid "لا توجد إشعارات"
+msgstr "No notifications"
+
+msgid "لا توجد إشعارات بعد"
+msgstr "No notifications yet"
+
+msgid "لا توجد اقتراحات حالياً"
+msgstr "No suggestions right now"
+
+msgid "لا توجد بلاغات"
+msgstr "No reports"
+
+msgid "لا توجد بيانات بعد"
+msgstr "No data yet"
+
+msgid "لا توجد تقييمات بعد"
+msgstr "No ratings yet"
+
+msgid "لا توجد تقييمات بعد. التقييمات تُضاف فقط من أصحاب مشاريع منجزة فعلياً."
+msgstr "No ratings yet. Ratings can only be left by owners of actually completed projects."
+
+msgid "لا توجد رسائل."
+msgstr "No messages."
+
+msgid "لا توجد شركات مطابقة"
+msgstr "No matching companies"
+
+msgid "لا توجد طلبات"
+msgstr "No applications"
+
+msgid "لا توجد طلبات بعد. انشر وظيفة لبدء استقبال المرشحين."
+msgstr "No applications yet. Post a job to start receiving candidates."
+
+msgid "لا توجد عروض بعد"
+msgstr "No proposals yet"
+
+msgid "لا توجد محادثات بعد. ابدأ محادثة من ملف موهبة أو صفحة شركة."
+msgstr "No conversations yet. Start one from a talent profile or company page."
+
+msgid "لا توجد مشاريع"
+msgstr "No projects"
+
+msgid "لا توجد مشاريع مطابقة"
+msgstr "No matching projects"
+
+msgid "لا توجد مشاريع مفتوحة حالياً"
+msgstr "No open projects right now"
+
+msgid "لا توجد مواهب مطابقة"
+msgstr "No matching talent"
+
+msgid "لا توجد نتائج"
+msgstr "No results"
+
+msgid "لا توجد وظائف بعد."
+msgstr "No jobs yet."
+
+msgid "لا توجد وظائف متاحة حالياً لدى هذه الشركة."
+msgstr "This company has no open jobs right now."
+
+msgid "لا توجد وظائف محفوظة"
+msgstr "No saved jobs"
+
+msgid "لا توجد وظائف مطابقة"
+msgstr "No matching jobs"
+
+msgid "لا توجد وظائف معلّقة."
+msgstr "No pending jobs."
+
+msgid "لا توجد وظائف منشورة بعد"
+msgstr "No jobs posted yet"
+
+msgid "لا نبيع بياناتك لأي طرف ثالث. تظهر بيانات ملفك العام للزوار فقط إذا فعّلت خيار «ملف عام»."
+msgstr "We never sell your data. Your profile is visible to visitors only if you enable “Public profile”."
+
+msgid "لا يمكن إرسال رسالة فارغة."
+msgstr "You can't send an empty message."
+
+msgid "لا يمكن إلغاء مشروع مكتمل."
+msgstr "A completed project can't be cancelled."
+
+msgid "لا يمكن تعديل هذا العرض."
+msgstr "This proposal can't be changed."
+
+msgid "لا يمكن سحب هذا الطلب."
+msgstr "This application can't be withdrawn."
+
+msgid "لا يمكن سحب هذا العرض."
+msgstr "This proposal can't be withdrawn."
+
+msgid "لا يمكن نقل الطلب إلى هذه الحالة."
+msgstr "The application can't be moved to this status."
+
+msgid "لا يمكنك تعطيل حسابك."
+msgstr "You can't deactivate your own account."
+
+msgid "لا يوجد مرشحون مفضلون"
+msgstr "No shortlisted candidates"
+
+msgid "لديك حساب بالفعل؟"
+msgstr "Already have an account?"
+
+msgid "لديك حساب؟"
+msgstr "Have an account?"
+
+msgid "لديك سؤال أو اقتراح أو تحتاج مساعدة؟ أرسل لنا رسالة وسنرد عليك في أقرب وقت."
+msgstr "Have a question, suggestion or need help? Send us a message and we'll get back to you soon."
+
+msgid "لقد تقدمت لهذه الوظيفة مسبقاً."
+msgstr "You've already applied to this job."
+
+msgid "لقد قدمت عرضاً على هذا المشروع"
+msgstr "You've sent a proposal for this project"
+
+msgid "لقد قدمت عرضاً على هذا المشروع مسبقاً."
+msgstr "You've already sent a proposal for this project."
+
+msgid "لقد قيّمت هذا المشروع مسبقاً."
+msgstr "You've already rated this project."
+
+msgid "للانطلاق معك"
+msgstr "to build with you"
+
+msgid "لم تتقدم لأي وظيفة بعد."
+msgstr "You haven't applied to any job yet."
+
+msgid "لم تتم إضافة أعمال بعد."
+msgstr "No work added yet."
+
+msgid "لم تجد إجابتك؟"
+msgstr "Didn't find your answer?"
+
+msgid "لم ترفع سيرتك الذاتية في ملفك بعد. يمكنك إرفاقها هنا أو"
+msgstr "You haven't uploaded a CV to your profile yet. You can attach one here or"
+
+msgid "لم تضف أي عمل بعد"
+msgstr "No work added yet"
+
+msgid "لم تضف خبرات بعد."
+msgstr "No experience added yet."
+
+msgid "لم تضف مؤهلات بعد."
+msgstr "No qualifications added yet."
+
+msgid "لم تعد تستقبل طلبات"
+msgstr "No longer accepting applications"
+
+msgid "لم تقدم أي عروض بعد"
+msgstr "You haven't sent any proposals yet"
+
+msgid "لم تنشر أي وظيفة بعد"
+msgstr "You haven't posted any jobs yet"
+
+msgid "لم تنضم مواهب بعد"
+msgstr "No talent has joined yet"
+
+msgid "لم تُنشر آراء بعد"
+msgstr "No testimonials published yet"
+
+msgid "لوحات التحكم"
+msgstr "Dashboards"
+
+msgid "لوحة Django"
+msgstr "Django admin"
+
+msgid "لوحة التحكم"
+msgstr "Dashboard"
+
+msgid "لوحة الشركة"
+msgstr "Company dashboard"
+
+msgid "ليس لديك حساب؟"
+msgstr "Don't have an account?"
+
+msgid "لينكدإن"
+msgstr "LinkedIn"
+
+msgid "ما الذي يميزنا؟"
+msgstr "What makes us different?"
+
+msgid "ماذا يقول"
+msgstr "What our"
+
+msgid "مبتدئ"
+msgstr "Entry"
+
+msgid "متابعة كباحث عن عمل"
+msgstr "Continue as a job seeker"
+
+msgid "متابعة كصاحب عمل"
+msgstr "Continue as an employer"
+
+msgid "متاح للعمل"
+msgstr "Available for work"
+
+msgid "متاحة الآن"
+msgstr "available now"
+
+msgid "متوسط"
+msgstr "Mid-level"
+
+msgid "مجاني"
+msgstr "Free"
+
+msgid "محادثات مباشرة داخل المنصة"
+msgstr "Direct chat inside the platform"
+
+msgid "محادثة"
+msgstr "Conversation"
+
+msgid "محتوى مزعج / إعلاني"
+msgstr "Spam / advertising"
+
+msgid "محتوى مسيء"
+msgstr "Offensive content"
+
+msgid "مدة التسليم (أيام)"
+msgstr "Delivery time (days)"
+
+msgid "مدة التنفيذ"
+msgstr "Delivery time"
+
+msgid "مدة التنفيذ (أيام)"
+msgstr "Duration (days)"
+
+msgid "مدة التنفيذ القصوى (أيام)"
+msgstr "Max duration (days)"
+
+msgid "مدة حتى"
+msgstr "Duration up to"
+
+msgid "مدير المنصة"
+msgstr "Platform admin"
+
+msgid "مراجعة العروض"
+msgstr "Review proposals"
+
+msgid "مراجعة المحتوى"
+msgstr "Content review"
+
+msgid "مراجعة الوظائف قبل النشر"
+msgstr "Review jobs before publishing"
+
+msgid "مراحل الطلب"
+msgstr "Application stages"
+
+msgid "مراسلة"
+msgstr "Message"
+
+msgid "مرتبة حسب تطابق مهاراتك وتخصصك مع متطلبات الوظيفة."
+msgstr "Ranked by how well your skills and specialty match each job."
+
+msgid "مرحباً"
+msgstr "Hello"
+
+msgid "مرحباً بعودتك، %(name)s!"
+msgstr "Welcome back, %(name)s!"
+
+msgid "مرشح مفضل"
+msgstr "Shortlisted candidate"
+
+msgid "مرفوض"
+msgstr "Rejected"
+
+msgid "مسار التوظيف"
+msgstr "Hiring pipeline"
+
+msgid "مستخدم"
+msgstr "users"
+
+msgid "مستخدم مسجل"
+msgstr "registered users"
+
+msgid "مستخدمونا"
+msgstr "users say"
+
+msgid "مستقبلاً أفضل"
+msgstr "a brighter future"
+
+msgid "مستوى الخبرة"
+msgstr "Experience level"
+
+msgid "مسح الكل"
+msgstr "Clear all"
+
+msgid "مسحوب"
+msgstr "Withdrawn"
+
+msgid "مسودة"
+msgstr "Draft"
+
+msgid "مشاركة ملفك وسيرتك الذاتية مع أصحاب العمل الذين تتقدم إليهم."
+msgstr "To share your profile and CV with employers you apply to."
+
+msgid "مشاريع"
+msgstr "Projects"
+
+msgid "مشاريع تنتظر"
+msgstr "Projects waiting for"
+
+msgid "مشاريع حرة مفتوحة لاستقبال العروض في البرمجة والتصميم والتسويق والمحتوى."
+msgstr "Freelance projects open for proposals in programming, design, marketing and content."
+
+msgid "مشاريع مشابهة"
+msgstr "Similar projects"
+
+msgid "مشاريع مفتوحة"
+msgstr "Open projects"
+
+msgid "مشاريعي"
+msgstr "My projects"
+
+msgid "مشاريعي والعروض"
+msgstr "My projects & proposals"
+
+msgid "مشاهدة"
+msgstr "views"
+
+msgid "مشروع"
+msgstr "projects"
+
+msgid "مشروع جديد"
+msgstr "New project"
+
+msgid "مشروع مفتوح"
+msgstr "open projects"
+
+msgid "مشروع منجز"
+msgstr "completed projects"
+
+msgid "مطابقة حسب المهارات"
+msgstr "Skill-based matching"
+
+msgid "معاينة"
+msgstr "Preview"
+
+msgid "معاينة ملفي العام"
+msgstr "Preview my public profile"
+
+msgid "معتمد للنشر"
+msgstr "Approved for publishing"
+
+msgid "معرض الأعمال"
+msgstr "Portfolio"
+
+msgid "معطّل"
+msgstr "Disabled"
+
+msgid "معلومات مضللة"
+msgstr "Misleading information"
+
+msgid "معلومة"
+msgstr "Info"
+
+msgid "مغلقة"
+msgstr "Closed"
+
+msgid "مفتوح لاستقبال العروض"
+msgstr "Open for proposals"
+
+msgid "مفعّل"
+msgstr "Active"
+
+msgid "مقابلات وعروض"
+msgstr "Interviews & offers"
+
+msgid "مقابلة"
+msgstr "Interview"
+
+msgid "مقبول"
+msgstr "Accepted"
+
+msgid "مكتمل"
+msgstr "Completed"
+
+msgid "ملاحظات داخلية"
+msgstr "Internal notes"
+
+msgid "ملاحظة"
+msgstr "Note"
+
+msgid "ملغى"
+msgstr "Cancelled"
+
+msgid "ملف الشركة"
+msgstr "Company profile"
+
+msgid "ملف باحث عن عمل"
+msgstr "Seeker profile"
+
+msgid "ملف شخصي"
+msgstr "Profile"
+
+msgid "ملف شركة متكامل يزيد ثقة المرشحين بك."
+msgstr "A complete company profile builds candidate trust."
+
+msgid "ملف عام يظهر في البحث"
+msgstr "Public profile visible in search"
+
+msgid "ملف مهني احترافي"
+msgstr "Professional profile"
+
+msgid "ملفات الباحثين عن عمل"
+msgstr "Seeker profiles"
+
+msgid "ملفك مكتمل! 🎉"
+msgstr "Your profile is complete! 🎉"
+
+msgid "ملفي المهني"
+msgstr "My profile"
+
+msgid "مميزة"
+msgstr "Featured"
+
+msgid "من"
+msgstr "From"
+
+msgid "من البرمجة إلى صناعة المحتوى — اختر المجال الذي تتقنه وابدأ رحلتك."
+msgstr "From programming to content creation — pick your field and start your journey."
+
+msgid "من التسجيل إلى التقديم في دقائق، مع فلاتر ذكية ومتابعة لحظية لحالة الطلب."
+msgstr "From sign-up to applying in minutes, with smart filters and live application tracking."
+
+msgid "من شركات موثّقة"
+msgstr "From verified companies"
+
+msgid "من نحن"
+msgstr "About us"
+
+msgid "من:"
+msgstr "From:"
+
+msgid "منشور"
+msgstr "Published"
+
+msgid "منشورة"
+msgstr "Published"
+
+msgid "منصة التوظيف والعمل الحر"
+msgstr "Jobs & Freelance Platform"
+
+msgid "منصة التوظيف والعمل الحر العربية"
+msgstr "The Arab jobs & freelance platform"
+
+msgid "منصة عربية تجمع الباحثين عن عمل والمستقلين بالشركات وأصحاب المشاريع في مكان واحد."
+msgstr "An Arab platform bringing job seekers and freelancers together with companies and project owners in one place."
+
+msgid "منصة عربية حديثة تجمع الباحثين عن عمل والمستقلين وأصحاب المهارات مع الشركات وأصحاب المشاريع، بتجربة بسيطة وشفافة وعادلة للجميع."
+msgstr "A modern Arab platform connecting job seekers, freelancers and skilled people with companies and project owners — simple, transparent and fair for everyone."
+
+msgid "منفتح على الفرص"
+msgstr "Open to opportunities"
+
+msgid "مهاراتك تستحق"
+msgstr "Your skills deserve"
+
+msgid "مهاراتك تستحق الفرصة المناسبة"
+msgstr "Your skills deserve the right opportunity"
+
+msgid "مهارة"
+msgstr "Skill"
+
+msgid "موافقة ونشر"
+msgstr "Approve & publish"
+
+msgid "مواهب"
+msgstr "Talent"
+
+msgid "موثّقة"
+msgstr "Verified"
+
+msgid "موهبة"
+msgstr "talents"
+
+msgid "ميزانية حتى"
+msgstr "Budget up to"
+
+msgid "ميزانية من"
+msgstr "Budget from"
+
+msgid "نبذة"
+msgstr "About"
+
+msgid "نبذة عني"
+msgstr "About me"
+
+msgid "نبذة قصيرة"
+msgstr "Tagline"
+
+msgid "نجاح"
+msgstr "Success"
+
+msgid "نجمع البيانات التي تقدمها عند التسجيل وإنشاء ملفك (الاسم، البريد الإلكتروني، السيرة الذاتية، المهارات، الخبرات)، إضافة إلى بيانات الاستخدام الأساسية اللازمة لتشغيل المنصة."
+msgstr "We collect the data you provide when registering and building your profile (name, email, CV, skills, experience), plus basic usage data needed to run the platform."
+
+msgid "نربط المواهب بالفرص ونصنع مستقبلاً أفضل. ابحث عن وظيفتك القادمة، قدّم عروضك على المشاريع، أو وظّف أفضل الكفاءات — كل ذلك في منصة واحدة."
+msgstr "We connect talent with opportunity to build a better future. Find your next job, bid on projects, or hire top people — all in one platform."
+
+msgid "نستخدم ملفات تعريف ارتباط ضرورية لتسجيل الدخول والحماية وحفظ تفضيل اللغة والمظهر."
+msgstr "We use essential cookies for login, security, and remembering your language and theme."
+
+msgid "نسيت كلمة المرور؟"
+msgstr "Forgot password?"
+
+msgid "نشر"
+msgstr "Publish"
+
+msgid "نشر الآن"
+msgstr "Publish now"
+
+msgid "نشر التقييم"
+msgstr "Publish rating"
+
+msgid "نشر المشروع"
+msgstr "Publish project"
+
+msgid "نشر مشروع"
+msgstr "Post a project"
+
+msgid "نشر مشروع جديد"
+msgstr "Post a new project"
+
+msgid "نشر وظيفة"
+msgstr "Post a job"
+
+msgid "نشر وظيفة جديدة"
+msgstr "Post a new job"
+
+msgid "نشط"
+msgstr "Active"
+
+msgid "نصائح لسيرة ذاتية مميزة"
+msgstr "Tips for a standout CV"
+
+msgid "نصنع جسراً بين"
+msgstr "We build a bridge between"
+
+msgid "نظرة شاملة على أداء المنصة (بيانات حقيقية مباشرة)."
+msgstr "A complete view of platform performance (live, real data)."
+
+msgid "نعرض فقط آراء حقيقية من مستخدمين مسجلين بعد مراجعتها. شاركنا تجربتك!"
+msgstr "We only show genuine, reviewed opinions from registered users. Share your experience!"
+
+msgid "نماذج أعمال"
+msgstr "Work samples"
+
+msgid "نوع البحث"
+msgstr "Search type"
+
+msgid "نوع الحساب"
+msgstr "Account type"
+
+msgid "نوع العنصر"
+msgstr "Item type"
+
+msgid "نوع الميزانية"
+msgstr "Budget type"
+
+msgid "نوع الوظيفة"
+msgstr "Job type"
+
+msgid "هجين"
+msgstr "Hybrid"
+
+msgid "هذا البريد مستخدم من حساب آخر."
+msgstr "This email is used by another account."
+
+msgid "هذا البريد مسجل مسبقاً."
+msgstr "This email is already registered."
+
+msgid "هذا نص نموذجي يجب مراجعته من مستشار قانوني وتعديله بما يتوافق مع أنظمة بلدك قبل الإطلاق الرسمي."
+msgstr "This is a template text. Have it reviewed by a legal advisor and adapted to your local laws before launch."
+
+msgid "هذه الصفحة غير متاحة لنوع حسابك. إذا كنت تعتقد أن هذا خطأ، تواصل معنا."
+msgstr "This page isn't available for your account type. If you think this is a mistake, contact us."
+
+msgid "هذه المعلومات تظهر لأصحاب العمل في صفحة ملفك العام."
+msgstr "This information is shown to employers on your public profile."
+
+msgid "هذه الوظيفة لم تعد تستقبل طلبات."
+msgstr "This job is no longer accepting applications."
+
+msgid "هل أنت متأكد من سحب الطلب؟"
+msgstr "Are you sure you want to withdraw this application?"
+
+msgid "هل تريد حذف هذا العمل؟"
+msgstr "Delete this work item?"
+
+msgid "و"
+msgstr "and"
+
+msgid "وثّق الشركات، وحدد الشركاء الفعليين الذين يظهرون في الصفحة الرئيسية."
+msgstr "Verify companies and choose the real partners shown on the homepage."
+
+msgid "وصف المشروع"
+msgstr "Project description"
+
+msgid "وصف الوظيفة"
+msgstr "Job description"
+
+msgid "وظائف"
+msgstr "Jobs"
+
+msgid "وظائف بانتظار الموافقة"
+msgstr "Jobs awaiting approval"
+
+msgid "وظائف بدوام كامل، عمل حر، تدريب، وعمل عن بعد — في مختلف التخصصات."
+msgstr "Full-time jobs, freelance, internships and remote work — across all fields."
+
+msgid "وظائف جديدة يومياً"
+msgstr "New jobs every day"
+
+msgid "وظائف عن بعد"
+msgstr "Remote jobs"
+
+msgid "وظائف متاحة"
+msgstr "Open jobs"
+
+msgid "وظائف محفوظة"
+msgstr "Saved jobs"
+
+msgid "وظائف مشابهة"
+msgstr "Similar jobs"
+
+msgid "وظائف مقترحة"
+msgstr "Recommended jobs"
+
+msgid "وظائف مقترحة لك"
+msgstr "Jobs recommended for you"
+
+msgid "وظائف نشطة"
+msgstr "Active jobs"
+
+msgid "وظائف نُشرت"
+msgstr "Freshly posted"
+
+msgid "وظائفي"
+msgstr "My jobs"
+
+msgid "وظيفة"
+msgstr "jobs"
+
+msgid "وظيفة جديدة"
+msgstr "New job"
+
+msgid "وظيفة متاحة"
+msgstr "open jobs"
+
+msgid "وظيفة متاحة الآن"
+msgstr "jobs open now"
+
+msgid "وظيفة محفوظة"
+msgstr "Saved job"
+
+msgid "وظيفة منشورة"
+msgstr "published jobs"
+
+msgid "وظيفتك القادمة"
+msgstr "your next job"
+
+msgid "وظّف"
+msgstr "Hire"
+
+msgid "وظّف أفضل المواهب"
+msgstr "Hire top talent"
+
+msgid "يبدو أن الصفحة التي تبحث عنها انتقلت أو لم تعد موجودة. لكن فرصتك القادمة ما زالت بانتظارك!"
+msgstr "The page you're looking for moved or no longer exists. But your next opportunity is still waiting!"
+
+msgid "يجب أن تكون الوظائف والمشاريع حقيقية وواضحة."
+msgstr "Jobs and projects must be genuine and clear."
+
+msgid "يجب أن يكون الحد الأعلى أكبر من الأدنى."
+msgstr "The maximum must be greater than the minimum."
+
+msgid "يحق للإدارة حذف أي محتوى مخالف."
+msgstr "Administrators may remove any violating content."
+
+msgid "يرجى اختيار سبب البلاغ."
+msgstr "Please choose a reason for the report."
+
+msgid "يسعدنا"
+msgstr "We'd love to"
+
+msgid "يمكن إنهاء المشاريع قيد التنفيذ فقط."
+msgstr "Only in-progress projects can be completed."
+
+msgid "يمكن التقييم بعد اكتمال المشروع فقط."
+msgstr "You can only rate after the project is completed."
+
+msgid "يمكنك تعديل بياناتك أو إخفاء ملفك من إعدادات الحساب في أي وقت، أو طلب حذف حسابك عبر صفحة التواصل."
+msgstr "You can edit your data or hide your profile from account settings at any time, or request account deletion via the contact page."
+
+msgid "يوم"
+msgstr "days"
+
+msgid "يُمنع نشر محتوى مضلل أو احتيالي أو مسيء."
+msgstr "Misleading, fraudulent or offensive content is prohibited."
+
+msgid "🎉 تم قبول عرضك!"
+msgstr "🎉 Your proposal was accepted!"

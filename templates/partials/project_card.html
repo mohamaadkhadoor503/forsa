@@ -1,0 +1,26 @@
+{% load i18n humanize %}
+<article class="card card--hover project-card">
+  <div class="project-card__head">
+    <div class="row row--between" style="align-items:flex-start;flex-wrap:nowrap">
+      <h3 class="card__title"><a href="{{ project.get_absolute_url }}">{{ project.title }}</a></h3>
+      <span class="badge badge--{{ project.status }} badge--live"><span class="dot"></span>{{ project.get_status_display }}</span>
+    </div>
+    <div class="row mt-1" style="gap:8px">
+      {% avatar project.owner.display_name project.owner.avatar 26 %}
+      <span class="muted" style="font-size:.86rem;font-weight:600"><bdi>{% if project.owner_company %}{{ project.owner_company.name }}{% else %}{{ project.owner.display_name }}{% endif %}</bdi> · {{ project.created_at|naturaltime }}</span>
+    </div>
+  </div>
+  <p class="project-card__desc">{{ project.description|truncatechars:150 }}</p>
+  <div class="project-card__budget">
+    <div class="stat-pill"><small>{% translate "الميزانية" %}</small><strong><bdi>{{ project.budget_display }}</bdi></strong></div>
+    <div class="stat-pill"><small>{% translate "المدة" %}</small><strong>{{ project.duration_days }} {% translate "يوم" %}</strong></div>
+  </div>
+  {% if project.skills.all %}<div class="chips">{% for s in project.skills.all|slice:":4" %}<span class="chip">{{ s.name }}</span>{% endfor %}</div>{% endif %}
+  <div class="project-card__foot">
+    <span class="meta"><span>{% icon "users" 15 %}{{ project.proposals_count|default:0 }} {% translate "عروض" %}</span></span>
+    <div class="row" style="gap:6px">
+      <a class="btn btn--outline btn--sm" href="{{ project.get_absolute_url }}">{% translate "التفاصيل" %}</a>
+      <a class="btn btn--primary btn--sm" href="{{ project.get_absolute_url }}#propose"><span>{% translate "قدّم عرضاً" %}</span></a>
+    </div>
+  </div>
+</article>

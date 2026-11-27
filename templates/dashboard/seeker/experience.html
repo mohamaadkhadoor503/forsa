@@ -1,0 +1,55 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load i18n %}
+{% block title %}{% translate "الخبرات والتعليم" %}{% endblock %}
+{% block dash_content %}
+<div class="dash__head"><div><h1>{% translate "الخبرات والتعليم" %}</h1><p>{% translate "أضف مسيرتك المهنية ومؤهلاتك العلمية." %}</p></div></div>
+<div class="dash-grid">
+  <div class="panel">
+    <div class="panel__head"><h2>{% icon "briefcase" 18 %} {% translate "الخبرات العملية" %}</h2><button class="btn btn--primary btn--sm" type="button" data-modal-open="add-exp"><span>{% icon "plus" 16 %}</span><span>{% translate "إضافة" %}</span></button></div>
+    {% if items %}
+    <div class="timeline">
+      {% for e in items %}
+      <div class="timeline__item">
+        <div class="row row--between" style="flex-wrap:nowrap"><div><strong>{{ e.title }}</strong> · <span class="muted">{{ e.company }}</span>
+          <div class="muted" style="font-size:.82rem">{{ e.start_date|date:"M Y" }} — {% if e.is_current %}{% translate "حتى الآن" %}{% else %}{{ e.end_date|date:"M Y" }}{% endif %}</div></div>
+          <form method="post" action="{% url 'dashboard:seeker_delete_item' 'experience' e.pk %}" data-confirm="{% translate "حذف هذه الخبرة؟" %}">{% csrf_token %}<button class="btn btn--danger btn--icon btn--sm" type="submit" aria-label="{% translate "حذف" %}">{% icon "trash" 15 %}</button></form>
+        </div>
+        {% if e.description %}<p class="muted mb-0" style="font-size:.9rem">{{ e.description }}</p>{% endif %}
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}<p class="muted mb-0">{% translate "لم تضف خبرات بعد." %}</p>{% endif %}
+  </div>
+  <div class="panel">
+    <div class="panel__head"><h2>{% icon "graduation" 18 %} {% translate "التعليم" %}</h2><button class="btn btn--outline btn--sm" type="button" data-modal-open="add-edu">{% icon "plus" 16 %}{% translate "إضافة" %}</button></div>
+    {% for ed in educations %}
+      <div class="list-row"><div class="list-row__main"><strong>{{ ed.degree }}</strong><small>{{ ed.institution }} · {{ ed.start_year }}{% if ed.end_year %}–{{ ed.end_year }}{% endif %}</small></div>
+        <form method="post" action="{% url 'dashboard:seeker_delete_item' 'education' ed.pk %}" data-confirm="{% translate "حذف هذا المؤهل؟" %}">{% csrf_token %}<button class="btn btn--danger btn--icon btn--sm" type="submit" aria-label="{% translate "حذف" %}">{% icon "trash" 15 %}</button></form></div>
+    {% empty %}<p class="muted mb-0">{% translate "لم تضف مؤهلات بعد." %}</p>{% endfor %}
+  </div>
+</div>
+{% endblock %}
+{% block modals %}
+<div class="modal {% if form.errors %}is-open{% endif %}" id="add-exp" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="modal__backdrop"></div>
+  <div class="modal__dialog">
+    <button class="icon-btn modal__close" type="button" data-modal-close aria-label="{% translate "إغلاق" %}">{% icon "x" 18 %}</button>
+    <h2 style="font-size:1.3rem">{% translate "إضافة خبرة" %}</h2>
+    <form method="post" novalidate>{% csrf_token %}
+      {% include "partials/form_fields.html" with wide_fields="is_current" %}
+      <div class="form-actions"><button class="btn btn--primary" type="submit"><span>{% translate "حفظ" %}</span></button></div>
+    </form>
+  </div>
+</div>
+<div class="modal {% if edu_form.errors %}is-open{% endif %}" id="add-edu" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="modal__backdrop"></div>
+  <div class="modal__dialog">
+    <button class="icon-btn modal__close" type="button" data-modal-close aria-label="{% translate "إغلاق" %}">{% icon "x" 18 %}</button>
+    <h2 style="font-size:1.3rem">{% translate "إضافة مؤهل" %}</h2>
+    <form method="post" novalidate>{% csrf_token %}<input type="hidden" name="education" value="1">
+      {% include "partials/form_fields.html" with form=edu_form %}
+      <div class="form-actions"><button class="btn btn--primary" type="submit"><span>{% translate "حفظ" %}</span></button></div>
+    </form>
+  </div>
+</div>
+{% endblock %}

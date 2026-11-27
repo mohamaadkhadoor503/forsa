@@ -1,0 +1,31 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load i18n static %}
+{% block title %}{% translate "السيرة الذاتية" %}{% endblock %}
+{% block dash_content %}
+<div class="dash__head"><div><h1>{% translate "السيرة الذاتية" %}</h1><p>{% translate "ارفع سيرتك الذاتية لتُرفق تلقائياً مع طلبات التوظيف." %}</p></div></div>
+<div class="dash-grid">
+  <div class="panel">
+    {% if profile.cv %}
+      <div class="list-row" style="border:1px solid var(--border);border-radius:var(--r-md);padding:14px;margin-bottom:20px">
+        <span class="kpi__icon" style="margin:0">{% icon "file" 20 %}</span>
+        <div class="list-row__main"><strong>{{ profile.cv.name|cut:"cvs/" }}</strong><small>{% translate "السيرة الذاتية الحالية" %}</small></div>
+        <a class="btn btn--outline btn--sm" href="{{ profile.cv.url }}" target="_blank" rel="noopener">{% icon "eye" 16 %}{% translate "عرض" %}</a>
+      </div>
+    {% endif %}
+    <form method="post" enctype="multipart/form-data">{% csrf_token %}
+      {% include "partials/field.html" with field=form.cv %}
+      <p class="muted" style="font-size:.85rem">{% translate "الصيغ المدعومة: PDF, DOC, DOCX — الحد الأقصى 5 ميغابايت." %}</p>
+      <div class="form-actions"><button class="btn btn--primary" type="submit">{% icon "upload" 18 %}<span>{% translate "رفع السيرة الذاتية" %}</span></button></div>
+    </form>
+  </div>
+  <div class="panel text-center">
+    <img class="anim-float" src="{% static 'img/illustrations/cv-3d.svg' %}" alt="" width="200" height="200" style="margin:0 auto">
+    <h3>{% translate "نصائح لسيرة ذاتية مميزة" %}</h3>
+    <ul class="check-list" style="text-align:start">
+      <li>{% icon "check" 16 %}<span>{% translate "اجعلها صفحة أو صفحتين كحد أقصى" %}</span></li>
+      <li>{% icon "check" 16 %}<span>{% translate "ابدأ بأحدث خبراتك وإنجازاتك بالأرقام" %}</span></li>
+      <li>{% icon "check" 16 %}<span>{% translate "خصّصها حسب الوظيفة المستهدفة" %}</span></li>
+    </ul>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load i18n %}
+{% block title %}{% translate "الوظائف المحفوظة" %}{% endblock %}
+{% block dash_content %}
+<div class="dash__head"><div><h1>{% translate "الوظائف المحفوظة" %}</h1><p>{% translate "الوظائف التي حفظتها للرجوع إليها لاحقاً." %}</p></div></div>
+{% if saved %}
+  <div class="grid grid-2" data-stagger>{% for s in saved %}{% with job=s.job %}{% include "partials/job_card.html" %}{% endwith %}{% endfor %}</div>
+  {% include "partials/pagination.html" %}
+{% else %}
+  <div class="panel">{% translate "لا توجد وظائف محفوظة" as t %}{% translate "اضغط على أيقونة الحفظ في أي وظيفة لتظهر هنا." as tx %}{% translate "تصفح الوظائف" as al %}{% url 'jobs:list' as au %}{% include "partials/empty.html" with title=t text=tx action_url=au action_label=al %}</div>
+{% endif %}
+{% endblock %}

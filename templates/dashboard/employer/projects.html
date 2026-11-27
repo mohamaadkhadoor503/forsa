@@ -1,0 +1,32 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load i18n %}
+{% block title %}{% translate "مشاريعي" %}{% endblock %}
+{% block dash_content %}
+<div class="dash__head"><div><h1>{% translate "إدارة المشاريع" %}</h1><p>{% translate "راجع العروض وأسند المشاريع وتابع تنفيذها." %}</p></div><a class="btn btn--primary" href="{% url 'dashboard:employer_project_create' %}"><span>{% icon "plus" 18 %}</span><span>{% translate "مشروع جديد" %}</span></a></div>
+{% if projects %}
+<div class="table-wrap">
+  <table class="table table--stack">
+    <thead><tr><th>{% translate "المشروع" %}</th><th>{% translate "الميزانية" %}</th><th>{% translate "العروض" %}</th><th>{% translate "الحالة" %}</th><th></th></tr></thead>
+    <tbody>
+    {% for p in projects %}
+      <tr>
+        <td data-label="{% translate "المشروع" %}"><a href="{{ p.get_absolute_url }}" style="font-weight:700">{{ p.title }}</a>{% if p.freelancer %}<div class="muted" style="font-size:.8rem">{% translate "المنفذ:" %} {{ p.freelancer.display_name }}</div>{% endif %}</td>
+        <td data-label="{% translate "الميزانية" %}"><bdi>{{ p.budget_display }}</bdi></td>
+        <td data-label="{% translate "العروض" %}"><a href="{% url 'dashboard:employer_project_proposals' p.pk %}"><strong>{{ p.proposals_count }}</strong>{% if p.pending_count %} <span class="badge badge--amber">{{ p.pending_count }} {% translate "جديد" %}</span>{% endif %}</a></td>
+        <td data-label="{% translate "الحالة" %}"><span class="badge badge--{{ p.status }}">{{ p.get_status_display }}</span></td>
+        <td><div class="row" style="gap:4px;flex-wrap:nowrap">
+          {% if p.status == 'open' %}<a class="btn btn--ghost btn--icon btn--sm" href="{% url 'dashboard:employer_project_edit' p.pk %}" aria-label="{% translate "تعديل" %}">{% icon "edit" 16 %}</a>{% endif %}
+          <a class="btn btn--outline btn--sm" href="{% url 'dashboard:employer_project_proposals' p.pk %}">{% translate "العروض" %}</a>
+          {% if p.status == 'in_progress' %}<form method="post" action="{% url 'projects:status' p.pk 'complete' %}" data-confirm="{% translate "تأكيد إنهاء المشروع؟" %}">{% csrf_token %}<button class="btn btn--success btn--sm" type="submit">{% translate "إنهاء" %}</button></form>{% endif %}
+          {% if p.status == 'open' or p.status == 'in_progress' %}<form method="post" action="{% url 'projects:status' p.pk 'cancel' %}" data-confirm="{% translate "إلغاء المشروع؟" %}">{% csrf_token %}<button class="btn btn--danger btn--icon btn--sm" type="submit" aria-label="{% translate "إلغاء" %}">{% icon "x" 16 %}</button></form>{% endif %}
+        </div></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% include "partials/pagination.html" %}
+{% else %}
+<div class="panel">{% translate "لا توجد مشاريع" as t %}{% translate "انشر مشروعك الأول واستقبل عروض المستقلين." as tx %}{% translate "نشر مشروع" as al %}{% url 'dashboard:employer_project_create' as au %}{% include "partials/empty.html" with title=t text=tx action_url=au action_label=al %}</div>
+{% endif %}
+{% endblock %}

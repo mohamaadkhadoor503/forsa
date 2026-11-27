@@ -1,0 +1,338 @@
+{% extends "base.html" %}
+{% load i18n static humanize %}
+{% block content %}
+
+{# ================= HERO ================= #}
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__bg" aria-hidden="true">
+    <div class="bg-grid"></div>
+    <span class="orb orb--blue"></span><span class="orb orb--violet"></span><span class="orb orb--cyan"></span>
+    <canvas class="hero__particles"></canvas>
+  </div>
+  <div class="container hero__grid">
+    <div class="hero__copy">
+      <span class="eyebrow">{% translate "منصة التوظيف والعمل الحر العربية" %}</span>
+      <h1 class="hero__title" id="hero-title">
+        <span class="line"><span>{% translate "مهاراتك تستحق" %}</span></span>
+        <span class="line"><span class="hero__rotator">
+          <span class="text-grad is-active">{% translate "الفرصة المناسبة" %}</span>
+          <span class="text-grad">{% translate "مستقبلاً أفضل" %}</span>
+          <span class="text-grad">{% translate "فريقاً استثنائياً" %}</span>
+        </span></span>
+      </h1>
+      <p class="hero__lead">{% translate "نربط المواهب بالفرص ونصنع مستقبلاً أفضل. ابحث عن وظيفتك القادمة، قدّم عروضك على المشاريع، أو وظّف أفضل الكفاءات — كل ذلك في منصة واحدة." %}</p>
+
+      <form class="hero-search" action="{% url 'jobs:list' %}" method="get" role="search">
+        <div class="hero-search__field">
+          {% icon "search" 20 %}
+          <label class="sr-only" for="hero-q">{% translate "ابحث" %}</label>
+          <input id="hero-q" type="search" name="q" placeholder="{% translate "المسمى الوظيفي، مهارة، أو شركة..." %}" autocomplete="off">
+        </div>
+        <span class="hero-search__sep"></span>
+        <div class="hero-search__field" style="flex:.6">
+          {% icon "layers" 18 %}
+          <label class="sr-only" for="hero-target">{% translate "نوع البحث" %}</label>
+          <select id="hero-target" onchange="this.form.action=this.value">
+            <option value="{% url 'jobs:list' %}">{% translate "وظائف" %}</option>
+            <option value="{% url 'projects:list' %}">{% translate "مشاريع" %}</option>
+            <option value="{% url 'talents:list' %}">{% translate "مواهب" %}</option>
+          </select>
+        </div>
+        <button class="btn btn--primary" type="submit"><span>{% icon "search" 18 %}</span><span>{% translate "بحث" %}</span></button>
+      </form>
+
+      <div class="hero__ctas">
+        <a class="btn btn--dark btn--lg" href="{% url 'jobs:list' %}" data-magnetic>{% icon "briefcase" 20 %}<span>{% translate "ابحث عن عمل" %}</span></a>
+        <a class="btn btn--glass btn--lg" href="{% url 'talents:list' %}" data-magnetic>{% icon "users" 20 %}<span>{% translate "وظّف أفضل المواهب" %}</span></a>
+        <a class="btn btn--ghost btn--lg" href="{% if user.is_authenticated and user.is_employer %}{% url 'dashboard:employer_project_create' %}{% else %}{% url 'accounts:signup' 'employer' %}{% endif %}">{% icon "rocket" 20 %}<span>{% translate "انشر مشروعك" %}</span></a>
+      </div>
+
+      <div class="hero__trust">
+        {% if talents %}<div class="avatar-stack">{% for p in talents|slice:":4" %}{% avatar p.user.display_name p.user.avatar 34 %}{% endfor %}</div>{% endif %}
+        <span><strong>{{ stats.users|intcomma }}</strong> {% translate "مستخدم مسجل" %} · <strong>{{ stats.open_jobs|intcomma }}</strong> {% translate "وظيفة متاحة الآن" %}</span>
+      </div>
+    </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="hero-visual__ring"></div>
+      <div class="hero-visual__ring hero-visual__ring--2"></div>
+      <div class="hero-visual__blob" data-depth=".3"></div>
+      <svg class="hero-links" viewBox="0 0 600 612" preserveAspectRatio="none">
+        <defs><linearGradient id="linkGrad" x1="0" x2="1"><stop offset="0" stop-color="#2563EB"/><stop offset=".5" stop-color="#7C3AED"/><stop offset="1" stop-color="#06B6D4"/></linearGradient></defs>
+        <path d="M60 110 C 200 60, 300 200, 520 90"/>
+        <path d="M40 420 C 180 330, 420 520, 560 330"/>
+        <path d="M110 250 C 260 300, 330 180, 470 280"/>
+        <circle cx="60" cy="110" r="5"/><circle cx="520" cy="90" r="5"/><circle cx="560" cy="330" r="5"/><circle cx="40" cy="420" r="5"/>
+      </svg>
+      <img class="hero-person hero-person--alt anim-float-slow" data-depth=".9" src="{% static 'img/illustrations/woman-remote.svg' %}" alt="" width="200" height="220">
+      <img class="hero-person hero-person--side anim-float delay-2" data-depth=".7" src="{% static 'img/illustrations/employer.svg' %}" alt="" width="220" height="240">
+      <img class="hero-person hero-person--main" data-depth=".45" src="{% static 'img/illustrations/person-laptop.svg' %}" alt="" width="420" height="460" fetchpriority="high">
+
+      <div class="float-card float-card--job anim-float" data-depth="1.2">
+        <span class="float-card__icon">{% icon "briefcase" 18 %}</span>
+        {% with j=latest_jobs.0 %}{% if j %}<span>{{ j.title|truncatechars:24 }}<small>{{ j.company.name|truncatechars:22 }} · {{ j.get_workplace_display }}</small></span>
+        {% else %}<span>{% translate "وظائف جديدة يومياً" %}<small>{% translate "من شركات موثّقة" %}</small></span>{% endif %}{% endwith %}
+      </div>
+      <div class="float-card float-card--profile anim-float delay-1" data-depth="1.4">
+        <span class="float-card__icon" style="background:linear-gradient(135deg,#06B6D4,#2563EB)">{% icon "user" 18 %}</span>
+        <span>{% translate "ملف مهني احترافي" %}<small>{% translate "سيرة ذاتية + معرض أعمال" %}</small></span>
+      </div>
+      <div class="float-card float-card--salary anim-float delay-3" data-depth="1.1">
+        <span class="float-card__icon" style="background:linear-gradient(135deg,#10B981,#06B6D4)">{% icon "trending" 18 %}</span>
+        <span><bdi>{{ stats.open_jobs|intcomma }}</bdi> {% translate "فرصة" %}<small>{% translate "متاحة الآن" %}</small></span>
+      </div>
+      <div class="float-card float-card--match anim-float delay-2" data-depth="1.3">
+        <span class="float-card__icon" style="background:linear-gradient(135deg,#7C3AED,#EC4899)">{% icon "target" 18 %}</span>
+        <span>{% translate "مطابقة حسب المهارات" %}<small>{% translate "توصيات مخصصة لك" %}</small></span>
+      </div>
+      <span class="skill-bubble skill-bubble--1 anim-float-x" data-depth="1.6">{% icon "code" 24 %}</span>
+      <span class="skill-bubble skill-bubble--2 anim-float-x delay-1" data-depth="1.8">{% icon "palette" 24 %}</span>
+      <span class="skill-bubble skill-bubble--3 anim-float-x delay-2" data-depth="1.5">{% icon "chart" 24 %}</span>
+      <span class="skill-bubble skill-bubble--4 anim-float-x delay-3" data-depth="1.7">{% icon "cpu" 24 %}</span>
+
+      <div class="hero-notify" role="presentation">
+        <span class="hero-notify__icon">{% icon "check" 16 %}</span>
+        <span><span class="hero-notify__title"></span><small class="hero-notify__sub"></small></span>
+      </div>
+      <span hidden data-hero-note data-title="{% translate "تحديث فوري لطلبك" %}" data-sub="{% translate "تابع كل مرحلة من مراحل التوظيف" %}"></span>
+      <span hidden data-hero-note data-title="{% translate "عرض جديد على مشروعك" %}" data-sub="{% translate "قارن العروض واختر الأنسب" %}"></span>
+      <span hidden data-hero-note data-title="{% translate "رسالة من صاحب العمل" %}" data-sub="{% translate "محادثات مباشرة داخل المنصة" %}"></span>
+    </div>
+  </div>
+</section>
+
+{# ================= TRUSTED COMPANIES (admin-flagged real partners only) ================= #}
+{% if partners %}
+<section class="section--tight" aria-label="{% translate "شركاء المنصة" %}">
+  <div class="container">
+    <p class="text-center muted" style="font-weight:700;margin-bottom:20px">{% translate "شركات تثق بالمنصة وتوظف من خلالها" %}</p>
+    <div class="marquee"><div class="marquee__track">
+      {% for c in partners %}<a class="logo-pill" href="{{ c.get_absolute_url }}">{% logo c 36 %}{{ c.name }}</a>{% endfor %}
+      {% for c in partners %}<a class="logo-pill" href="{{ c.get_absolute_url }}" aria-hidden="true" tabindex="-1">{% logo c 36 %}{{ c.name }}</a>{% endfor %}
+    </div></div>
+  </div>
+</section>
+{% endif %}
+
+{# ================= CATEGORIES ================= #}
+<section class="section" aria-labelledby="cats-title">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-head__text" data-reveal>
+        <span class="eyebrow">{% translate "التخصصات" %}</span>
+        <h2 class="h-section" id="cats-title">{% translate "استكشف الفرص حسب" %} <span class="text-grad">{% translate "تخصصك" %}</span></h2>
+        <p class="lead mb-0">{% translate "من البرمجة إلى صناعة المحتوى — اختر المجال الذي تتقنه وابدأ رحلتك." %}</p>
+      </div>
+      <a class="btn btn--outline" href="{% url 'jobs:list' %}" data-reveal>{% translate "كل الوظائف" %} {% icon "arrow-left" 18 "flip-ltr" %}</a>
+    </div>
+    <div class="bento" data-stagger=".06">
+      {% for c in categories %}
+        {% if forloop.first %}
+        <a class="cat-tile cat-tile--hero" href="{{ c.get_absolute_url }}" style="--c:{{ c.color }}">
+          <img class="cat-tile__art anim-float" src="{% static 'img/illustrations/briefcase-3d.svg' %}" alt="" width="260" height="240" loading="lazy">
+          <span class="cat-tile__icon" style="background:rgba(255,255,255,.1)">{% icon c.icon 28 %}</span>
+          <div>
+            <h3 class="cat-tile__name">{{ c|localized }}</h3>
+            <div class="cat-tile__count"><span>{{ c.open_jobs }} {% translate "وظيفة" %} · {{ c.open_projects }} {% translate "مشروع" %}</span><span class="cat-tile__arrow">{% icon "arrow-up-right" 16 "flip-rtl" %}</span></div>
+          </div>
+        </a>
+        {% else %}
+        <a class="cat-tile {% if forloop.counter == 6 %}cat-tile--wide{% endif %}" href="{{ c.get_absolute_url }}" style="--c:{{ c.color }}">
+          <span class="cat-tile__icon">{% icon c.icon 26 %}</span>
+          <div style="flex:1">
+            <h3 class="cat-tile__name">{{ c|localized }}</h3>
+            <div class="cat-tile__count"><span>{{ c.open_jobs|add:c.open_projects }} {% translate "فرصة متاحة" %}</span><span class="cat-tile__arrow">{% icon "arrow-up-right" 16 "flip-rtl" %}</span></div>
+          </div>
+        </a>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ================= LATEST JOBS ================= #}
+<section class="section section--alt" aria-labelledby="jobs-title">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-head__text" data-reveal>
+        <span class="eyebrow">{% translate "أحدث الوظائف" %}</span>
+        <h2 class="h-section" id="jobs-title">{% translate "وظائف نُشرت" %} <span class="text-grad">{% translate "حديثاً" %}</span></h2>
+      </div>
+      <div class="row" data-reveal>
+        <a class="chip" href="{% url 'jobs:list' %}?workplace=remote">{% icon "wifi" 14 %}{% translate "عن بعد" %}</a>
+        <a class="chip" href="{% url 'jobs:list' %}?type=full_time">{% translate "دوام كامل" %}</a>
+        <a class="chip" href="{% url 'jobs:list' %}?type=internship">{% translate "تدريب" %}</a>
+      </div>
+    </div>
+    {% if latest_jobs %}
+      <div class="grid grid-3" data-stagger=".08">
+        {% for job in latest_jobs %}{% include "partials/job_card.html" %}{% endfor %}
+      </div>
+      <div class="text-center mt-4"><a class="btn btn--dark btn--lg" href="{% url 'jobs:list' %}" data-magnetic><span>{% translate "تصفح كل الوظائف" %}</span>{% icon "arrow-left" 18 "flip-ltr" %}</a></div>
+    {% else %}
+      {% translate "لا توجد وظائف منشورة بعد" as t %}{% translate "كن أول من ينشر وظيفة على المنصة." as tx %}{% translate "انشر وظيفة" as al %}
+      {% url 'accounts:signup' 'employer' as au %}{% include "partials/empty.html" with title=t text=tx action_url=au action_label=al %}
+    {% endif %}
+  </div>
+</section>
+
+{# ================= PROJECTS ================= #}
+<section class="section" aria-labelledby="projects-title">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-head__text" data-reveal>
+        <span class="eyebrow">{% translate "العمل الحر" %}</span>
+        <h2 class="h-section" id="projects-title">{% translate "مشاريع تنتظر" %} <span class="text-grad">{% translate "خبرتك" %}</span></h2>
+        <p class="lead mb-0">{% translate "قدّم عرضك، حدّد سعرك ومدة التنفيذ، وابدأ العمل مع أصحاب المشاريع مباشرة." %}</p>
+      </div>
+      <a class="btn btn--outline" href="{% url 'projects:list' %}" data-reveal>{% translate "كل المشاريع" %} {% icon "arrow-left" 18 "flip-ltr" %}</a>
+    </div>
+    {% if projects %}
+      <div class="project-rows" data-stagger=".08">{% for project in projects %}{% include "partials/project_card.html" %}{% endfor %}</div>
+    {% else %}
+      {% translate "لا توجد مشاريع مفتوحة حالياً" as t %}{% translate "انشر مشروعك واستقبل عروض المستقلين خلال دقائق." as tx %}{% translate "انشر مشروعك" as al %}
+      {% url 'accounts:signup' 'employer' as au %}{% include "partials/empty.html" with title=t text=tx action_url=au action_label=al %}
+    {% endif %}
+  </div>
+</section>
+
+{# ================= HOW IT WORKS ================= #}
+<section class="section how" aria-labelledby="how-title">
+  <div class="bg-grid" style="opacity:.6"></div>
+  <div class="container" style="position:relative">
+    <div class="section-head section-head--center">
+      <div class="section-head__text" data-reveal>
+        <span class="eyebrow">{% translate "كيف تعمل المنصة؟" %}</span>
+        <h2 class="h-section" id="how-title">{% translate "ثلاث خطوات تفصلك عن" %} <span class="text-grad">{% translate "فرصتك القادمة" %}</span></h2>
+      </div>
+    </div>
+    <div class="how__steps">
+      <svg class="how__path" viewBox="0 0 800 120" preserveAspectRatio="none" aria-hidden="true">
+        <defs><linearGradient id="howGrad" x1="0" x2="1"><stop offset="0" stop-color="#2563EB"/><stop offset=".5" stop-color="#7C3AED"/><stop offset="1" stop-color="#06B6D4"/></linearGradient></defs>
+        <path d="M0 60 C 130 -20, 270 140, 400 60 S 670 -20, 800 60"/>
+      </svg>
+      <div class="how__step">
+        <div class="how__art"><img src="{% static 'img/illustrations/cv-3d.svg' %}" alt="" width="240" height="240" loading="lazy"></div>
+        <span class="how__num">01</span>
+        <h3>{% translate "أنشئ حسابك وملفك المهني" %}</h3>
+        <p>{% translate "سجّل كباحث عن عمل أو صاحب عمل، وأضف سيرتك الذاتية ومهاراتك ومعرض أعمالك في دقائق." %}</p>
+      </div>
+      <div class="how__step">
+        <div class="how__art"><img src="{% static 'img/illustrations/search-talent.svg' %}" alt="" width="240" height="240" loading="lazy"></div>
+        <span class="how__num">02</span>
+        <h3>{% translate "اكتشف الفرص أو المواهب" %}</h3>
+        <p>{% translate "ابحث بالفلاتر الذكية عن الوظائف والمشاريع المناسبة، أو استعرض المواهب وصفّها حسب المهارة والخبرة." %}</p>
+      </div>
+      <div class="how__step">
+        <div class="how__art"><img src="{% static 'img/illustrations/career-growth.svg' %}" alt="" width="240" height="240" loading="lazy"></div>
+        <span class="how__num">03</span>
+        <h3>{% translate "تواصل، اتفق، وانطلق" %}</h3>
+        <p>{% translate "تابع حالة طلبك لحظة بلحظة، تواصل عبر المحادثات، وابدأ العمل نحو النجاح." %}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ================= TALENTS ================= #}
+<section class="section" aria-labelledby="talents-title">
+  <div class="container carousel" data-carousel="talents">
+    <div class="section-head">
+      <div class="section-head__text" data-reveal>
+        <span class="eyebrow">{% translate "اكتشف أفضل المواهب" %}</span>
+        <h2 class="h-section" id="talents-title">{% translate "كفاءات جاهزة" %} <span class="text-grad">{% translate "للانطلاق معك" %}</span></h2>
+      </div>
+      {% if talents %}<div class="carousel-nav">
+        <button type="button" data-prev aria-label="{% translate "السابق" %}">{% icon "chevron-right" 20 "flip-ltr" %}</button>
+        <button type="button" data-next aria-label="{% translate "التالي" %}">{% icon "chevron-left" 20 "flip-ltr" %}</button>
+      </div>{% endif %}
+    </div>
+    {% if talents %}
+      <div class="carousel-viewport"><div class="swiper"><div class="swiper-wrapper">
+        {% for p in talents %}<div class="swiper-slide">{% include "partials/talent_card.html" %}</div>{% endfor %}
+      </div></div></div>
+      <div class="carousel-dots"></div>
+    {% else %}
+      {% translate "لم تنضم مواهب بعد" as t %}{% translate "أنشئ ملفك المهني وكن من أوائل المواهب على المنصة." as tx %}{% translate "أنشئ ملفك" as al %}
+      {% url 'accounts:signup' 'seeker' as au %}{% include "partials/empty.html" with title=t text=tx action_url=au action_label=al %}
+    {% endif %}
+  </div>
+</section>
+
+{# ================= STATS (real data) ================= #}
+<section class="section--tight" aria-labelledby="stats-title">
+  <div class="container">
+    <div class="stats-band" data-reveal="zoom">
+      <h2 class="sr-only" id="stats-title">{% translate "إحصائيات المنصة" %}</h2>
+      <div class="stats-grid">
+        <div class="stat"><div class="stat__icon">{% icon "users" 20 %}</div><div class="stat__num" data-count="{{ stats.users }}">{{ stats.users }}</div><div class="stat__label">{% translate "مستخدم مسجل" %}</div></div>
+        <div class="stat"><div class="stat__icon">{% icon "user" 20 %}</div><div class="stat__num" data-count="{{ stats.seekers }}">{{ stats.seekers }}</div><div class="stat__label">{% translate "باحث عن عمل" %}</div></div>
+        <div class="stat"><div class="stat__icon">{% icon "building" 20 %}</div><div class="stat__num" data-count="{{ stats.employers }}">{{ stats.employers }}</div><div class="stat__label">{% translate "شركة وصاحب مشروع" %}</div></div>
+        <div class="stat"><div class="stat__icon">{% icon "briefcase" 20 %}</div><div class="stat__num" data-count="{{ stats.open_jobs }}">{{ stats.open_jobs }}</div><div class="stat__label">{% translate "وظيفة متاحة" %}</div></div>
+        <div class="stat"><div class="stat__icon">{% icon "check-circle" 20 %}</div><div class="stat__num" data-count="{{ stats.completed_projects }}">{{ stats.completed_projects }}</div><div class="stat__label">{% translate "مشروع منجز" %}</div></div>
+        <div class="stat"><div class="stat__icon">{% icon "award" 20 %}</div><div class="stat__num" data-count="{{ stats.successful_hires }}">{{ stats.successful_hires }}</div><div class="stat__label">{% translate "عملية توظيف ناجحة" %}</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ================= TESTIMONIALS (approved only) ================= #}
+<section class="section" aria-labelledby="quotes-title">
+  <div class="container carousel" data-carousel="quotes">
+    <div class="section-head">
+      <div class="section-head__text" data-reveal>
+        <span class="eyebrow">{% translate "آراء المستخدمين" %}</span>
+        <h2 class="h-section" id="quotes-title">{% translate "ماذا يقول" %} <span class="text-grad">{% translate "مستخدمونا" %}</span></h2>
+      </div>
+      {% if testimonials %}<div class="carousel-nav">
+        <button type="button" data-prev aria-label="{% translate "السابق" %}">{% icon "chevron-right" 20 "flip-ltr" %}</button>
+        <button type="button" data-next aria-label="{% translate "التالي" %}">{% icon "chevron-left" 20 "flip-ltr" %}</button>
+      </div>{% endif %}
+    </div>
+    {% if testimonials %}
+      <div class="carousel-viewport"><div class="swiper"><div class="swiper-wrapper">
+        {% for t in testimonials %}
+        <div class="swiper-slide"><figure class="quote-card" style="margin:0">
+          <span class="quote-card__mark" aria-hidden="true">"</span>
+          {% stars t.rating %}
+          <blockquote style="margin:0"><p>{{ t.content }}</p></blockquote>
+          <figcaption class="quote-card__author">{% avatar t.author.display_name t.author.avatar 48 %}<div><strong>{{ t.author.display_name }}</strong><div class="muted" style="font-size:.85rem">{{ t.role_title }}</div></div></figcaption>
+        </figure></div>
+        {% endfor %}
+      </div></div></div>
+      <div class="carousel-dots"></div>
+    {% else %}
+      <div class="card text-center" data-reveal style="padding:40px">
+        <h3>{% translate "لم تُنشر آراء بعد" %}</h3>
+        <p class="muted">{% translate "نعرض فقط آراء حقيقية من مستخدمين مسجلين بعد مراجعتها. شاركنا تجربتك!" %}</p>
+        <a class="btn btn--primary" href="{% if user.is_authenticated %}{% url 'reviews:testimonial' %}{% else %}{% url 'accounts:login' %}?next={% url 'reviews:testimonial' %}{% endif %}"><span>{% translate "شارك رأيك" %}</span></a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{# ================= CTA ================= #}
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="cta">
+      <div class="cta__grid">
+        <div>
+          <span class="eyebrow" style="color:#fff;background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.2)">{% translate "انضم الآن مجاناً" %}</span>
+          <h2>{% translate "فرص بلا حدود، ومواهب تصنع الفرق" %}</h2>
+          <p>{% translate "سواء كنت تبحث عن وظيفة أحلامك أو عن الشخص المناسب لفريقك — مكانك هنا." %}</p>
+          <div class="row mt-3">
+            <a class="btn btn--light btn--lg" href="{% url 'accounts:signup' 'seeker' %}" data-magnetic>{% icon "user" 20 %}<span>{% translate "سجّل كباحث عن عمل" %}</span></a>
+            <a class="btn btn--glass btn--lg" href="{% url 'accounts:signup' 'employer' %}" data-magnetic>{% icon "building" 20 %}<span>{% translate "سجّل كصاحب عمل" %}</span></a>
+          </div>
+        </div>
+        <div class="cta__visual" aria-hidden="true">
+          <span class="cta__shape anim-float" style="width:90px;height:90px;top:6%;inset-inline-start:8%;--r:-14deg"></span>
+          <span class="cta__shape anim-float delay-2" style="width:60px;height:60px;bottom:10%;inset-inline-end:4%;--r:20deg;border-radius:50%"></span>
+          <img class="anim-float-slow" data-parallax="-20" src="{% static 'img/illustrations/woman-remote.svg' %}" alt="" width="230" height="250" loading="lazy" style="width:52%;bottom:0;inset-inline-start:2%">
+          <img class="anim-float delay-1" data-parallax="-35" src="{% static 'img/illustrations/employer.svg' %}" alt="" width="220" height="240" loading="lazy" style="width:50%;bottom:0;inset-inline-end:0">
+          <img class="anim-float delay-3" src="{% static 'img/illustrations/briefcase-3d.svg' %}" alt="" width="110" height="100" loading="lazy" style="width:26%;top:0;inset-inline-end:16%">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

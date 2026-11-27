@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 440" role="img" aria-label="Woman working remotely">
+  <defs>
+    <linearGradient id="wr-hijab" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22D3EE"/><stop offset="1" stop-color="#2563EB"/></linearGradient>
+    <linearGradient id="wr-top" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F8FAFC"/><stop offset="1" stop-color="#CBD5E1"/></linearGradient>
+    <linearGradient id="wr-skin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F3C6A2"/><stop offset="1" stop-color="#E2AC86"/></linearGradient>
+    <linearGradient id="wr-mug" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#A78BFA"/><stop offset="1" stop-color="#7C3AED"/></linearGradient>
+  </defs>
+  <!-- body -->
+  <path d="M64 440c4-92 52-150 136-150s132 58 136 150z" fill="url(#wr-top)"/>
+  <path d="M64 440c4-92 52-150 136-150s132 58 136 150z" fill="#0F172A" opacity=".06"/>
+  <!-- hijab -->
+  <path d="M120 300c-14-40-8-118 22-160 18-26 38-36 58-36s40 10 58 36c30 42 36 120 22 160-20 26-48 40-80 40s-60-14-80-40z" fill="url(#wr-hijab)"/>
+  <path d="M120 300c26 22 52 30 80 30s54-8 80-30c-6 30-40 54-80 54s-74-24-80-54z" fill="#1D4ED8" opacity=".45"/>
+  <!-- face -->
+  <path d="M152 186c0-40 22-64 48-64s48 24 48 64c0 42-22 70-48 70s-48-28-48-70z" fill="url(#wr-skin)"/>
+  <path d="M146 176c4-44 28-66 54-66s50 22 54 66c-14-24-32-36-54-36s-40 12-54 36z" fill="url(#wr-hijab)"/>
+  <path d="M170 182c5-4 13-4 18-1M212 181c5-3 13-3 18 1" stroke="#3B2A20" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <ellipse cx="180" cy="196" rx="4.5" ry="5.5" fill="#2A1C14"/>
+  <ellipse cx="220" cy="196" rx="4.5" ry="5.5" fill="#2A1C14"/>
+  <circle cx="181.5" cy="194" r="1.4" fill="#fff"/><circle cx="221.5" cy="194" r="1.4" fill="#fff"/>
+  <path d="M200 200c-2 8-3 12 2 14" stroke="#C98B62" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <path d="M186 226c8 8 20 8 28 0" stroke="#B4535B" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <ellipse cx="166" cy="214" rx="9" ry="5" fill="#F59E9E" opacity=".45"/>
+  <ellipse cx="234" cy="214" rx="9" ry="5" fill="#F59E9E" opacity=".45"/>
+  <!-- headset -->
+  <path d="M146 196c0-56 24-82 54-82s54 26 54 82" stroke="#0F172A" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <rect x="136" y="186" width="18" height="34" rx="8" fill="#0F172A"/>
+  <rect x="246" y="186" width="18" height="34" rx="8" fill="#0F172A"/>
+  <path d="M146 218c4 22 18 30 34 30" stroke="#0F172A" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <circle cx="182" cy="248" r="5" fill="#06B6D4"/>
+  <!-- mug -->
+  <path d="M272 330h46l-4 64a10 10 0 0 1-10 9h-18a10 10 0 0 1-10-9z" fill="url(#wr-mug)"/>
+  <path d="M316 344c16 0 18 30 0 30" stroke="#7C3AED" stroke-width="6" fill="none"/>
+  <path d="M286 318c0-8 8-8 8-16M300 318c0-8 8-8 8-16" stroke="#94A3B8" stroke-width="3" stroke-linecap="round" fill="none" opacity=".7"/>
+  <ellipse cx="270" cy="384" rx="16" ry="12" fill="#E2AC86"/>
+  <!-- laptop -->
+  <path d="M84 340h150a8 8 0 0 1 8 8v66H76v-66a8 8 0 0 1 8-8z" fill="#1E293B"/>
+  <rect x="90" y="352" width="138" height="54" rx="4" fill="#0B1222"/>
+  <rect x="100" y="362" width="60" height="6" rx="3" fill="#60A5FA"/>
+  <rect x="100" y="374" width="100" height="5" rx="2.5" fill="#334155"/>
+  <rect x="100" y="385" width="80" height="5" rx="2.5" fill="#334155"/>
+  <rect x="190" y="360" width="28" height="28" rx="6" fill="#7C3AED" opacity=".8"/>
+  <path d="M58 414h204l-10 18a8 8 0 0 1-7 4H75a8 8 0 0 1-7-4z" fill="#475569"/>
+  <ellipse cx="96" cy="414" rx="18" ry="11" fill="#E2AC86"/>
+</svg>

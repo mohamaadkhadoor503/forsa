@@ -1,0 +1,7 @@
+{% load i18n %}{% if rows %}
+<div class="bar-chart" role="img" aria-label="{% translate "رسم بياني شهري" %}">
+  {% with max=rows|dictsortreversed:1|first %}{% for label, n in rows %}
+  <div class="bar-chart__col"><div class="bar-chart__bar" style="height:{% widthratio n max.1 100 %}%;animation-delay:{{ forloop.counter0 }}00ms"><span>{{ n }}</span></div><small>{{ label|slice:"5:" }}</small></div>
+  {% endfor %}{% endwith %}
+</div>
+{% else %}<p class="muted mb-0" style="padding:40px 0;text-align:center">{% translate "لا توجد بيانات بعد" %}</p>{% endif %}

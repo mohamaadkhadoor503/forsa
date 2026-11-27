@@ -1,0 +1,28 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load i18n humanize %}
+{% block title %}{% translate "عروضي" %}{% endblock %}
+{% block dash_content %}
+<div class="dash__head"><div><h1>{% translate "عروضي على المشاريع" %}</h1><p>{% translate "تابع حالة العروض التي قدمتها." %}</p></div><a class="btn btn--primary" href="{% url 'projects:list' %}"><span>{% translate "تصفح المشاريع" %}</span></a></div>
+{% if proposals %}
+<div class="table-wrap">
+  <table class="table table--stack">
+    <thead><tr><th>{% translate "المشروع" %}</th><th>{% translate "قيمة العرض" %}</th><th>{% translate "المدة" %}</th><th>{% translate "التاريخ" %}</th><th>{% translate "الحالة" %}</th><th></th></tr></thead>
+    <tbody>
+      {% for p in proposals %}
+      <tr>
+        <td data-label="{% translate "المشروع" %}"><a href="{{ p.project.get_absolute_url }}" style="font-weight:700">{{ p.project.title }}</a></td>
+        <td data-label="{% translate "قيمة العرض" %}"><bdi>${{ p.bid_amount|intcomma }}</bdi></td>
+        <td data-label="{% translate "المدة" %}">{{ p.delivery_days }} {% translate "يوم" %}</td>
+        <td data-label="{% translate "التاريخ" %}">{{ p.created_at|naturaltime }}</td>
+        <td data-label="{% translate "الحالة" %}"><span class="badge badge--{{ p.status }}">{{ p.get_status_display }}</span></td>
+        <td>{% if p.status == 'pending' or p.status == 'shortlisted' %}<form method="post" action="{% url 'projects:withdraw_proposal' p.pk %}" data-confirm="{% translate "سحب العرض؟" %}">{% csrf_token %}<button class="btn btn--danger btn--sm" type="submit">{% translate "سحب" %}</button></form>{% elif p.status == 'accepted' %}<form method="post" action="{% url 'messaging:start' p.project.owner.pk %}">{% csrf_token %}<button class="btn btn--success btn--sm" type="submit">{% translate "تواصل" %}</button></form>{% endif %}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% include "partials/pagination.html" %}
+{% else %}
+<div class="panel">{% translate "لم تقدم أي عروض بعد" as t %}{% translate "استكشف المشاريع المفتوحة وقدّم عرضك الأول." as tx %}{% translate "تصفح المشاريع" as al %}{% url 'projects:list' as au %}{% include "partials/empty.html" with title=t text=tx action_url=au action_label=al %}</div>
+{% endif %}
+{% endblock %}

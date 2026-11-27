@@ -1,0 +1,15 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load i18n %}
+{% block title %}{% translate "التصنيفات" %}{% endblock %}
+{% block dash_content %}
+<div class="dash__head"><div><h1>{% translate "إدارة التصنيفات" %}</h1></div><a class="btn btn--primary" href="{% url 'dashboard:admin_category_create' %}"><span>{% icon "plus" 18 %}</span><span>{% translate "تصنيف جديد" %}</span></a></div>
+<div class="grid grid-3" data-stagger=".04">
+  {% for c in categories %}
+  <a class="cat-tile" href="{% url 'dashboard:admin_category_edit' c.pk %}" style="--c:{{ c.color }}">
+    <span class="cat-tile__icon">{% icon c.icon 24 %}</span>
+    <div><h3 class="cat-tile__name">{{ c.name }} <small class="muted">/ {{ c.name_en }}</small></h3>
+      <div class="cat-tile__count"><span>{{ c.jobs_n }} {% translate "وظيفة" %} · {{ c.projects_n }} {% translate "مشروع" %}</span>{% if not c.is_active %}<span class="badge badge--red">{% translate "معطّل" %}</span>{% endif %}</div></div>
+  </a>
+  {% endfor %}
+</div>
+{% endblock %}

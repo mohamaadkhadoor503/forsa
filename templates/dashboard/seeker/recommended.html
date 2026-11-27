@@ -1,0 +1,11 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load i18n %}
+{% block title %}{% translate "وظائف مقترحة" %}{% endblock %}
+{% block dash_content %}
+<div class="dash__head"><div><h1>{% icon "sparkles" 24 %} {% translate "وظائف مقترحة لك" %}</h1><p>{% translate "مرتبة حسب تطابق مهاراتك وتخصصك مع متطلبات الوظيفة." %}</p></div><a class="btn btn--outline" href="{% url 'dashboard:seeker_profile' %}">{% translate "تحديث مهاراتي" %}</a></div>
+{% if jobs %}
+  <div class="grid grid-2" data-stagger>{% for job in jobs %}{% include "partials/job_card.html" %}{% endfor %}</div>
+{% else %}
+  <div class="panel">{% translate "لا توجد اقتراحات حالياً" as t %}{% translate "أضف مهاراتك وتخصصك في ملفك، أو تصفح كل الوظائف." as tx %}{% translate "تصفح الوظائف" as al %}{% url 'jobs:list' as au %}{% include "partials/empty.html" with title=t text=tx action_url=au action_label=al %}</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,44 @@
+{% load i18n static %}{% get_current_language as LANG %}{% get_current_language_bidi as BIDI %}<!doctype html>
+<html lang="{{ LANG }}" dir="{% if BIDI %}rtl{% else %}ltr{% endif %}" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{% block title %}{{ site_settings.site_name }} — {% translate "منصة التوظيف والعمل الحر" %}{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}{{ site_settings.tagline }}. {% translate "ابحث عن وظيفة، انشر مشروعك، ووظّف أفضل المواهب العربية." %}{% endblock %}">
+  <meta name="theme-color" content="#0F172A">
+  <meta property="og:title" content="{% block og_title %}{{ site_settings.site_name }}{% endblock %}">
+  <meta property="og:description" content="{{ site_settings.tagline }}">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="{{ request.build_absolute_uri }}">
+  <link rel="icon" href="{% static 'img/logo-mark.svg' %}" type="image/svg+xml">
+  <script>
+    /* Apply saved / system theme before first paint to avoid a flash. */
+    (function () {
+      var t; try { t = localStorage.getItem("theme"); } catch (e) {}
+      if (!t) t = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.dataset.theme = t;
+      document.documentElement.classList.add("js");
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.css">
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  {% block head %}{% endblock %}
+</head>
+<body class="{% block body_class %}{% endblock %}">
+  <a class="skip-link" href="#main">{% translate "انتقل إلى المحتوى" %}</a>
+  {% include "partials/nav.html" %}
+  {% include "partials/messages.html" %}
+  <main id="main">{% block content %}{% endblock %}</main>
+  {% block footer %}{% include "partials/footer.html" %}{% endblock %}
+  {% include "partials/tabbar.html" %}
+  {% block modals %}{% endblock %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.js" defer></script>
+  <script src="{% static 'js/main.js' %}" defer></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

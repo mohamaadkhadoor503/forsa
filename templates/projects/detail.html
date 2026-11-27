@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load i18n humanize %}
+{% block title %}{{ project.title }} | {{ site_settings.site_name }}{% endblock %}
+{% block meta_description %}{{ project.description|truncatechars:155 }}{% endblock %}
+{% block content %}
+<section class="page-hero" style="padding-bottom:20px">
+  <span class="orb orb--violet" aria-hidden="true"></span><span class="orb orb--blue" aria-hidden="true"></span>
+  <div class="container page-fade">
+    <nav class="meta mb-2" aria-label="breadcrumb"><a href="{% url 'projects:list' %}">{% translate "المشاريع" %}</a><span>/</span><a href="{% url 'projects:list' %}?category={{ project.category.slug }}">{{ project.category|localized }}</a></nav>
+    <div class="row" style="gap:10px"><span class="badge badge--{{ project.status }} badge--live"><span class="dot"></span>{{ project.get_status_display }}</span><span class="badge">{{ project.get_budget_type_display }}</span><span class="badge">{{ project.get_experience_level_display }}</span></div>
+    <h1 class="mt-1">{{ project.title }}</h1>
+    <div class="meta" style="font-size:.95rem">
+      <span>{% avatar project.owner.display_name project.owner.avatar 24 %}{% if project.owner_company %}<a href="{{ project.owner_company.get_absolute_url }}" style="font-weight:700;color:var(--text)">{{ project.owner_company.name }}</a>{% else %}{{ project.owner.display_name }}{% endif %}</span>
+      <span>{% icon "clock" 16 %}{{ project.created_at|naturaltime }}</span>
+      <span>{% icon "users" 16 %}{{ project.proposals_count }} {% translate "عروض" %}</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:20px">
+  <div class="container detail">
+    <article class="stack" style="gap:20px">
+      <div class="card prose" data-reveal>
+        <h2 style="margin-top:0">{% translate "تفاصيل المشروع" %}</h2>
+        <p>{{ project.description }}</p>
+        {% if project.deliverables %}<h3>{% translate "المخرجات المطلوبة" %}</h3><ul class="check-list">{% for line in project.deliverables|split_lines %}<li>{% icon "check-circle" 18 %}<span>{{ line }}</span></li>{% endfor %}</ul>{% endif %}
+        {% if project.skills.all %}<h3>{% translate "المهارات المطلوبة" %}</h3><div class="chips">{% for s in project.skills.all %}<a class="chip" href="{% url 'projects:list' %}?skill={{ s.slug }}">{{ s.name }}</a>{% endfor %}</div>{% endif %}
+      </div>
+
+      {% if can_review %}
+      <div class="card" id="review" data-reveal>
+        <h2 style="font-size:1.2rem">{% translate "قيّم المستقل" %} {{ project.freelancer.display_name }}</h2>
+        <form method="post" action="{% url 'reviews:review_project' project.pk %}">{% csrf_token %}
+          <div class="field"><span class="field-label">{% translate "التقييم" %}</span>
+            <div class="rating-input">{% for i in "54321" %}<input type="radio" name="rating" id="rate{{ i }}" value="{{ i }}" required><label for="rate{{ i }}">{{ i }}{% icon "star" 30 %}</label>{% endfor %}</div>
+          </div>
+          <div class="field"><label for="rv-c">{% translate "التعليق" %}</label><textarea id="rv-c" name="comment" rows="3"></textarea></div>
+          <button class="btn btn--primary" type="submit"><span>{% translate "نشر التقييم" %}</span></button>
+        </form>
+      </div>
+      {% endif %}
+
+      {% if form %}
+      <div class="card" id="propose" data-reveal>
+        <h2 style="font-size:1.3rem">{% icon "send" 22 %} {% translate "قدّم عرضك" %}</h2>
+        <form method="post" action="{% url 'projects:propose' project.slug %}">{% csrf_token %}
+          {% include "partials/form_fields.html" with wide_fields="cover_letter" %}
+          <div class="form-actions"><button class="btn btn--primary btn--lg" type="submit"><span>{% translate "إرسال العرض" %}</span></button></div>
+        </form>
+      </div>
+      {% elif my_proposal %}
+      <div class="card alert--success" id="propose" style="border-color:rgba(16,185,129,.3)">
+        <div class="row row--between"><strong>{% icon "check-circle" 20 %} {% translate "لقد قدمت عرضاً على هذا المشروع" %}</strong><span class="badge badge--{{ my_proposal.status }}">{{ my_proposal.get_status_display }}</span></div>
+        <p class="muted mb-0 mt-1"><bdi>${{ my_proposal.bid_amount|intcomma }}</bdi> · {{ my_proposal.delivery_days }} {% translate "يوم" %}</p>
+      </div>
+      {% elif not user.is_authenticated and project.status == 'open' %}
+      <div class="card text-center" id="propose"><p>{% translate "سجّل الدخول كمستقل لتقديم عرضك على هذا المشروع." %}</p><a class="btn btn--primary" href="{% url 'accounts:login' %}?next={{ request.path|urlencode }}"><span>{% translate "تسجيل الدخول" %}</span></a></div>
+      {% endif %}
+
+      {% if similar %}
+      <div><h2 class="h-section" style="font-size:1.4rem">{% translate "مشاريع مشابهة" %}</h2>
+        <div class="grid grid-3" data-stagger>{% for project in similar %}{% include "partials/project_card.html" %}{% endfor %}</div></div>
+      {% endif %}
+    </article>
+
+    <aside class="detail__aside">
+      <div class="card card--glass" data-reveal>
+        <small class="muted" style="font-weight:700">{% translate "الميزانية" %}</small>
+        <div class="job-card__salary" style="font-size:1.6rem"><bdi>{{ project.budget_display }}</bdi></div>
+        <ul class="info-list mt-2">
+          <li><span class="info-list__icon">{% icon "clock" 18 %}</span><div><small>{% translate "مدة التنفيذ" %}</small><strong>{{ project.duration_days }} {% translate "يوم" %}</strong></div></li>
+          <li><span class="info-list__icon">{% icon "layers" 18 %}</span><div><small>{% translate "التخصص" %}</small><strong>{{ project.category|localized }}</strong></div></li>
+          <li><span class="info-list__icon">{% icon "users" 18 %}</span><div><small>{% translate "العروض المقدمة" %}</small><strong>{{ project.proposals_count }}</strong></div></li>
+        </ul>
+        {% if is_owner %}<a class="btn btn--dark btn--block mt-2" href="{% url 'dashboard:employer_project_proposals' project.pk %}">{% translate "مراجعة العروض" %}</a>
+        {% elif form %}<a class="btn btn--primary btn--block mt-2" href="#propose"><span>{% translate "قدّم عرضاً" %}</span></a>{% endif %}
+      </div>
+      <div class="card" data-reveal>
+        <h3 style="font-size:1rem">{% translate "صاحب المشروع" %}</h3>
+        <div class="row">{% avatar project.owner.display_name project.owner.avatar 48 %}<div><strong>{{ project.owner.display_name }}</strong><div class="muted" style="font-size:.85rem">{% translate "عضو منذ" %} {{ project.owner.date_joined|date:"F Y" }}</div></div></div>
+        {% if user.is_authenticated and not is_owner %}<form class="mt-2" method="post" action="{% url 'messaging:start' project.owner.pk %}">{% csrf_token %}<input type="hidden" name="subject" value="{{ project.title }}"><button class="btn btn--outline btn--block btn--sm" type="submit">{% icon "message" 16 %}{% translate "مراسلة" %}</button></form>{% endif %}
+      </div>
+      {% if user.is_authenticated and not is_owner %}<button class="btn btn--ghost btn--sm" type="button" data-modal-open="report-modal">{% icon "flag" 16 %}{% translate "الإبلاغ عن المشروع" %}</button>{% endif %}
+    </aside>
+  </div>
+</section>
+{% endblock %}
+{% block modals %}{% if user.is_authenticated %}{% include "partials/report_modal.html" with target_type="project" target_id=project.pk %}{% endif %}{% endblock %}

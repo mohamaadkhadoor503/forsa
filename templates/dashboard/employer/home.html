@@ -1,0 +1,42 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load i18n static humanize %}
+{% block title %}{% translate "لوحة الشركة" %}{% endblock %}
+{% block dash_content %}
+<div class="welcome">
+  <div>
+    <h1>{% translate "مرحباً" %} {{ company.name }} 👋</h1>
+    <p>{% translate "تابع وظائفك وطلبات المرشحين ومشاريعك من مكان واحد." %}</p>
+    <div class="row mt-2"><a class="btn btn--light btn--sm" href="{% url 'dashboard:employer_job_create' %}">{% icon "plus" 16 %}{% translate "نشر وظيفة" %}</a><a class="btn btn--sm" style="--btn-bg:rgba(255,255,255,.12);--btn-fg:#fff;--btn-bd:rgba(255,255,255,.25)" href="{% url 'dashboard:employer_project_create' %}">{% icon "rocket" 16 %}{% translate "نشر مشروع" %}</a></div>
+  </div>
+  <img class="anim-float hide-sm" src="{% static 'img/illustrations/briefcase-3d.svg' %}" alt="" width="150" height="140">
+</div>
+
+<div class="kpis" data-stagger=".08">
+  <div class="kpi"><div class="kpi__icon">{% icon "briefcase" 20 %}</div><div class="kpi__num" data-count="{{ jobs_active }}">{{ jobs_active }}</div><div class="kpi__label">{% translate "وظائف نشطة" %} / {{ jobs_total }}</div></div>
+  <div class="kpi"><div class="kpi__icon">{% icon "inbox" 20 %}</div><div class="kpi__num" data-count="{{ apps_total }}">{{ apps_total }}</div><div class="kpi__label">{% translate "إجمالي الطلبات" %} · {{ apps_new }} {% translate "جديد" %}</div></div>
+  <div class="kpi"><div class="kpi__icon">{% icon "layers" 20 %}</div><div class="kpi__num" data-count="{{ projects_open }}">{{ projects_open }}</div><div class="kpi__label">{% translate "مشاريع مفتوحة" %} · {{ proposals_new }} {% translate "عرض جديد" %}</div></div>
+  <div class="kpi"><div class="kpi__icon">{% icon "award" 20 %}</div><div class="kpi__num" data-count="{{ hired }}">{{ hired }}</div><div class="kpi__label">{% translate "تم توظيفهم" %}</div></div>
+</div>
+
+<div class="dash-grid">
+  <div class="panel">
+    <div class="panel__head"><h2>{% translate "أحدث الطلبات" %}</h2><a class="btn btn--ghost btn--sm" href="{% url 'dashboard:employer_applications' %}">{% translate "عرض الكل" %}</a></div>
+    {% for a in recent_apps %}
+      <div class="list-row">{% avatar a.applicant.display_name a.applicant.avatar 42 %}<div class="list-row__main"><strong>{{ a.applicant.display_name }}</strong><small>{{ a.job.title }} · {{ a.created_at|naturaltime }}</small></div><span class="badge badge--{{ a.status }}">{{ a.get_status_display }}</span></div>
+    {% empty %}<p class="muted mb-0">{% translate "لا توجد طلبات بعد. انشر وظيفة لبدء استقبال المرشحين." %}</p>{% endfor %}
+  </div>
+  <div class="stack" style="gap:20px">
+    <div class="panel">
+      <h2 style="font-size:1.05rem">{% translate "مسار التوظيف" %}</h2>
+      <div class="hbar">
+        {% for label, n, val in pipeline %}<div class="hbar__row"><span>{{ label }}</span><div class="hbar__track"><span style="width:{% widthratio n apps_total|default:1 100 %}%"></span></div><strong style="font-family:var(--font-en)">{{ n }}</strong></div>{% endfor %}
+      </div>
+    </div>
+    <div class="panel">
+      <h2 style="font-size:1.05rem">{% translate "الوظائف الأكثر طلباً" %}</h2>
+      {% for j in top_jobs %}<div class="list-row"><div class="list-row__main"><strong><a href="{% url 'dashboard:employer_job_applications' j.pk %}">{{ j.title }}</a></strong><small><span class="badge badge--{{ j.status }}">{{ j.get_status_display }}</span></small></div><strong style="font-family:var(--font-en)">{{ j.n }}</strong></div>
+      {% empty %}<p class="muted mb-0">{% translate "لا توجد وظائف بعد." %}</p>{% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

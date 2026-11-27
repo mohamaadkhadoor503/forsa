@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "سياسة الخصوصية" %} — {{ site_settings.site_name }}{% endblock %}
+{% block content %}
+<section class="page-hero"><span class="orb orb--blue" aria-hidden="true"></span>
+  <div class="container page-fade"><span class="eyebrow">{% translate "قانوني" %}</span><h1>{% translate "سياسة الخصوصية" %}</h1><p class="muted">{% translate "آخر تحديث:" %} {% now "Y" %}</p></div>
+</section>
+<section class="section" style="padding-top:0">
+  <div class="container legal card">
+    <div class="alert mb-2">{% icon "info" 18 %}<div>{% translate "هذا نص نموذجي يجب مراجعته من مستشار قانوني وتعديله بما يتوافق مع أنظمة بلدك قبل الإطلاق الرسمي." %}</div></div>
+    <h2>{% translate "1. البيانات التي نجمعها" %}</h2>
+    <p>{% translate "نجمع البيانات التي تقدمها عند التسجيل وإنشاء ملفك (الاسم، البريد الإلكتروني، السيرة الذاتية، المهارات، الخبرات)، إضافة إلى بيانات الاستخدام الأساسية اللازمة لتشغيل المنصة." %}</p>
+    <h2>{% translate "2. كيف نستخدم بياناتك" %}</h2>
+    <ul><li>{% translate "تشغيل حسابك وتمكينك من التقديم على الوظائف والمشاريع." %}</li><li>{% translate "مشاركة ملفك وسيرتك الذاتية مع أصحاب العمل الذين تتقدم إليهم." %}</li><li>{% translate "إرسال إشعارات تتعلق بطلباتك ورسائلك." %}</li><li>{% translate "تحسين المنصة وحمايتها من إساءة الاستخدام." %}</li></ul>
+    <h2>{% translate "3. مشاركة البيانات" %}</h2>
+    <p>{% translate "لا نبيع بياناتك لأي طرف ثالث. تظهر بيانات ملفك العام للزوار فقط إذا فعّلت خيار «ملف عام»." %}</p>
+    <h2>{% translate "4. حقوقك" %}</h2>
+    <p>{% translate "يمكنك تعديل بياناتك أو إخفاء ملفك من إعدادات الحساب في أي وقت، أو طلب حذف حسابك عبر صفحة التواصل." %}</p>
+    <h2>{% translate "5. ملفات تعريف الارتباط" %}</h2>
+    <p>{% translate "نستخدم ملفات تعريف ارتباط ضرورية لتسجيل الدخول والحماية وحفظ تفضيل اللغة والمظهر." %}</p>
+  </div>
+</section>
+{% endblock %}

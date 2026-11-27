@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load i18n static %}
+{% block title %}{% translate "اختر نوع الحساب" %} — {{ site_settings.site_name }}{% endblock %}
+{% block content %}
+<section class="section" style="position:relative;overflow:hidden">
+  <span class="orb orb--blue" style="width:400px;height:400px;top:-150px;inset-inline-end:-100px" aria-hidden="true"></span>
+  <span class="orb orb--violet" style="width:400px;height:400px;bottom:-150px;inset-inline-start:-100px" aria-hidden="true"></span>
+  <div class="container" style="max-width:920px;position:relative">
+    <div class="text-center mb-2 page-fade">
+      <span class="eyebrow">{% translate "إنشاء حساب" %}</span>
+      <h1 class="h-section">{% translate "كيف تريد استخدام" %} <span class="text-grad">{{ site_settings.site_name }}</span>{% translate "؟" %}</h1>
+      <p class="lead">{% translate "اختر نوع الحساب المناسب لك — يمكنك البدء مجاناً." %}</p>
+    </div>
+    <div class="role-cards mt-3" data-stagger=".12">
+      <a class="role-card" href="{% url 'accounts:signup' 'seeker' %}">
+        <img src="{% static 'img/illustrations/person-laptop.svg' %}" alt="" width="190" height="190">
+        <h2 style="font-size:1.35rem;margin:0">{% translate "أبحث عن عمل أو مشاريع" %}</h2>
+        <p class="muted mb-0">{% translate "باحث عن عمل أو مستقل" %}</p>
+        <ul>
+          <li>{% icon "check" 16 %}{% translate "أنشئ ملفاً مهنياً وسيرة ذاتية" %}</li>
+          <li>{% icon "check" 16 %}{% translate "قدّم على الوظائف والمشاريع" %}</li>
+          <li>{% icon "check" 16 %}{% translate "تابع حالة طلباتك لحظة بلحظة" %}</li>
+        </ul>
+        <span class="btn btn--primary btn--block mt-2"><span>{% translate "متابعة كباحث عن عمل" %}</span></span>
+      </a>
+      <a class="role-card" href="{% url 'accounts:signup' 'employer' %}">
+        <img src="{% static 'img/illustrations/employer.svg' %}" alt="" width="190" height="190">
+        <h2 style="font-size:1.35rem;margin:0">{% translate "أريد التوظيف أو نشر مشروع" %}</h2>
+        <p class="muted mb-0">{% translate "شركة أو صاحب مشروع" %}</p>
+        <ul>
+          <li>{% icon "check" 16 %}{% translate "انشر الوظائف والمشاريع" %}</li>
+          <li>{% icon "check" 16 %}{% translate "ابحث في المواهب وصفّها" %}</li>
+          <li>{% icon "check" 16 %}{% translate "أدر الطلبات والعروض بسهولة" %}</li>
+        </ul>
+        <span class="btn btn--dark btn--block mt-2">{% translate "متابعة كصاحب عمل" %}</span>
+      </a>
+    </div>
+    <p class="text-center mt-3 muted">{% translate "لديك حساب بالفعل؟" %} <a href="{% url 'accounts:login' %}" style="color:var(--blue);font-weight:700">{% translate "سجّل الدخول" %}</a></p>
+  </div>
+</section>
+{% endblock %}

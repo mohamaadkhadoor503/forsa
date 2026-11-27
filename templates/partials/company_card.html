@@ -1,0 +1,19 @@
+{% load i18n %}
+<article class="card card--hover card-glow company-card">
+  <div class="company-card__top">
+    {% logo c 60 %}
+    <div style="min-width:0">
+      <h3 class="card__title"><a href="{{ c.get_absolute_url }}">{{ c.name }}</a>{% if c.is_verified %} <span class="verified" title="{% translate "شركة موثّقة" %}">{% icon "shield" 16 %}</span>{% endif %}</h3>
+      <div class="muted" style="font-size:.86rem">{{ c.industry|localized|default:"—" }}</div>
+    </div>
+  </div>
+  {% if c.tagline %}<p class="muted mb-0" style="font-size:.92rem">{{ c.tagline }}</p>{% endif %}
+  <div class="meta">
+    {% if c.location %}<span>{% icon "map-pin" 15 %}{{ c.location }}</span>{% endif %}
+    {% if c.size %}<span>{% icon "users" 15 %}{{ c.get_size_display }}</span>{% endif %}
+  </div>
+  <div class="row row--between" style="margin-top:auto">
+    <span class="badge badge--green">{% icon "briefcase" 14 %}{{ c.open_jobs|default:0 }} {% translate "وظيفة متاحة" %}</span>
+    <a class="btn btn--ghost btn--sm" href="{{ c.get_absolute_url }}">{% translate "عرض" %} {% icon "arrow-left" 16 "flip-ltr" %}</a>
+  </div>
+</article>

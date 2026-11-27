@@ -1,0 +1,33 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load i18n humanize %}
+{% block title %}{% translate "طلبات التوظيف" %}{% endblock %}
+{% block dash_content %}
+<div class="dash__head"><div><h1>{% translate "طلبات التوظيف المقدمة" %}</h1><p>{% translate "تابع كل مرحلة من مراحل طلبك." %}</p></div></div>
+<nav class="tabs" aria-label="{% translate "تصفية حسب الحالة" %}">
+  <a href="?" class="{% if not current_status %}is-active{% endif %}">{% translate "الكل" %}</a>
+  {% for val, label in statuses %}<a href="?status={{ val }}" class="{% if current_status == val %}is-active{% endif %}">{{ label }}</a>{% endfor %}
+</nav>
+<div class="stack" style="gap:16px" data-stagger=".06">
+  {% for a in applications %}
+  <article class="panel">
+    <div class="row row--between" style="align-items:flex-start">
+      <div class="row">{% logo a.job.company 48 %}<div><strong><a href="{{ a.job.get_absolute_url }}">{{ a.job.title }}</a></strong><div class="muted" style="font-size:.86rem">{{ a.job.company.name }} · {% translate "قُدّم" %} {{ a.created_at|naturaltime }}</div></div></div>
+      <span class="badge badge--{{ a.status }}">{{ a.get_status_display }}</span>
+    </div>
+    <div class="pipeline mt-2" aria-label="{% translate "مراحل الطلب" %}">
+      {% for st, label, state in a.pipeline_steps %}
+        <div class="pipeline__step pipeline__step--{{ state }}"><span class="pipeline__dot">{% if state == 'done' %}{% icon "check" 14 %}{% elif state == 'failed' %}{% icon "x" 14 %}{% endif %}</span>{{ label }}</div>
+      {% endfor %}
+    </div>
+    {% if not a.is_final %}
+    <div class="row mt-2" style="justify-content:flex-end">
+      <form method="post" action="{% url 'applications:withdraw' a.pk %}" data-confirm="{% translate "هل أنت متأكد من سحب الطلب؟" %}">{% csrf_token %}<button class="btn btn--danger btn--sm" type="submit">{% translate "سحب الطلب" %}</button></form>
+    </div>
+    {% endif %}
+  </article>
+  {% empty %}
+  <div class="panel">{% translate "لا توجد طلبات" as t %}{% translate "عندما تتقدم لوظيفة ستظهر هنا مع خط زمني لحالتها." as tx %}{% translate "تصفح الوظائف" as al %}{% url 'jobs:list' as au %}{% include "partials/empty.html" with title=t text=tx action_url=au action_label=al %}</div>
+  {% endfor %}
+</div>
+{% include "partials/pagination.html" %}
+{% endblock %}

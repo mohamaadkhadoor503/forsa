@@ -1,0 +1,12 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load i18n %}
+{% block title %}{% translate "إعدادات المنصة" %}{% endblock %}
+{% block dash_content %}
+<div class="dash__head"><div><h1>{% translate "إعدادات المنصة" %}</h1><p>{% translate "الاسم، معلومات التواصل، روابط التواصل الاجتماعي وخيارات التسجيل." %}</p></div></div>
+<div class="panel">
+  <form method="post" novalidate>{% csrf_token %}
+    {% include "partials/form_fields.html" with wide_fields="tagline" %}
+    <div class="form-actions"><button class="btn btn--primary btn--lg" type="submit"><span>{% translate "حفظ الإعدادات" %}</span></button></div>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load i18n humanize %}
+{% block title %}{% translate "إحصائيات المنصة" %}{% endblock %}
+{% block dash_content %}
+<div class="dash__head"><div><h1>{% translate "الإحصائيات والتحليلات" %}</h1><p>{% translate "نظرة شاملة على أداء المنصة (بيانات حقيقية مباشرة)." %}</p></div></div>
+<div class="kpis" data-stagger=".06">
+  <div class="kpi"><div class="kpi__icon">{% icon "users" 20 %}</div><div class="kpi__num" data-count="{{ stats.users }}">{{ stats.users }}</div><div class="kpi__label">{% translate "مستخدم" %} · {{ stats.seekers }} {% translate "باحث" %} · {{ stats.employers }} {% translate "صاحب عمل" %}</div></div>
+  <div class="kpi"><div class="kpi__icon">{% icon "briefcase" 20 %}</div><div class="kpi__num" data-count="{{ stats.open_jobs }}">{{ stats.open_jobs }}</div><div class="kpi__label">{% translate "وظيفة منشورة" %}</div></div>
+  <div class="kpi"><div class="kpi__icon">{% icon "check-circle" 20 %}</div><div class="kpi__num" data-count="{{ stats.completed_projects }}">{{ stats.completed_projects }}</div><div class="kpi__label">{% translate "مشروع منجز" %}</div></div>
+  <div class="kpi"><div class="kpi__icon">{% icon "award" 20 %}</div><div class="kpi__num" data-count="{{ stats.successful_hires }}">{{ stats.successful_hires }}</div><div class="kpi__label">{% translate "عملية توظيف ناجحة" %}</div></div>
+</div>
+<div class="grid grid-3 mb-2">
+  <a class="panel row row--between" href="{% url 'dashboard:admin_reports' %}?status=open"><span class="row">{% icon "flag" 20 %}{% translate "بلاغات جديدة" %}</span><span class="badge {% if open_reports %}badge--red{% endif %}">{{ open_reports }}</span></a>
+  <a class="panel row row--between" href="{% url 'dashboard:admin_content' %}"><span class="row">{% icon "star" 20 %}{% translate "آراء بانتظار المراجعة" %}</span><span class="badge {% if pending_testimonials %}badge--amber{% endif %}">{{ pending_testimonials }}</span></a>
+  <a class="panel row row--between" href="{% url 'dashboard:admin_jobs' %}?status=pending"><span class="row">{% icon "briefcase" 20 %}{% translate "وظائف بانتظار الموافقة" %}</span><span class="badge {% if pending_jobs %}badge--amber{% endif %}">{{ pending_jobs }}</span></a>
+</div>
+<div class="grid grid-3">
+  <div class="panel"><h2 style="font-size:1rem">{% translate "التسجيلات الشهرية" %}</h2>{% include "dashboard/admin/_bars.html" with rows=signups %}</div>
+  <div class="panel"><h2 style="font-size:1rem">{% translate "الوظائف المنشورة شهرياً" %}</h2>{% include "dashboard/admin/_bars.html" with rows=jobs_by_month %}</div>
+  <div class="panel"><h2 style="font-size:1rem">{% translate "طلبات التوظيف شهرياً" %}</h2>{% include "dashboard/admin/_bars.html" with rows=apps_by_month %}</div>
+</div>
+<div class="dash-grid mt-3">
+  <div class="panel">
+    <h2 style="font-size:1rem">{% translate "أكثر التصنيفات نشاطاً" %}</h2>
+    <div class="hbar">{% with top=top_categories.0.n|default:1 %}{% for c in top_categories %}<div class="hbar__row"><span>{{ c|localized }}</span><div class="hbar__track"><span style="width:{% widthratio c.n top 100 %}%;background:{{ c.color }}"></span></div><strong style="font-family:var(--font-en)">{{ c.n }}</strong></div>{% endfor %}{% endwith %}</div>
+  </div>
+  <div class="panel">
+    <div class="panel__head"><h2 style="font-size:1rem">{% translate "أحدث المستخدمين" %}</h2><a class="btn btn--ghost btn--sm" href="{% url 'dashboard:admin_users' %}">{% translate "الكل" %}</a></div>
+    {% for u in recent_users %}<div class="list-row">{% avatar u.display_name u.avatar 36 %}<div class="list-row__main"><strong>{{ u.display_name }}</strong><small>{{ u.get_role_display }} · {{ u.date_joined|naturaltime }}</small></div></div>{% endfor %}
+  </div>
+</div>
+{% endblock %}

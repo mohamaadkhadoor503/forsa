@@ -1,0 +1,38 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load i18n %}
+{% block title %}{% translate "معرض الأعمال" %}{% endblock %}
+{% block dash_content %}
+<div class="dash__head"><div><h1>{% translate "معرض الأعمال" %}</h1><p>{% translate "اعرض أفضل أعمالك السابقة ليراها أصحاب العمل." %}</p></div><button class="btn btn--primary" type="button" data-modal-open="add-item"><span>{% icon "plus" 18 %}</span><span>{% translate "إضافة عمل" %}</span></button></div>
+{% if items %}
+<div class="portfolio-grid" data-stagger>
+  {% for w in items %}
+  <div class="portfolio-item">
+    <div class="portfolio-item__img">{% if w.image %}<img src="{{ w.image.url }}" alt="{{ w.title }}" loading="lazy">{% else %}{% icon "layers" 36 %}{% endif %}</div>
+    <div class="portfolio-item__body">
+      <strong>{{ w.title }}</strong>
+      {% if w.description %}<p class="muted" style="font-size:.85rem;margin:4px 0">{{ w.description|truncatechars:90 }}</p>{% endif %}
+      <div class="row row--between mt-1">
+        {% if w.url %}<a class="btn btn--ghost btn--sm" href="{{ w.url }}" target="_blank" rel="noopener">{% icon "external" 16 %}</a>{% else %}<span></span>{% endif %}
+        <form method="post" action="{% url 'dashboard:seeker_delete_item' 'portfolio' w.pk %}" data-confirm="{% translate "هل تريد حذف هذا العمل؟" %}">{% csrf_token %}<button class="btn btn--danger btn--sm" type="submit">{% icon "trash" 16 %}</button></form>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+  <div class="panel">{% translate "لم تضف أي عمل بعد" as t %}{% translate "الأعمال السابقة تزيد فرص قبولك بشكل كبير." as tx %}{% include "partials/empty.html" with title=t text=tx %}</div>
+{% endif %}
+{% endblock %}
+{% block modals %}
+<div class="modal {% if form.errors %}is-open{% endif %}" id="add-item" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="add-item-t">
+  <div class="modal__backdrop"></div>
+  <div class="modal__dialog">
+    <button class="icon-btn modal__close" type="button" data-modal-close aria-label="{% translate "إغلاق" %}">{% icon "x" 18 %}</button>
+    <h2 id="add-item-t" style="font-size:1.3rem">{% translate "إضافة عمل جديد" %}</h2>
+    <form method="post" enctype="multipart/form-data" novalidate>{% csrf_token %}
+      {% include "partials/form_fields.html" with wide_fields="title url" %}
+      <div class="form-actions"><button class="btn btn--ghost" type="button" data-modal-close>{% translate "إلغاء" %}</button><button class="btn btn--primary" type="submit"><span>{% translate "حفظ" %}</span></button></div>
+    </form>
+  </div>
+</div>
+{% endblock %}

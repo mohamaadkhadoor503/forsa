@@ -1,0 +1,6 @@
+{% load i18n %}<fieldset class="filters__group" style="border:0;margin:0;padding-inline:0">
+  <legend class="filters__title">{% translate "المهارات" %}</legend>
+  <div style="max-height:220px;overflow:auto">
+  {% for s in popular_skills %}<label class="check"><input type="checkbox" name="skill" value="{{ s.slug }}" {% if s.slug in selected.skill %}checked{% endif %}> {{ s.name }}</label>{% endfor %}
+  </div>
+</fieldset>

@@ -1,0 +1,23 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load i18n %}
+{% block title %}{% translate "إعدادات الحساب" %}{% endblock %}
+{% block dash_content %}
+<div class="dash__head"><div><h1>{% translate "إعدادات الحساب" %}</h1><p>{% translate "بياناتك الشخصية، اللغة، الإشعارات وكلمة المرور." %}</p></div></div>
+<div class="dash-grid">
+  <div class="panel">
+    <h2 style="font-size:1.05rem">{% translate "البيانات الشخصية" %}</h2>
+    <div class="row mb-2">{% avatar user.display_name user.avatar 64 %}<div><strong>{{ user.display_name }}</strong><div class="muted" style="font-size:.85rem">{{ user.get_role_display }}</div></div></div>
+    <form method="post" enctype="multipart/form-data" novalidate>{% csrf_token %}
+      {% include "partials/form_fields.html" with form=account_form %}
+      <div class="form-actions"><button class="btn btn--primary" type="submit" name="save_account" value="1"><span>{% translate "حفظ" %}</span></button></div>
+    </form>
+  </div>
+  <div class="panel">
+    <h2 style="font-size:1.05rem">{% icon "lock" 18 %} {% translate "تغيير كلمة المرور" %}</h2>
+    <form method="post" novalidate>{% csrf_token %}
+      {% for field in password_form %}{% include "partials/field.html" %}{% endfor %}
+      <div class="form-actions"><button class="btn btn--dark" type="submit" name="change_password" value="1">{% translate "تغيير كلمة المرور" %}</button></div>
+    </form>
+  </div>
+</div>
+{% endblock %}

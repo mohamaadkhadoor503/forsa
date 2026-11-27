@@ -1,0 +1,12 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load i18n %}
+{% block title %}{% translate "تصنيف" %}{% endblock %}
+{% block dash_content %}
+<div class="dash__head"><div><h1>{% if object %}{% translate "تعديل التصنيف" %}{% else %}{% translate "تصنيف جديد" %}{% endif %}</h1><p>{% translate "الأيقونات المتاحة: code, shield, palette, megaphone, cog, calculator, film, cpu, chart, wifi, briefcase, users, layers ..." %}</p></div><a class="btn btn--ghost" href="{% url 'dashboard:admin_categories' %}">{% translate "رجوع" %}</a></div>
+<div class="panel">
+  <form method="post" novalidate>{% csrf_token %}
+    {% include "partials/form_fields.html" %}
+    <div class="form-actions"><button class="btn btn--primary" type="submit"><span>{% translate "حفظ" %}</span></button></div>
+  </form>
+</div>
+{% endblock %}

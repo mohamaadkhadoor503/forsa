@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 340" role="img" aria-label="Team collaborating on a project">
+  <defs>
+    <linearGradient id="tm-board" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0F172A"/><stop offset="1" stop-color="#1E293B"/></linearGradient>
+    <linearGradient id="tm-a" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3B82F6"/><stop offset="1" stop-color="#1D4ED8"/></linearGradient>
+    <linearGradient id="tm-b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A78BFA"/><stop offset="1" stop-color="#7C3AED"/></linearGradient>
+    <linearGradient id="tm-c" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22D3EE"/><stop offset="1" stop-color="#0891B2"/></linearGradient>
+  </defs>
+  <rect x="110" y="20" width="260" height="160" rx="18" fill="url(#tm-board)"/>
+  <rect x="130" y="42" width="80" height="10" rx="5" fill="#60A5FA"/>
+  <rect x="130" y="62" width="120" height="7" rx="3.5" fill="#334155"/>
+  <path d="M136 150l40-34 30 18 42-46 40 22 40-40" stroke="#22D3EE" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="248" cy="88" r="7" fill="#A78BFA"/>
+  <circle cx="328" cy="70" r="7" fill="#10B981"/>
+  <rect x="290" y="128" width="62" height="30" rx="8" fill="#7C3AED" opacity=".8"/>
+  <!-- person a -->
+  <path d="M30 340c2-60 30-92 72-92s70 32 72 92z" fill="url(#tm-a)"/>
+  <circle cx="102" cy="206" r="36" fill="#D9A27A"/>
+  <path d="M66 200c-2-30 16-48 38-48s40 16 36 44c-8-14-20-20-36-20-14 6-28 8-38 24z" fill="#1E140F"/>
+  <circle cx="90" cy="210" r="3.5" fill="#1E140F"/><circle cx="114" cy="210" r="3.5" fill="#1E140F"/>
+  <path d="M94 224c5 4 11 4 16 0" stroke="#8B4B32" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- person b (hijab) -->
+  <path d="M168 340c2-66 32-100 72-100s70 34 72 100z" fill="url(#tm-b)"/>
+  <path d="M196 232c-8-30-2-66 16-82 8-8 18-12 28-12s20 4 28 12c18 16 24 52 16 82-12 14-28 20-44 20s-32-6-44-20z" fill="url(#tm-c)"/>
+  <ellipse cx="240" cy="200" rx="28" ry="34" fill="#F1C3A0"/>
+  <path d="M210 192c2-26 14-38 30-38s28 12 30 38c-8-14-18-20-30-20s-22 6-30 20z" fill="url(#tm-c)"/>
+  <circle cx="229" cy="204" r="3.5" fill="#2A1C14"/><circle cx="251" cy="204" r="3.5" fill="#2A1C14"/>
+  <path d="M232 218c5 4 11 4 16 0" stroke="#B4535B" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- person c -->
+  <path d="M306 340c2-60 30-92 72-92s70 32 72 92z" fill="#1E293B"/>
+  <path d="M362 250l16 30 16-30" fill="#F8FAFC"/>
+  <circle cx="378" cy="206" r="36" fill="#B87D56"/>
+  <path d="M342 196c0-30 18-46 38-46 22 0 38 18 34 44-10-14-22-18-36-18-14 2-26 8-36 20z" fill="#3F3F46"/>
+  <circle cx="366" cy="210" r="3.5" fill="#1E140F"/><circle cx="390" cy="210" r="3.5" fill="#1E140F"/>
+  <path d="M370 224c5 4 11 4 16 0" stroke="#7C3D2A" stroke-width="3" stroke-linecap="round" fill="none"/>
+</svg>

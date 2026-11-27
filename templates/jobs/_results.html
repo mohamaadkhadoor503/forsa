@@ -1,0 +1,9 @@
+{% load i18n %}{% translate "وظيفة" as noun %}
+{% include "partials/results_bar.html" with noun=noun with_view_toggle=True %}
+{% if jobs %}
+  <div class="results" data-results-grid>{% for job in jobs %}{% include "partials/job_card.html" %}{% endfor %}</div>
+  {% include "partials/pagination.html" %}
+{% else %}
+  {% translate "لا توجد وظائف مطابقة" as t %}{% translate "جرّب تقليل الفلاتر أو استخدام كلمات بحث مختلفة." as tx %}{% translate "عرض كل الوظائف" as al %}
+  {% url 'jobs:list' as au %}{% include "partials/empty.html" with title=t text=tx action_url=au action_label=al partial_link=True %}
+{% endif %}

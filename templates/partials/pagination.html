@@ -1,0 +1,10 @@
+{% load i18n %}{% if page_obj.has_other_pages %}
+<nav class="pagination" aria-label="{% translate "الصفحات" %}">
+  {% if page_obj.has_previous %}<a href="?{% if querystring %}{{ querystring }}&{% endif %}page={{ page_obj.previous_page_number }}" aria-label="{% translate "السابق" %}">{% icon "chevron-right" 18 "flip-ltr" %}</a>{% endif %}
+  {% for n in page_obj.paginator.page_range %}
+    {% if n == page_obj.number %}<span class="is-current" aria-current="page">{{ n }}</span>
+    {% elif n > page_obj.number|add:'-3' and n < page_obj.number|add:'3' or n == 1 or n == page_obj.paginator.num_pages %}<a href="?{% if querystring %}{{ querystring }}&{% endif %}page={{ n }}">{{ n }}</a>{% endif %}
+  {% endfor %}
+  {% if page_obj.has_next %}<a href="?{% if querystring %}{{ querystring }}&{% endif %}page={{ page_obj.next_page_number }}" aria-label="{% translate "التالي" %}">{% icon "chevron-left" 18 "flip-ltr" %}</a>{% endif %}
+</nav>
+{% endif %}

@@ -1,0 +1,25 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load i18n humanize %}
+{% block title %}{% translate "البلاغات" %}{% endblock %}
+{% block dash_content %}
+<div class="dash__head"><div><h1>{% translate "البلاغات والشكاوى" %}</h1></div></div>
+<nav class="tabs"><a href="?" class="{% if not request.GET.status %}is-active{% endif %}">{% translate "الكل" %}</a>{% for v, l in statuses %}<a href="?status={{ v }}" class="{% if request.GET.status == v %}is-active{% endif %}">{{ l }}</a>{% endfor %}</nav>
+<div class="stack" style="gap:14px">
+{% for r in reports %}
+  <article class="panel">
+    <div class="row row--between"><div><span class="badge">{{ r.get_target_type_display }}</span> <a href="{{ r.target_url }}" style="font-weight:700" target="_blank">{{ r.target_label }}</a></div><span class="badge badge--{{ r.status }}">{{ r.get_status_display }}</span></div>
+    <p class="mt-1 mb-0"><strong>{{ r.get_reason_display }}</strong>{% if r.details %} — <span class="muted">{{ r.details }}</span>{% endif %}</p>
+    <div class="row row--between mt-1"><small class="muted">{% translate "من:" %} {{ r.reporter.email }} · {{ r.created_at|naturaltime }}</small>
+      <div class="row" style="gap:4px">
+        {% translate "قيد المراجعة" as l1 %}{% translate "تم الحل" as l2 %}{% translate "رفض" as l3 %}
+        {% if r.status != 'reviewing' %}{% include "dashboard/admin/_action.html" with action="report_status" pk=r.pk value="reviewing" label=l1 %}{% endif %}
+        {% if r.status != 'resolved' %}{% include "dashboard/admin/_action.html" with action="report_status" pk=r.pk value="resolved" label=l2 cls="btn--success" %}{% endif %}
+        {% if r.status != 'dismissed' %}{% include "dashboard/admin/_action.html" with action="report_status" pk=r.pk value="dismissed" label=l3 cls="btn--ghost" %}{% endif %}
+      </div></div>
+  </article>
+{% empty %}
+  <div class="panel">{% translate "لا توجد بلاغات" as t %}{% include "partials/empty.html" with title=t %}</div>
+{% endfor %}
+</div>
+{% include "partials/pagination.html" %}
+{% endblock %}

@@ -1,0 +1,21 @@
+{% if field.is_hidden %}{{ field }}{% elif field.field.widget.input_type == 'checkbox' %}
+<div class="field {% if field.errors %}has-error{% endif %} {{ field_class }}">
+  <label class="check">{{ field }} <span>{{ field.label }}</span></label>
+  {% if field.errors %}<p class="error">{{ field.errors|first }}</p>{% endif %}
+</div>
+{% elif field.field.widget.input_type == 'radio' and field.name == 'rating' %}
+<div class="field {{ field_class }}">
+  <span class="field-label">{{ field.label }}</span>
+  <div class="rating-input">
+    {% for radio in field %}<input type="radio" name="{{ field.html_name }}" id="{{ radio.id_for_label }}" value="{{ radio.data.value }}" {% if radio.data.selected %}checked{% endif %} required><label for="{{ radio.id_for_label }}">{{ radio.data.value }}{% icon "star" 30 %}</label>{% endfor %}
+  </div>
+  {% if field.errors %}<p class="error">{{ field.errors|first }}</p>{% endif %}
+</div>
+{% else %}
+<div class="field {% if field.errors %}has-error{% endif %} {{ field_class }}">
+  <label for="{{ field.id_for_label }}">{{ field.label }}{% if field.field.required %} <span style="color:var(--red)">*</span>{% endif %}</label>
+  {{ field }}
+  {% if field.help_text %}<span class="help">{{ field.help_text }}</span>{% endif %}
+  {% if field.errors %}<p class="error">{{ field.errors|first }}</p>{% endif %}
+</div>
+{% endif %}

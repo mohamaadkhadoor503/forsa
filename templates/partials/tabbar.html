@@ -1,0 +1,16 @@
+{% load i18n %}
+<nav class="tabbar" aria-label="{% translate "التنقل السريع" %}">
+  <a href="{% url 'core:home' %}" class="{% if request.path == '/' %}is-active{% endif %}">{% icon "home" 22 %}<span>{% translate "الرئيسية" %}</span></a>
+  <a href="{% url 'jobs:list' %}" class="{% nav_active '/jobs' %}">{% icon "briefcase" 22 %}<span>{% translate "وظائف" %}</span></a>
+  {% if user.is_authenticated and user.is_employer %}
+    <a href="{% url 'dashboard:employer_job_create' %}" class="tabbar__cta">{% icon "plus" 22 %}<span>{% translate "انشر" %}</span></a>
+  {% else %}
+    <a href="{% url 'projects:list' %}" class="tabbar__cta">{% icon "layers" 22 %}<span>{% translate "مشاريع" %}</span></a>
+  {% endif %}
+  <a href="{% url 'talents:list' %}" class="{% nav_active '/talents' %}">{% icon "users" 22 %}<span>{% translate "مواهب" %}</span></a>
+  {% if user.is_authenticated %}
+    <a href="{% url 'dashboard:home' %}" class="{% nav_active '/dashboard' '/messages' '/notifications' %}">{% icon "user" 22 %}<span>{% translate "حسابي" %}</span></a>
+  {% else %}
+    <a href="{% url 'accounts:login' %}" class="{% nav_active '/accounts' %}">{% icon "user" 22 %}<span>{% translate "دخول" %}</span></a>
+  {% endif %}
+</nav>

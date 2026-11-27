@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% translate "الشروط والأحكام" %} — {{ site_settings.site_name }}{% endblock %}
+{% block content %}
+<section class="page-hero"><span class="orb orb--violet" aria-hidden="true"></span>
+  <div class="container page-fade"><span class="eyebrow">{% translate "قانوني" %}</span><h1>{% translate "الشروط والأحكام" %}</h1></div>
+</section>
+<section class="section" style="padding-top:0">
+  <div class="container legal card">
+    <div class="alert mb-2">{% icon "info" 18 %}<div>{% translate "هذا نص نموذجي يجب مراجعته من مستشار قانوني وتعديله بما يتوافق مع أنظمة بلدك قبل الإطلاق الرسمي." %}</div></div>
+    <h2>{% translate "1. القبول" %}</h2>
+    <p>{% translate "باستخدامك للمنصة فإنك توافق على هذه الشروط. إن لم توافق عليها يرجى عدم استخدام المنصة." %}</p>
+    <h2>{% translate "2. الحسابات" %}</h2>
+    <p>{% translate "أنت مسؤول عن صحة بياناتك وسرية كلمة المرور. يحق لنا تعليق الحسابات المخالفة." %}</p>
+    <h2>{% translate "3. المحتوى المنشور" %}</h2>
+    <ul><li>{% translate "يجب أن تكون الوظائف والمشاريع حقيقية وواضحة." %}</li><li>{% translate "يُمنع نشر محتوى مضلل أو احتيالي أو مسيء." %}</li><li>{% translate "يحق للإدارة حذف أي محتوى مخالف." %}</li></ul>
+    <h2>{% translate "4. التعاملات بين المستخدمين" %}</h2>
+    <p>{% translate "المنصة وسيط يربط بين الأطراف، والاتفاقات المالية والتعاقدية تتم بين صاحب العمل والمستقل أو الموظف مباشرة." %}</p>
+    <h2>{% translate "5. التعديلات" %}</h2>
+    <p>{% translate "قد نحدّث هذه الشروط من وقت لآخر، وسيتم إشعار المستخدمين بالتغييرات الجوهرية." %}</p>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,95 @@
+{% load i18n %}{% get_current_language as LANG %}
+<header class="nav {% block nav_class %}{% endblock %}{% if request.resolver_match.app_name == 'dashboard' or request.resolver_match.app_name == 'messaging' or request.resolver_match.app_name == 'notifications' or request.resolver_match.app_name == 'accounts' %} nav--solid{% endif %}">
+  <div class="container nav__inner">
+    {% if request.resolver_match.app_name == 'dashboard' or request.resolver_match.app_name == 'messaging' or request.resolver_match.app_name == 'notifications' %}
+      <button class="icon-btn dash-toggle" type="button" data-dash-toggle aria-label="{% translate "القائمة الجانبية" %}">{% icon "layout" 20 %}</button>
+    {% endif %}
+    {% include "partials/brand.html" %}
+    <nav class="nav__links" aria-label="{% translate "التنقل الرئيسي" %}">
+      <a href="{% url 'jobs:list' %}" class="{% nav_active '/jobs' %}">{% translate "الوظائف" %}</a>
+      <a href="{% url 'projects:list' %}" class="{% nav_active '/projects' %}">{% translate "المشاريع" %}</a>
+      <a href="{% url 'talents:list' %}" class="{% nav_active '/talents' %}">{% translate "المواهب" %}</a>
+      <a href="{% url 'companies:list' %}" class="{% nav_active '/companies' %}">{% translate "الشركات" %}</a>
+    </nav>
+
+    <div class="nav__actions">
+      <form class="lang-form nav__desktop-only" action="{% url 'set_language' %}" method="post">{% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+        <input type="hidden" name="language" value="{% if LANG == 'ar' %}en{% else %}ar{% endif %}">
+        <button class="icon-btn" type="submit" aria-label="{% translate "تغيير اللغة" %}" title="{% translate "تغيير اللغة" %}">{% if LANG == 'ar' %}EN{% else %}ع{% endif %}</button>
+      </form>
+      <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="{% translate "تبديل الوضع الليلي" %}">
+        <span class="icon-moon">{% icon "moon" 19 %}</span><span class="icon-sun">{% icon "sun" 19 %}</span>
+      </button>
+
+      {% if user.is_authenticated %}
+        <a class="icon-btn nav__desktop-only" href="{% url 'messaging:inbox' %}" aria-label="{% translate "الرسائل" %}">
+          {% icon "message" 19 %}{% if unread_messages %}<span class="counter">{{ unread_messages }}</span>{% endif %}
+        </a>
+        <div class="dropdown" data-dropdown>
+          <button class="icon-btn" type="button" data-dropdown-trigger aria-expanded="false" aria-label="{% translate "الإشعارات" %}">
+            {% icon "bell" 19 %}{% if unread_notifications %}<span class="counter">{{ unread_notifications }}</span>{% endif %}
+          </button>
+          <div class="dropdown__menu dropdown__menu--wide">
+            <div class="dropdown__head row row--between"><strong>{% translate "الإشعارات" %}</strong><a class="muted" style="width:auto;padding:0;font-size:.8rem" href="{% url 'notifications:list' %}">{% translate "عرض الكل" %}</a></div>
+            {% for n in latest_notifications %}
+              <form method="post" action="{% url 'notifications:open' n.pk %}">{% csrf_token %}
+                <button type="submit" class="notif-item {% if not n.is_read %}is-unread{% endif %}">
+                  {% icon "bell" 16 %}<span>{{ n.title }}<small>{{ n.created_at|timesince }}</small></span>
+                </button>
+              </form>
+            {% empty %}
+              <p class="muted text-center" style="padding:16px;margin:0">{% translate "لا توجد إشعارات بعد" %}</p>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="dropdown" data-dropdown>
+          <button class="nav__user" type="button" data-dropdown-trigger aria-expanded="false">
+            {% avatar user.display_name user.avatar 32 %}<span class="hide-sm">{{ user.first_name|default:user.display_name }}</span>{% icon "chevron-down" 16 %}
+          </button>
+          <div class="dropdown__menu">
+            <div class="dropdown__head"><strong>{{ user.display_name }}</strong><div class="muted" style="font-size:.8rem">{{ user.email }}</div></div>
+            <a href="{% url 'dashboard:home' %}">{% icon "layout" 18 %}{% translate "لوحة التحكم" %}</a>
+            {% if user.is_seeker %}<a href="{% url 'dashboard:seeker_profile' %}">{% icon "user" 18 %}{% translate "ملفي المهني" %}</a>{% endif %}
+            {% if user.is_employer %}<a href="{% url 'dashboard:employer_job_create' %}">{% icon "plus" 18 %}{% translate "نشر وظيفة" %}</a>{% endif %}
+            <a href="{% url 'messaging:inbox' %}">{% icon "message" 18 %}{% translate "الرسائل" %}</a>
+            <a href="{% url 'dashboard:settings' %}">{% icon "settings" 18 %}{% translate "الإعدادات" %}</a>
+            <form method="post" action="{% url 'accounts:logout' %}">{% csrf_token %}<button type="submit">{% icon "logout" 18 %}{% translate "تسجيل الخروج" %}</button></form>
+          </div>
+        </div>
+      {% else %}
+        <a class="btn btn--ghost nav__desktop-only" href="{% url 'accounts:login' %}">{% translate "تسجيل الدخول" %}</a>
+        <a class="btn btn--primary nav__desktop-only" href="{% url 'accounts:choose_type' %}" data-magnetic><span>{% translate "ابدأ مجاناً" %}</span></a>
+      {% endif %}
+      <button class="icon-btn nav__burger" type="button" data-drawer-open aria-label="{% translate "فتح القائمة" %}" aria-controls="mobile-drawer">{% icon "menu" 20 %}</button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="mobile-drawer" aria-hidden="true">
+  <div class="drawer__backdrop" data-drawer-close></div>
+  <nav class="drawer__panel" aria-label="{% translate "قائمة الهاتف" %}">
+    <div class="row row--between mb-2">{% include "partials/brand.html" %}<button class="icon-btn" type="button" data-drawer-close aria-label="{% translate "إغلاق" %}">{% icon "x" 20 %}</button></div>
+    <a href="{% url 'core:home' %}">{% icon "home" 20 %}{% translate "الرئيسية" %}</a>
+    <a href="{% url 'jobs:list' %}" class="{% nav_active '/jobs' %}">{% icon "briefcase" 20 %}{% translate "الوظائف" %}</a>
+    <a href="{% url 'projects:list' %}" class="{% nav_active '/projects' %}">{% icon "layers" 20 %}{% translate "المشاريع" %}</a>
+    <a href="{% url 'talents:list' %}" class="{% nav_active '/talents' %}">{% icon "users" 20 %}{% translate "المواهب" %}</a>
+    <a href="{% url 'companies:list' %}" class="{% nav_active '/companies' %}">{% icon "building" 20 %}{% translate "الشركات" %}</a>
+    <a href="{% url 'core:about' %}">{% icon "info" 20 %}{% translate "من نحن" %}</a>
+    <a href="{% url 'core:faq' %}">{% icon "message" 20 %}{% translate "الأسئلة الشائعة" %}</a>
+    <a href="{% url 'core:contact' %}">{% icon "mail" 20 %}{% translate "تواصل معنا" %}</a>
+    {% if user.is_authenticated %}
+      <a href="{% url 'dashboard:home' %}">{% icon "layout" 20 %}{% translate "لوحة التحكم" %}</a>
+    {% else %}
+      <div class="stack mt-2">
+        <a class="btn btn--primary btn--block" href="{% url 'accounts:choose_type' %}">{% translate "إنشاء حساب" %}</a>
+        <a class="btn btn--outline btn--block" href="{% url 'accounts:login' %}">{% translate "تسجيل الدخول" %}</a>
+      </div>
+    {% endif %}
+    <form class="lang-form mt-2" action="{% url 'set_language' %}" method="post">{% csrf_token %}
+      <input type="hidden" name="next" value="{{ request.get_full_path }}">
+      <input type="hidden" name="language" value="{% if LANG == 'ar' %}en{% else %}ar{% endif %}">
+      <button class="btn btn--ghost btn--block" type="submit">{% icon "globe" 18 %}{% if LANG == 'ar' %}English{% else %}العربية{% endif %}</button>
+    </form>
+  </nav>
+</div>

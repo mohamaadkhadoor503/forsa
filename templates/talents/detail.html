@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+{% load i18n humanize %}
+{% block title %}{{ profile.user.display_name }} — {{ profile.headline }} | {{ site_settings.site_name }}{% endblock %}
+{% block meta_description %}{{ profile.bio|truncatechars:155 }}{% endblock %}
+{% block content %}
+<section class="section" style="padding-top:24px">
+  <div class="container">
+    <div class="cover page-fade"><div class="cover__pattern"></div></div>
+    <div class="profile-head">
+      <span class="avatar-ring">{% avatar profile.user.display_name profile.user.avatar 132 %}</span>
+      <div style="flex:1;min-width:220px;padding-bottom:8px">
+        <h1 style="font-size:clamp(1.5rem,3vw,2.1rem);margin:0">{{ profile.user.display_name }}</h1>
+        <div class="muted" style="font-weight:600">{{ profile.headline|default:profile.specialization }}</div>
+        <div class="row mt-1" style="gap:8px">
+          <span class="badge badge--{{ profile.availability }} badge--live"><span class="dot"></span>{{ profile.get_availability_display }}</span>
+          {% if profile.reviews_count %}{% stars profile.avg_rating %}<span class="muted" style="font-size:.85rem">{{ profile.avg_rating|floatformat:1 }} ({{ profile.reviews_count }} {% translate "تقييم" %})</span>{% endif %}
+        </div>
+      </div>
+      <div class="row" style="padding-bottom:8px">
+        {% if user.is_authenticated and user != profile.user %}
+          <form method="post" action="{% url 'messaging:start' profile.user.pk %}">{% csrf_token %}<button class="btn btn--primary" type="submit"><span>{% icon "message" 18 %}</span><span>{% translate "تواصل / وظّف" %}</span></button></form>
+          {% if user.is_employer %}<form method="post" action="{% url 'talents:toggle_favorite' profile.pk %}">{% csrf_token %}<button class="btn btn--outline btn--icon save-btn {% if is_favorite %}is-saved{% endif %}" type="submit" aria-label="{% translate "إضافة للمفضلين" %}" aria-pressed="{% if is_favorite %}true{% else %}false{% endif %}">{% icon "heart" 18 %}</button></form>{% endif %}
+        {% elif user == profile.user %}
+          <a class="btn btn--dark" href="{% url 'dashboard:seeker_profile' %}">{% icon "edit" 18 %}{% translate "تعديل ملفي" %}</a>
+        {% else %}
+          <a class="btn btn--primary" href="{% url 'accounts:login' %}?next={{ request.path|urlencode }}"><span>{% translate "سجّل الدخول للتواصل" %}</span></a>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="detail mt-4">
+      <div class="stack" style="gap:20px">
+        {% if profile.bio %}<div class="card prose" data-reveal><h2 style="margin-top:0">{% translate "نبذة" %}</h2><p>{{ profile.bio }}</p></div>{% endif %}
+
+        <div class="card" data-reveal>
+          <h2 style="font-size:1.2rem">{% translate "معرض الأعمال" %}</h2>
+          {% if profile.portfolio.all %}
+          <div class="portfolio-grid" data-stagger>
+            {% for w in profile.portfolio.all %}
+            <a class="portfolio-item" {% if w.url %}href="{{ w.url }}" target="_blank" rel="noopener nofollow"{% endif %}>
+              <div class="portfolio-item__img">{% if w.image %}<img src="{{ w.image.url }}" alt="{{ w.title }}" loading="lazy">{% else %}{% icon "layers" 36 %}{% endif %}</div>
+              <div class="portfolio-item__body"><strong>{{ w.title }}</strong>{% if w.description %}<p class="muted mb-0" style="font-size:.85rem">{{ w.description|truncatechars:90 }}</p>{% endif %}</div>
+            </a>
+            {% endfor %}
+          </div>
+          {% else %}<p class="muted mb-0">{% translate "لم تتم إضافة أعمال بعد." %}</p>{% endif %}
+        </div>
+
+        {% with exps=profile.experiences.all %}{% if exps %}
+        <div class="card" data-reveal>
+          <h2 style="font-size:1.2rem">{% translate "الخبرات" %}</h2>
+          <div class="timeline">
+            {% for e in exps %}<div class="timeline__item"><strong>{{ e.title }}</strong> · <span class="muted">{{ e.company }}</span>
+              <div class="muted" style="font-size:.82rem">{{ e.start_date|date:"M Y" }} — {% if e.is_current %}{% translate "حتى الآن" %}{% else %}{{ e.end_date|date:"M Y" }}{% endif %}</div>
+              {% if e.description %}<p class="muted mb-0" style="font-size:.9rem">{{ e.description }}</p>{% endif %}</div>{% endfor %}
+          </div>
+        </div>
+        {% endif %}{% endwith %}
+
+        {% with edus=profile.educations.all %}{% if edus %}
+        <div class="card" data-reveal>
+          <h2 style="font-size:1.2rem">{% translate "التعليم" %}</h2>
+          {% for ed in edus %}<div class="list-row">{% icon "graduation" 22 %}<div class="list-row__main"><strong>{{ ed.degree }}</strong><small>{{ ed.institution }} · {{ ed.start_year }}{% if ed.end_year %} – {{ ed.end_year }}{% endif %}</small></div></div>{% endfor %}
+        </div>
+        {% endif %}{% endwith %}
+
+        <div class="card" data-reveal>
+          <h2 style="font-size:1.2rem">{% translate "التقييمات" %}</h2>
+          {% for r in reviews %}
+            <div class="list-row" style="align-items:flex-start">{% avatar r.reviewer.display_name r.reviewer.avatar 40 %}<div class="list-row__main"><div class="row row--between"><strong>{{ r.reviewer.display_name }}</strong>{% stars r.rating %}</div>{% if r.comment %}<p class="mb-0" style="font-size:.92rem">{{ r.comment }}</p>{% endif %}<small>{{ r.project.title }} · {{ r.created_at|naturaltime }}</small></div></div>
+          {% empty %}<p class="muted mb-0">{% translate "لا توجد تقييمات بعد. التقييمات تُضاف فقط من أصحاب مشاريع منجزة فعلياً." %}</p>{% endfor %}
+        </div>
+      </div>
+
+      <aside class="detail__aside">
+        <div class="card" data-reveal>
+          <ul class="info-list">
+            <li><span class="info-list__icon">{% icon "award" 18 %}</span><div><small>{% translate "سنوات الخبرة" %}</small><strong>{{ profile.years_experience }}</strong></div></li>
+            <li><span class="info-list__icon">{% icon "trending" 18 %}</span><div><small>{% translate "المستوى" %}</small><strong>{{ profile.get_experience_level_display }}</strong></div></li>
+            {% if profile.specialization %}<li><span class="info-list__icon">{% icon "layers" 18 %}</span><div><small>{% translate "التخصص" %}</small><strong>{{ profile.specialization|localized }}</strong></div></li>{% endif %}
+            {% if profile.location %}<li><span class="info-list__icon">{% icon "map-pin" 18 %}</span><div><small>{% translate "الموقع" %}</small><strong>{{ profile.location }}</strong></div></li>{% endif %}
+            {% if profile.hourly_rate %}<li><span class="info-list__icon">{% icon "wallet" 18 %}</span><div><small>{% translate "السعر بالساعة" %}</small><strong><bdi>${{ profile.hourly_rate }}</bdi></strong></div></li>{% endif %}
+          </ul>
+        </div>
+        {% if profile.skills.all %}<div class="card" data-reveal><h3 style="font-size:1rem">{% translate "المهارات" %}</h3><div class="chips">{% for s in profile.skills.all %}<a class="chip" href="{% url 'talents:list' %}?skill={{ s.slug }}">{{ s.name }}</a>{% endfor %}</div></div>{% endif %}
+        <div class="card" data-reveal>
+          <div class="stack" style="gap:8px">
+            {% if profile.cv and user.is_authenticated %}<a class="btn btn--outline btn--block" href="{{ profile.cv.url }}" target="_blank" rel="noopener">{% icon "file" 18 %}{% translate "عرض السيرة الذاتية" %}</a>{% endif %}
+            {% if profile.website %}<a class="btn btn--ghost btn--block" href="{{ profile.website }}" target="_blank" rel="noopener nofollow">{% icon "link" 18 %}{% translate "الموقع الشخصي" %}</a>{% endif %}
+            {% if profile.github %}<a class="btn btn--ghost btn--block" href="{{ profile.github }}" target="_blank" rel="noopener nofollow">{% icon "github" 18 %}GitHub</a>{% endif %}
+            {% if profile.linkedin %}<a class="btn btn--ghost btn--block" href="{{ profile.linkedin }}" target="_blank" rel="noopener nofollow">{% icon "linkedin" 18 %}LinkedIn</a>{% endif %}
+          </div>
+        </div>
+        {% if user.is_authenticated and user != profile.user %}<button class="btn btn--ghost btn--sm" type="button" data-modal-open="report-modal">{% icon "flag" 16 %}{% translate "الإبلاغ عن الملف" %}</button>{% endif %}
+      </aside>
+    </div>
+  </div>
+</section>
+{% endblock %}
+{% block modals %}{% if user.is_authenticated %}{% include "partials/report_modal.html" with target_type="profile" target_id=profile.pk %}{% endif %}{% endblock %}

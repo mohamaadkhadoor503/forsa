@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load i18n static %}
+{% block footer %}{% endblock %}
+{% block content %}
+<div class="auth">
+  <div class="auth__form">
+    <div class="auth__card page-fade">{% block card %}{% endblock %}</div>
+  </div>
+  <aside class="auth__side" aria-hidden="true">
+    <div class="bg-grid" style="opacity:.5"></div>
+    <img class="auth__art" src="{% static side_image|default:'img/illustrations/person-laptop.svg' %}" alt="" width="380" height="420">
+    <h2>{% block side_title %}{% translate "مهاراتك تستحق الفرصة المناسبة" %}{% endblock %}</h2>
+    <p>{% block side_text %}{% translate "انضم إلى مجتمع من المحترفين والشركات، وابدأ رحلتك المهنية بثقة." %}{% endblock %}</p>
+    <div class="row mt-2" style="gap:8px">
+      <span class="badge" style="background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.2)">{% icon "check" 14 %}{% translate "مجاني" %}</span>
+      <span class="badge" style="background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.2)">{% icon "shield" 14 %}{% translate "آمن" %}</span>
+      <span class="badge" style="background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.2)">{% icon "zap" 14 %}{% translate "سريع" %}</span>
+    </div>
+  </aside>
+</div>
+{% endblock %}

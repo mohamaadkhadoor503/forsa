@@ -1,0 +1,23 @@
+{% load i18n %}
+<div class="modal" id="report-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="report-title">
+  <div class="modal__backdrop"></div>
+  <div class="modal__dialog">
+    <button class="icon-btn modal__close" type="button" data-modal-close aria-label="{% translate "إغلاق" %}">{% icon "x" 18 %}</button>
+    <h2 id="report-title" style="font-size:1.3rem">{% icon "flag" 22 %} {% translate "الإبلاغ عن محتوى" %}</h2>
+    <p class="muted">{% translate "ساعدنا في إبقاء المنصة آمنة. سيراجع فريقنا البلاغ بسرية." %}</p>
+    <form method="post" action="{% url 'reviews:report' target_type target_id %}">{% csrf_token %}
+      <input type="hidden" name="next" value="{{ request.get_full_path }}">
+      <div class="field"><label for="r-reason">{% translate "السبب" %}</label>
+        <select id="r-reason" name="reason" required>
+          <option value="spam">{% translate "محتوى مزعج / إعلاني" %}</option>
+          <option value="fraud">{% translate "احتيال أو نصب" %}</option>
+          <option value="offensive">{% translate "محتوى مسيء" %}</option>
+          <option value="misleading">{% translate "معلومات مضللة" %}</option>
+          <option value="other">{% translate "أخرى" %}</option>
+        </select>
+      </div>
+      <div class="field"><label for="r-details">{% translate "التفاصيل" %}</label><textarea id="r-details" name="details" rows="3" maxlength="1000"></textarea></div>
+      <div class="form-actions"><button type="button" class="btn btn--ghost" data-modal-close>{% translate "إلغاء" %}</button><button type="submit" class="btn btn--dark">{% translate "إرسال البلاغ" %}</button></div>
+    </form>
+  </div>
+</div>

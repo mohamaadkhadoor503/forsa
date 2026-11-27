@@ -1,0 +1,31 @@
+{% load i18n %}
+<article class="card card--hover talent-card" data-tilt>
+  <div class="talent-card__cover" aria-hidden="true"></div>
+  <div class="talent-card__avatar" style="position:relative">
+    <span class="avatar-ring">{% avatar p.user.display_name p.user.avatar 84 %}</span>
+    <span class="talent-card__status talent-card__status--{{ p.availability }}" title="{{ p.get_availability_display }}"></span>
+  </div>
+  <h3 class="talent-card__name"><a href="{{ p.get_absolute_url }}">{{ p.user.display_name }}</a></h3>
+  <p class="talent-card__role">{{ p.headline|default:p.specialization|default:"—" }}</p>
+  <div class="row" style="gap:8px;justify-content:center">
+    {% if p.reviews_count %}{% stars p.avg_rating %}<span class="muted" style="font-size:.8rem">({{ p.reviews_count }})</span>{% else %}<span class="muted" style="font-size:.8rem">{% translate "لا توجد تقييمات بعد" %}</span>{% endif %}
+  </div>
+  <div class="meta" style="justify-content:center">
+    <span>{% icon "award" 15 %}{{ p.years_experience }} {% translate "سنوات خبرة" %}</span>
+    {% if p.location %}<span>{% icon "map-pin" 15 %}{{ p.location }}</span>{% endif %}
+  </div>
+  <div class="chips" style="justify-content:center">{% for s in p.skills.all|slice:":3" %}<span class="chip">{{ s.name }}</span>{% endfor %}</div>
+  {% with works=p.portfolio.all|slice:":3" %}{% if works %}
+  <div class="talent-card__works" aria-label="{% translate "نماذج أعمال" %}">
+    {% for w in works %}{% if w.image %}<img src="{{ w.image.url }}" alt="{{ w.title }}" loading="lazy" width="52" height="40">{% else %}<span title="{{ w.title }}" style="display:grid;place-items:center;color:var(--violet)">{% icon "layers" 16 %}</span>{% endif %}{% endfor %}
+  </div>
+  {% endif %}{% endwith %}
+  <div class="talent-card__actions">
+    <a class="btn btn--outline btn--sm" href="{{ p.get_absolute_url }}">{% translate "الملف الشخصي" %}</a>
+    {% if user.is_authenticated and user != p.user %}
+      <form method="post" action="{% url 'messaging:start' p.user.pk %}" style="flex:1">{% csrf_token %}<button class="btn btn--dark btn--sm btn--block" type="submit">{% translate "تواصل" %}</button></form>
+    {% else %}
+      <a class="btn btn--dark btn--sm" href="{% url 'accounts:login' %}?next={{ p.get_absolute_url|urlencode }}">{% translate "وظّف" %}</a>
+    {% endif %}
+  </div>
+</article>

@@ -1,0 +1,44 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load i18n %}
+{% block title %}{% translate "الرسائل" %}{% endblock %}
+{% block dash_content %}
+<div class="dash__head"><div><h1>{% translate "الرسائل والمحادثات" %}</h1></div></div>
+<div class="chat {% if active %}has-active{% endif %}" {% if active %}data-chat data-poll-url="{% url 'messaging:poll' active.pk %}" data-error-text="{% translate "تعذر إرسال الرسالة" %}"{% endif %}>
+  <div class="chat__list" aria-label="{% translate "المحادثات" %}">
+    {% for c in conversations %}
+      {% for p in c.participants.all %}{% if p != user %}
+      <a class="chat__item {% if active and active.pk == c.pk %}is-active{% endif %}" href="{% url 'messaging:detail' c.pk %}">
+        {% avatar p.display_name p.avatar 44 %}
+        <div style="flex:1;min-width:0"><strong style="display:block">{{ p.display_name }}</strong><small style="display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ c.subject|default:"—" }}</small></div>
+        {% if c.unread %}<span class="badge badge--blue">{{ c.unread }}</span>{% endif %}
+      </a>
+      {% endif %}{% endfor %}
+    {% empty %}
+      <p class="muted text-center" style="padding:30px 16px">{% translate "لا توجد محادثات بعد. ابدأ محادثة من ملف موهبة أو صفحة شركة." %}</p>
+    {% endfor %}
+  </div>
+  <div class="chat__main">
+    {% if active %}
+      <div class="chat__header">
+        <a class="btn btn--ghost btn--icon btn--sm" href="{% url 'messaging:inbox' %}" aria-label="{% translate "رجوع" %}">{% icon "arrow-right" 18 "flip-ltr" %}</a>
+        {% avatar other.display_name other.avatar 40 %}
+        <div><strong>{{ other.display_name }}</strong><div class="muted" style="font-size:.8rem">{{ active.subject }}</div></div>
+      </div>
+      <div class="chat__body" aria-live="polite">
+        {% for m in thread %}
+          <div class="bubble {% if m.sender_id == user.pk %}bubble--me{% else %}bubble--them{% endif %}" data-id="{{ m.pk }}">{{ m.body }}<small>{{ m.created_at|time:"H:i" }}</small></div>
+        {% empty %}
+          <div class="empty"><p>{% translate "ابدأ المحادثة بإرسال رسالة 👋" %}</p></div>
+        {% endfor %}
+      </div>
+      <form class="chat__composer" method="post" action="{% url 'messaging:send' active.pk %}">{% csrf_token %}
+        <label class="sr-only" for="msg-body">{% translate "رسالتك" %}</label>
+        <textarea id="msg-body" name="body" rows="1" placeholder="{% translate "اكتب رسالتك..." %}" required maxlength="4000"></textarea>
+        <button class="btn btn--primary btn--icon" type="submit" aria-label="{% translate "إرسال" %}"><span>{% icon "send" 18 "flip-rtl" %}</span></button>
+      </form>
+    {% else %}
+      <div class="empty" style="margin:auto">{% icon "message" 48 %}<h3>{% translate "اختر محادثة" %}</h3><p>{% translate "اختر محادثة من القائمة لعرض الرسائل." %}</p></div>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

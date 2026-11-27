@@ -1,0 +1,12 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load i18n %}
+{% block title %}{% translate "شارك رأيك" %}{% endblock %}
+{% block dash_content %}
+<div class="dash__head"><div><h1>{% translate "شارك رأيك في المنصة" %}</h1><p>{% translate "سيظهر رأيك في الصفحة الرئيسية بعد مراجعته من الإدارة." %}</p></div></div>
+<div class="panel" style="max-width:640px">
+  <form method="post" novalidate>{% csrf_token %}
+    {% include "partials/form_fields.html" with wide_fields="role_title rating content" %}
+    <div class="form-actions"><button class="btn btn--primary" type="submit"><span>{% translate "إرسال" %}</span></button></div>
+  </form>
+</div>
+{% endblock %}

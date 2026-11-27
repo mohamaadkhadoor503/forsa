@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block footer %}{% endblock %}
+{% block content %}
+<div class="dash">
+  <aside class="dash__side" aria-label="{% translate "قائمة لوحة التحكم" %}">
+    <div class="dash__user">
+      {% avatar user.display_name user.avatar 44 %}
+      <div style="min-width:0"><strong>{{ user.display_name }}</strong><small>{% if user.is_staff %}{% translate "مدير المنصة" %}{% else %}{{ user.get_role_display }}{% endif %}</small></div>
+      <button class="icon-btn dash-toggle" type="button" data-dash-toggle aria-label="{% translate "إغلاق" %}" style="margin-inline-start:auto;width:34px;height:34px">{% icon "x" 16 %}</button>
+    </div>
+    <nav class="dash__nav">
+      {% if user.is_staff %}
+        <div class="dash__nav-title">{% translate "الإدارة" %}</div>
+        <a href="{% url 'dashboard:admin_home' %}" class="{% if request.resolver_match.url_name == 'admin_home' %}is-active{% endif %}">{% icon "chart" 19 %}{% translate "الإحصائيات والتحليلات" %}</a>
+        <a href="{% url 'dashboard:admin_users' %}" class="{% nav_active '/dashboard/admin/users' %}">{% icon "users" 19 %}{% translate "المستخدمون" %}</a>
+        <a href="{% url 'dashboard:admin_companies' %}" class="{% nav_active '/dashboard/admin/companies' %}">{% icon "building" 19 %}{% translate "الشركات" %}</a>
+        <a href="{% url 'dashboard:admin_jobs' %}" class="{% nav_active '/dashboard/admin/jobs' %}">{% icon "briefcase" 19 %}{% translate "الوظائف" %}</a>
+        <a href="{% url 'dashboard:admin_projects' %}" class="{% nav_active '/dashboard/admin/projects' %}">{% icon "layers" 19 %}{% translate "المشاريع" %}</a>
+        <a href="{% url 'dashboard:admin_categories' %}" class="{% nav_active '/dashboard/admin/categories' %}">{% icon "grid" 19 %}{% translate "التصنيفات" %}</a>
+        <a href="{% url 'dashboard:admin_reports' %}" class="{% nav_active '/dashboard/admin/reports' %}">{% icon "flag" 19 %}{% translate "البلاغات والشكاوى" %}</a>
+        <a href="{% url 'dashboard:admin_content' %}" class="{% nav_active '/dashboard/admin/content' %}">{% icon "eye" 19 %}{% translate "مراجعة المحتوى" %}</a>
+        <a href="{% url 'dashboard:admin_settings' %}" class="{% nav_active '/dashboard/admin/settings' %}">{% icon "cog" 19 %}{% translate "إعدادات المنصة" %}</a>
+        <a href="{% url 'admin:index' %}">{% icon "external" 19 %}{% translate "لوحة Django" %}</a>
+      {% elif user.is_employer %}
+        <div class="dash__nav-title">{% translate "الشركة" %}</div>
+        <a href="{% url 'dashboard:employer_home' %}" class="{% if request.resolver_match.url_name == 'employer_home' %}is-active{% endif %}">{% icon "layout" 19 %}{% translate "الرئيسية" %}</a>
+        <a href="{% url 'dashboard:employer_company' %}" class="{% nav_active '/dashboard/company/profile' %}">{% icon "building" 19 %}{% translate "ملف الشركة" %}</a>
+        <div class="dash__nav-title">{% translate "التوظيف" %}</div>
+        <a href="{% url 'dashboard:employer_job_create' %}" class="{% nav_active '/dashboard/company/jobs/new' %}">{% icon "plus" 19 %}{% translate "نشر وظيفة" %}</a>
+        <a href="{% url 'dashboard:employer_jobs' %}" class="{% if request.resolver_match.url_name == 'employer_jobs' or request.resolver_match.url_name == 'employer_job_edit' %}is-active{% endif %}">{% icon "briefcase" 19 %}{% translate "وظائفي" %}</a>
+        <a href="{% url 'dashboard:employer_applications' %}" class="{% if 'applications' in request.resolver_match.url_name %}is-active{% endif %}">{% icon "inbox" 19 %}{% translate "طلبات التوظيف" %}</a>
+        <div class="dash__nav-title">{% translate "المشاريع" %}</div>
+        <a href="{% url 'dashboard:employer_project_create' %}" class="{% nav_active '/dashboard/company/projects/new' %}">{% icon "rocket" 19 %}{% translate "نشر مشروع" %}</a>
+        <a href="{% url 'dashboard:employer_projects' %}" class="{% if request.resolver_match.url_name == 'employer_projects' or 'proposals' in request.resolver_match.url_name %}is-active{% endif %}">{% icon "layers" 19 %}{% translate "مشاريعي والعروض" %}</a>
+        <div class="dash__nav-title">{% translate "المواهب" %}</div>
+        <a href="{% url 'talents:list' %}">{% icon "search" 19 %}{% translate "البحث عن المواهب" %}</a>
+        <a href="{% url 'dashboard:employer_favorites' %}" class="{% nav_active '/dashboard/company/favorites' %}">{% icon "heart" 19 %}{% translate "المرشحون المفضلون" %}</a>
+      {% else %}
+        <div class="dash__nav-title">{% translate "حسابي" %}</div>
+        <a href="{% url 'dashboard:seeker_home' %}" class="{% if request.resolver_match.url_name == 'seeker_home' %}is-active{% endif %}">{% icon "layout" 19 %}{% translate "الرئيسية" %}</a>
+        <a href="{% url 'dashboard:seeker_profile' %}" class="{% nav_active '/dashboard/me/profile' %}">{% icon "user" 19 %}{% translate "الملف المهني والمهارات" %}</a>
+        <a href="{% url 'dashboard:seeker_cv' %}" class="{% nav_active '/dashboard/me/cv' %}">{% icon "file" 19 %}{% translate "السيرة الذاتية" %}</a>
+        <a href="{% url 'dashboard:seeker_experience' %}" class="{% nav_active '/dashboard/me/experience' %}">{% icon "award" 19 %}{% translate "الخبرات والتعليم" %}</a>
+        <a href="{% url 'dashboard:seeker_portfolio' %}" class="{% nav_active '/dashboard/me/portfolio' %}">{% icon "layers" 19 %}{% translate "معرض الأعمال" %}</a>
+        <div class="dash__nav-title">{% translate "الفرص" %}</div>
+        <a href="{% url 'dashboard:seeker_recommended' %}" class="{% nav_active '/dashboard/me/recommended' %}">{% icon "sparkles" 19 %}{% translate "وظائف مقترحة" %}</a>
+        <a href="{% url 'dashboard:seeker_applications' %}" class="{% nav_active '/dashboard/me/applications' %}">{% icon "inbox" 19 %}{% translate "طلبات التوظيف" %}</a>
+        <a href="{% url 'dashboard:seeker_proposals' %}" class="{% nav_active '/dashboard/me/proposals' %}">{% icon "send" 19 %}{% translate "عروضي على المشاريع" %}</a>
+        <a href="{% url 'dashboard:seeker_saved' %}" class="{% nav_active '/dashboard/me/saved' %}">{% icon "bookmark" 19 %}{% translate "الوظائف المحفوظة" %}</a>
+      {% endif %}
+      <div class="dash__nav-title">{% translate "عام" %}</div>
+      <a href="{% url 'messaging:inbox' %}" class="{% nav_active '/messages' '/dashboard/messages' %}">{% icon "message" 19 %}{% translate "الرسائل" %}{% if unread_messages %}<span class="counter">{{ unread_messages }}</span>{% endif %}</a>
+      <a href="{% url 'notifications:list' %}" class="{% nav_active '/notifications' '/dashboard/notifications' %}">{% icon "bell" 19 %}{% translate "الإشعارات" %}{% if unread_notifications %}<span class="counter">{{ unread_notifications }}</span>{% endif %}</a>
+      <a href="{% url 'dashboard:settings' %}" class="{% nav_active '/dashboard/settings' %}">{% icon "settings" 19 %}{% translate "إعدادات الحساب" %}</a>
+      <form method="post" action="{% url 'accounts:logout' %}">{% csrf_token %}<button type="submit" class="btn btn--ghost btn--block" style="justify-content:flex-start;padding-inline:12px;color:var(--red)">{% icon "logout" 19 %}{% translate "تسجيل الخروج" %}</button></form>
+    </nav>
+  </aside>
+  <div class="dash__main page-fade">
+    {% block dash_content %}{% endblock %}
+  </div>
+</div>
+{% endblock %}

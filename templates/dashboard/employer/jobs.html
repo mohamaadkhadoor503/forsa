@@ -1,0 +1,31 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load i18n humanize %}
+{% block title %}{% translate "وظائفي" %}{% endblock %}
+{% block dash_content %}
+<div class="dash__head"><div><h1>{% translate "إدارة الوظائف المنشورة" %}</h1><p>{% translate "عدّل وظائفك وتابع عدد المتقدمين لكل وظيفة." %}</p></div><a class="btn btn--primary" href="{% url 'dashboard:employer_job_create' %}"><span>{% icon "plus" 18 %}</span><span>{% translate "وظيفة جديدة" %}</span></a></div>
+{% if jobs %}
+<div class="table-wrap">
+  <table class="table table--stack">
+    <thead><tr><th>{% translate "الوظيفة" %}</th><th>{% translate "الحالة" %}</th><th>{% translate "المتقدمون" %}</th><th>{% translate "المشاهدات" %}</th><th>{% translate "النشر" %}</th><th></th></tr></thead>
+    <tbody>
+    {% for j in jobs %}
+      <tr>
+        <td data-label="{% translate "الوظيفة" %}"><a href="{{ j.get_absolute_url }}" style="font-weight:700">{{ j.title }}</a><div class="muted" style="font-size:.8rem">{{ j.category|localized }} · {{ j.get_workplace_display }}</div></td>
+        <td data-label="{% translate "الحالة" %}"><span class="badge badge--{{ j.status }}">{{ j.get_status_display }}</span></td>
+        <td data-label="{% translate "المتقدمون" %}"><a href="{% url 'dashboard:employer_job_applications' j.pk %}" class="row" style="gap:6px"><strong>{{ j.apps_count }}</strong>{% if j.new_count %}<span class="badge badge--amber">{{ j.new_count }} {% translate "جديد" %}</span>{% endif %}</a></td>
+        <td data-label="{% translate "المشاهدات" %}">{{ j.views_count|intcomma }}</td>
+        <td data-label="{% translate "النشر" %}">{{ j.created_at|date:"j M Y" }}</td>
+        <td><div class="row" style="gap:4px;flex-wrap:nowrap">
+          <a class="btn btn--ghost btn--icon btn--sm" href="{% url 'dashboard:employer_job_edit' j.pk %}" aria-label="{% translate "تعديل" %}">{% icon "edit" 16 %}</a>
+          <a class="btn btn--outline btn--sm" href="{% url 'dashboard:employer_job_applications' j.pk %}">{% translate "الطلبات" %}</a>
+        </div></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% include "partials/pagination.html" %}
+{% else %}
+<div class="panel">{% translate "لم تنشر أي وظيفة بعد" as t %}{% translate "انشر وظيفتك الأولى وابدأ باستقبال الطلبات." as tx %}{% translate "نشر وظيفة" as al %}{% url 'dashboard:employer_job_create' as au %}{% include "partials/empty.html" with title=t text=tx action_url=au action_label=al %}</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,18 @@
+{% load i18n %}
+{% if application %}
+  <a class="btn btn--success btn--block" href="{% url 'dashboard:seeker_applications' %}">{% icon "check-circle" 18 %}<span>{% translate "تقدمت لهذه الوظيفة" %} · {{ application.get_status_display }}</span></a>
+{% elif not job.is_open %}
+  <button class="btn btn--block" disabled>{% translate "التقديم مغلق" %}</button>
+{% elif user.is_authenticated and user.is_employer %}
+  {% if job.company.owner == user %}<a class="btn btn--dark btn--block" href="{% url 'dashboard:employer_job_applications' job.pk %}">{% translate "إدارة الطلبات" %}</a>{% endif %}
+{% elif user.is_authenticated %}
+  <a class="btn btn--primary btn--block btn--lg" href="{% url 'applications:apply' job.slug %}" data-magnetic><span>{% translate "قدّم الآن" %}</span>{% icon "send" 18 %}</a>
+{% else %}
+  <a class="btn btn--primary btn--block btn--lg" href="{% url 'accounts:login' %}?next={% url 'applications:apply' job.slug %}"><span>{% translate "سجّل الدخول للتقديم" %}</span></a>
+{% endif %}
+{% if not compact %}
+<form class="mt-1" method="post" action="{% url 'jobs:toggle_save' job.slug %}" data-save-form data-login-url="{% url 'accounts:login' %}?next={{ request.path|urlencode }}">{% csrf_token %}
+  <input type="hidden" name="next" value="{{ request.get_full_path }}">
+  <button type="submit" class="btn btn--outline btn--block save-btn {% if is_saved %}is-saved{% endif %}" aria-pressed="{% if is_saved %}true{% else %}false{% endif %}">{% icon "bookmark" 18 %}<span>{% translate "حفظ الوظيفة" %}</span></button>
+</form>
+{% endif %}

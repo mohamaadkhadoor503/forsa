@@ -1,0 +1,24 @@
+{% extends "accounts/_auth_layout.html" %}
+{% load i18n %}
+{% block title %}{% translate "إنشاء حساب" %} — {{ site_settings.site_name }}{% endblock %}
+{% block card %}
+  <a class="btn btn--ghost btn--sm mb-2" href="{% url 'accounts:choose_type' %}">{% icon "arrow-right" 16 "flip-ltr" %}{% translate "تغيير نوع الحساب" %}</a>
+  <span class="eyebrow">{% if role == 'employer' %}{% translate "حساب صاحب عمل" %}{% else %}{% translate "حساب باحث عن عمل / مستقل" %}{% endif %}</span>
+  <h1>{% translate "أنشئ حسابك" %}</h1>
+  <form method="post" novalidate>{% csrf_token %}
+    <div class="form-grid">
+      {% include "partials/field.html" with field=form.first_name %}
+      {% include "partials/field.html" with field=form.last_name %}
+      {% if form.company_name %}{% include "partials/field.html" with field=form.company_name field_class="span-2" %}{% endif %}
+      {% include "partials/field.html" with field=form.email field_class="span-2" %}
+      {% include "partials/field.html" with field=form.password1 field_class="span-2" %}
+      {% include "partials/field.html" with field=form.password2 field_class="span-2" %}
+    </div>
+    <div class="field {% if form.terms.errors %}has-error{% endif %}">
+      <label class="check">{{ form.terms }} <span>{% translate "أوافق على" %} <a href="{% url 'core:terms' %}" target="_blank" style="color:var(--blue)">{% translate "الشروط والأحكام" %}</a> {% translate "و" %} <a href="{% url 'core:privacy' %}" target="_blank" style="color:var(--blue)">{% translate "سياسة الخصوصية" %}</a></span></label>
+      {% if form.terms.errors %}<p class="error">{{ form.terms.errors|first }}</p>{% endif %}
+    </div>
+    <button class="btn btn--primary btn--block btn--lg" type="submit"><span>{% translate "إنشاء الحساب" %}</span></button>
+  </form>
+  <p class="text-center muted mt-2">{% translate "لديك حساب؟" %} <a href="{% url 'accounts:login' %}" style="color:var(--blue);font-weight:700">{% translate "سجّل الدخول" %}</a></p>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load i18n %}
+{% block title %}{% translate "إدارة المشاريع" %}{% endblock %}
+{% block dash_content %}
+<div class="dash__head"><div><h1>{% translate "إدارة المشاريع" %}</h1><p>{{ paginator.count }} {% translate "مشروع" %}</p></div></div>
+{% include "dashboard/admin/_search.html" %}
+<div class="table-wrap"><table class="table table--stack">
+  <thead><tr><th>{% translate "المشروع" %}</th><th>{% translate "صاحب المشروع" %}</th><th>{% translate "العروض" %}</th><th>{% translate "الحالة" %}</th><th></th></tr></thead>
+  <tbody>{% for p in projects %}<tr>
+    <td data-label="{% translate "المشروع" %}"><a href="{{ p.get_absolute_url }}" style="font-weight:700">{{ p.title }}</a><div class="muted" style="font-size:.8rem"><bdi>{{ p.budget_display }}</bdi></div></td>
+    <td data-label="{% translate "صاحب المشروع" %}">{{ p.owner.email }}</td>
+    <td data-label="{% translate "العروض" %}">{{ p.n }}</td>
+    <td data-label="{% translate "الحالة" %}"><span class="badge badge--{{ p.status }}">{{ p.get_status_display }}</span></td>
+    <td>{% if p.status != 'cancelled' and p.status != 'completed' %}{% translate "إلغاء" as l %}{% include "dashboard/admin/_action.html" with action="project_status" pk=p.pk value="cancelled" label=l cls="btn--danger" %}{% endif %}</td>
+  </tr>{% empty %}<tr><td colspan="5" class="text-center muted">{% translate "لا توجد نتائج" %}</td></tr>{% endfor %}</tbody>
+</table></div>
+{% include "partials/pagination.html" %}
+{% endblock %}

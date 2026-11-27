@@ -1,0 +1,21 @@
+{% extends "accounts/_auth_layout.html" %}
+{% load i18n %}
+{% block title %}{% translate "تسجيل الدخول" %} — {{ site_settings.site_name }}{% endblock %}
+{% block card %}
+  <span class="eyebrow">{% translate "أهلاً بعودتك" %}</span>
+  <h1>{% translate "تسجيل الدخول" %}</h1>
+  <p class="muted">{% translate "سجّل دخولك لمتابعة طلباتك ومشاريعك." %}</p>
+  <form method="post" novalidate>{% csrf_token %}
+    <input type="hidden" name="next" value="{{ request.GET.next }}">
+    {% if form.non_field_errors %}<div class="alert mb-2" role="alert" style="background:rgba(239,68,68,.08);border-color:rgba(239,68,68,.25)">{% icon "alert" 18 %}<div>{{ form.non_field_errors|first }}</div></div>{% endif %}
+    {% include "partials/field.html" with field=form.email %}
+    {% include "partials/field.html" with field=form.password %}
+    <div class="row row--between mb-2">
+      <label class="check">{{ form.remember }} {{ form.remember.label }}</label>
+      <a href="{% url 'accounts:password_reset' %}" style="color:var(--blue);font-weight:700;font-size:.9rem">{% translate "نسيت كلمة المرور؟" %}</a>
+    </div>
+    <button class="btn btn--primary btn--block btn--lg" type="submit"><span>{% translate "دخول" %}</span></button>
+  </form>
+  <div class="auth__divider">{% translate "ليس لديك حساب؟" %}</div>
+  <a class="btn btn--outline btn--block" href="{% url 'accounts:choose_type' %}">{% translate "إنشاء حساب جديد" %}</a>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% load i18n %}
+<div class="listing__bar">
+  <div class="row">
+    <button class="btn btn--outline btn--sm filter-toggle" type="button" data-filters-open>{% icon "filter" 16 %}{% translate "الفلاتر" %}{% if filterset.active %} ({{ filterset.active|length }}){% endif %}</button>
+    <span class="listing__count"><strong>{{ paginator.count|default:0 }}</strong> {{ noun }}</span>
+  </div>
+  <div class="row">
+    <label class="sr-only" for="f-sort">{% translate "ترتيب" %}</label>
+    <select id="f-sort" class="input" name="sort" form="filter-form" style="min-height:40px;width:auto;padding-block:6px">
+      {% for key, label in filterset.sort_options %}<option value="{{ key }}" {% if request.GET.sort == key %}selected{% endif %}>{{ label }}</option>{% endfor %}
+    </select>
+    {% if with_view_toggle %}
+    <div class="segmented" role="group" aria-label="{% translate "طريقة العرض" %}">
+      <button type="button" data-view="grid" class="is-active" aria-label="{% translate "بطاقات" %}">{% icon "grid" 16 %}</button>
+      <button type="button" data-view="list" aria-label="{% translate "قائمة" %}">{% icon "list" 16 %}</button>
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% if filterset.active %}
+<div class="active-filters">
+  {% for f in filterset.active %}<button type="button" class="chip chip--removable" data-remove-filter="{{ f.param }}::{{ f.value }}">{{ f.label }} {% icon "x" 13 %}</button>{% endfor %}
+  <button type="button" class="chip" data-clear-filters>{% translate "إزالة جميع الفلاتر" %}</button>
+</div>
+{% endif %}

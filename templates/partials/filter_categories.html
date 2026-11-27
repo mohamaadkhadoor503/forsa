@@ -1,0 +1,7 @@
+{% load i18n %}<div class="filters__group">
+  <label class="filters__title" for="f-cat">{% translate "التخصص" %}</label>
+  <select id="f-cat" class="input" name="{{ name|default:'category' }}">
+    <option value="">{% translate "كل التخصصات" %}</option>
+    {% for c in categories %}<option value="{{ c.slug }}" {% if current == c.slug %}selected{% endif %}>{{ c|localized }}</option>{% endfor %}
+  </select>
+</div>

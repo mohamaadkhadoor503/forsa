@@ -1,0 +1,12 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load i18n %}
+{% block title %}{% if object %}{% translate "تعديل مشروع" %}{% else %}{% translate "نشر مشروع جديد" %}{% endif %}{% endblock %}
+{% block dash_content %}
+<div class="dash__head"><div><h1>{% if object %}{% translate "تعديل المشروع" %}{% else %}{% translate "نشر مشروع جديد" %}{% endif %}</h1><p>{% translate "صف مشروعك بوضوح وحدد الميزانية والمدة لتصلك أفضل العروض." %}</p></div><a class="btn btn--ghost" href="{% url 'dashboard:employer_projects' %}">{% icon "arrow-right" 18 "flip-ltr" %}{% translate "رجوع" %}</a></div>
+<div class="panel">
+  <form method="post" novalidate>{% csrf_token %}
+    {% include "partials/form_fields.html" with wide_fields="title skills" %}
+    <div class="form-actions"><a class="btn btn--ghost" href="{% url 'dashboard:employer_projects' %}">{% translate "إلغاء" %}</a><button class="btn btn--primary btn--lg" type="submit"><span>{% translate "نشر المشروع" %}</span></button></div>
+  </form>
+</div>
+{% endblock %}

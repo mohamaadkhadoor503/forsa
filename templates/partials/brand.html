@@ -1,0 +1,4 @@
+{% load static %}<a href="{% url 'core:home' %}" class="brand" aria-label="{{ site_settings.site_name }}">
+  <img class="brand__mark" src="{% static 'img/logo-mark.svg' %}" alt="" width="38" height="38">
+  <span class="brand__name">{{ site_settings.site_name }}</span>
+</a>

@@ -1,0 +1,67 @@
+{% load i18n %}{% get_current_language as LANG %}{% get_available_languages as LANGS %}
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        {% include "partials/brand.html" %}
+        <p class="mt-2" style="max-width:340px">{% if LANG == 'en' %}{% translate "منصة عربية تجمع الباحثين عن عمل والمستقلين بالشركات وأصحاب المشاريع في مكان واحد." %}{% else %}{{ site_settings.about }}{% endif %}</p>
+        {% if site_settings.social_links %}
+        <div class="footer__social">
+          {% for name, url in site_settings.social_links %}
+            <a href="{{ url }}" target="_blank" rel="noopener" aria-label="{{ name }}">{% if name == 'x' %}{% icon "x-social" 18 %}{% else %}{% icon name 18 %}{% endif %}</a>
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div>
+      <div>
+        <h4>{% translate "المنصة" %}</h4>
+        <ul class="footer__links">
+          <li><a href="{% url 'core:about' %}">{% translate "من نحن" %}</a></li>
+          <li><a href="{% url 'companies:list' %}">{% translate "الشركات" %}</a></li>
+          <li><a href="{% url 'talents:list' %}">{% translate "المواهب" %}</a></li>
+          <li><a href="{% url 'accounts:choose_type' %}">{% translate "إنشاء حساب" %}</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>{% translate "الفرص" %}</h4>
+        <ul class="footer__links">
+          <li><a href="{% url 'jobs:list' %}">{% translate "كل الوظائف" %}</a></li>
+          <li><a href="{% url 'jobs:list' %}?workplace=remote">{% translate "وظائف عن بعد" %}</a></li>
+          <li><a href="{% url 'projects:list' %}">{% translate "المشاريع الحرة" %}</a></li>
+          <li><a href="{% url 'jobs:list' %}?type=internship">{% translate "فرص التدريب" %}</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>{% translate "المساعدة" %}</h4>
+        <ul class="footer__links">
+          <li><a href="{% url 'core:faq' %}">{% translate "الأسئلة الشائعة" %}</a></li>
+          <li><a href="{% url 'core:contact' %}">{% translate "تواصل معنا" %}</a></li>
+          <li><a href="{% url 'core:privacy' %}">{% translate "سياسة الخصوصية" %}</a></li>
+          <li><a href="{% url 'core:terms' %}">{% translate "الشروط والأحكام" %}</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>{% translate "تواصل" %}</h4>
+        <ul class="footer__links">
+          {% if site_settings.contact_email %}<li><a href="mailto:{{ site_settings.contact_email }}">{% icon "mail" 16 %}{{ site_settings.contact_email }}</a></li>{% endif %}
+          {% if site_settings.contact_phone %}<li><a href="tel:{{ site_settings.contact_phone }}" dir="ltr">{% icon "phone" 16 %}{{ site_settings.contact_phone }}</a></li>{% endif %}
+          {% if site_settings.address %}<li><span class="row" style="gap:6px">{% icon "map-pin" 16 %}{{ site_settings.address }}</span></li>{% endif %}
+          <li><a href="{% url 'core:contact' %}">{% icon "send" 16 %}{% translate "أرسل لنا رسالة" %}</a></li>
+        </ul>
+        <form class="lang-form mt-2" action="{% url 'set_language' %}" method="post">{% csrf_token %}
+          <input type="hidden" name="next" value="{{ request.get_full_path }}">
+          <label class="sr-only" for="footer-lang">{% translate "اللغة" %}</label>
+          <select id="footer-lang" name="language" onchange="this.form.submit()">
+            <option value="ar" {% if LANG == 'ar' %}selected{% endif %}>العربية</option>
+            <option value="en" {% if LANG == 'en' %}selected{% endif %}>English</option>
+          </select>
+        </form>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>© {% now "Y" %} {{ site_settings.site_name }}. {% translate "جميع الحقوق محفوظة." %}</span>
+      <span class="row" style="gap:16px"><a href="{% url 'core:privacy' %}">{% translate "الخصوصية" %}</a><a href="{% url 'core:terms' %}">{% translate "الشروط" %}</a><a href="{% url 'sitemap' %}">Sitemap</a></span>
+    </div>
+  </div>
+  <div class="footer__big" aria-hidden="true">{{ site_settings.site_name }}</div>
+</footer>

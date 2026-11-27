@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 440" role="img" aria-label="Professional working on a laptop">
+  <defs>
+    <linearGradient id="pl-hood" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3B6FF5"/><stop offset="1" stop-color="#6D3BE6"/></linearGradient>
+    <linearGradient id="pl-hood-sh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#0F172A" stop-opacity=".35"/></linearGradient>
+    <linearGradient id="pl-skin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9B48C"/><stop offset="1" stop-color="#D49A70"/></linearGradient>
+    <linearGradient id="pl-lap" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F1F5F9"/><stop offset="1" stop-color="#B9C4D4"/></linearGradient>
+    <radialGradient id="pl-glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#67E8F9"/><stop offset="1" stop-color="#06B6D4" stop-opacity="0"/></radialGradient>
+  </defs>
+  <!-- body -->
+  <path d="M58 440c2-96 50-158 142-158s140 62 142 158z" fill="url(#pl-hood)"/>
+  <path d="M58 440c2-96 50-158 142-158s140 62 142 158z" fill="url(#pl-hood-sh)"/>
+  <path d="M150 292c10 30 30 44 50 44s40-14 50-44c-14-8-32-12-50-12s-36 4-50 12z" fill="#2D3E9A" opacity=".55"/>
+  <path d="M172 300l-6 62M228 300l6 62" stroke="#E2E8F0" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="166" cy="366" r="5" fill="#E2E8F0"/><circle cx="234" cy="366" r="5" fill="#E2E8F0"/>
+  <!-- neck -->
+  <path d="M178 238h44v48c0 12-10 20-22 20s-22-8-22-20z" fill="#C98B62"/>
+  <!-- head -->
+  <ellipse cx="141" cy="190" rx="11" ry="16" fill="#D99D74"/>
+  <ellipse cx="259" cy="190" rx="11" ry="16" fill="#D99D74"/>
+  <path d="M142 176c0-44 26-74 58-74s58 30 58 74c0 46-26 80-58 80s-58-34-58-80z" fill="url(#pl-skin)"/>
+  <!-- beard -->
+  <path d="M146 196c4 38 26 60 54 60s50-22 54-60c-6 18-18 24-30 22-8-1-14-6-24-6s-16 5-24 6c-12 2-24-4-30-22z" fill="#2A1C14"/>
+  <path d="M184 224c8 6 24 6 32 0" stroke="#E9B48C" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <!-- hair -->
+  <path d="M140 172c-6-52 28-86 66-84 40 2 64 30 56 80-6-20-16-34-30-40-20 10-56 12-80 4-6 12-10 26-12 40z" fill="#1E140F"/>
+  <!-- face -->
+  <path d="M166 172c6-5 16-6 22-2M212 170c6-4 16-3 22 2" stroke="#2A1C14" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <ellipse cx="177" cy="188" rx="5" ry="6" fill="#1E140F"/>
+  <ellipse cx="223" cy="188" rx="5" ry="6" fill="#1E140F"/>
+  <circle cx="179" cy="186" r="1.6" fill="#fff"/><circle cx="225" cy="186" r="1.6" fill="#fff"/>
+  <path d="M200 192c-3 10-4 16 2 18" stroke="#B57A52" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- laptop -->
+  <path d="M98 300h204a8 8 0 0 1 8 8v102H90V308a8 8 0 0 1 8-8z" fill="url(#pl-lap)"/>
+  <path d="M70 410h260l-14 22a10 10 0 0 1-9 5H93a10 10 0 0 1-9-5z" fill="#94A3B8"/>
+  <circle cx="200" cy="354" r="36" fill="url(#pl-glow)" opacity=".7"/>
+  <path d="M186 346a14 14 0 1 1 28 0c0 10-14 20-14 20s-14-10-14-20z" fill="#fff"/>
+  <circle cx="200" cy="346" r="5" fill="#7C3AED"/>
+  <!-- hands -->
+  <ellipse cx="108" cy="412" rx="22" ry="13" fill="#D49A70"/>
+  <ellipse cx="292" cy="412" rx="22" ry="13" fill="#D49A70"/>
+</svg>

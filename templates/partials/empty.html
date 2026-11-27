@@ -1,0 +1,6 @@
+{% load static %}<div class="empty">
+  <img class="empty__art" src="{% static 'img/illustrations/empty.svg' %}" alt="" width="220" height="186" loading="lazy">
+  <h3>{{ title }}</h3>
+  {% if text %}<p>{{ text }}</p>{% endif %}
+  {% if action_url %}<a class="btn btn--primary" href="{{ action_url }}" {% if partial_link %}data-partial-link{% endif %}><span>{{ action_label }}</span></a>{% endif %}
+</div>

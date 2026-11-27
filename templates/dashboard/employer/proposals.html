@@ -1,0 +1,33 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load i18n humanize %}
+{% block title %}{% translate "مراجعة العروض" %}{% endblock %}
+{% block dash_content %}
+<div class="dash__head"><div><h1>{% translate "العروض على:" %} {{ project.title }}</h1><p><span class="badge badge--{{ project.status }}">{{ project.get_status_display }}</span> · <bdi>{{ project.budget_display }}</bdi> · {{ project.duration_days }} {% translate "يوم" %}</p></div><a class="btn btn--ghost" href="{% url 'dashboard:employer_projects' %}">{% icon "arrow-right" 18 "flip-ltr" %}{% translate "رجوع" %}</a></div>
+<div class="stack" style="gap:16px" data-stagger=".05">
+{% for p in proposals %}
+  <article class="panel" {% if p.status == 'accepted' %}style="border-color:var(--green);box-shadow:0 0 0 3px rgba(16,185,129,.15)"{% endif %}>
+    <div class="row row--between" style="align-items:flex-start">
+      <div class="row">{% avatar p.freelancer.display_name p.freelancer.avatar 52 %}
+        <div><strong>{{ p.freelancer.display_name }}</strong><div class="muted" style="font-size:.86rem">{{ p.freelancer.profile.headline|default:"—" }} · {{ p.created_at|naturaltime }}</div></div></div>
+      <div class="row"><div class="stat-pill" style="flex:none"><small>{% translate "العرض" %}</small><strong><bdi>${{ p.bid_amount|intcomma }}</bdi></strong></div><div class="stat-pill" style="flex:none"><small>{% translate "المدة" %}</small><strong>{{ p.delivery_days }} {% translate "يوم" %}</strong></div><span class="badge badge--{{ p.status }}">{{ p.get_status_display }}</span></div>
+    </div>
+    <p class="muted mt-2" style="white-space:pre-line">{{ p.cover_letter }}</p>
+    <div class="row row--between">
+      <div class="row" style="gap:6px">
+        {% if p.freelancer.profile %}<a class="btn btn--outline btn--sm" href="{{ p.freelancer.profile.get_absolute_url }}">{% icon "user" 16 %}{% translate "الملف" %}</a>{% endif %}
+        <form method="post" action="{% url 'messaging:start' p.freelancer.pk %}">{% csrf_token %}<input type="hidden" name="subject" value="{{ project.title }}"><button class="btn btn--ghost btn--sm" type="submit">{% icon "message" 16 %}{% translate "مراسلة" %}</button></form>
+      </div>
+      {% if project.status == 'open' and p.status == 'pending' or project.status == 'open' and p.status == 'shortlisted' %}
+      <div class="row" style="gap:6px">
+        {% if p.status == 'pending' %}<form method="post" action="{% url 'projects:proposal_action' p.pk 'shortlisted' %}">{% csrf_token %}<button class="btn btn--outline btn--sm" type="submit">{% icon "star" 16 %}{% translate "قائمة مختصرة" %}</button></form>{% endif %}
+        <form method="post" action="{% url 'projects:proposal_action' p.pk 'rejected' %}">{% csrf_token %}<button class="btn btn--danger btn--sm" type="submit">{% translate "رفض" %}</button></form>
+        <form method="post" action="{% url 'projects:proposal_action' p.pk 'accept' %}" data-confirm="{% translate "قبول هذا العرض وإسناد المشروع؟ سيتم رفض باقي العروض." %}">{% csrf_token %}<button class="btn btn--success btn--sm" type="submit">{% icon "check" 16 %}{% translate "قبول وإسناد" %}</button></form>
+      </div>
+      {% endif %}
+    </div>
+  </article>
+{% empty %}
+  <div class="panel">{% translate "لا توجد عروض بعد" as t %}{% translate "ستظهر هنا عروض المستقلين فور تقديمها." as tx %}{% include "partials/empty.html" with title=t text=tx %}</div>
+{% endfor %}
+</div>
+{% endblock %}

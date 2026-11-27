@@ -1,0 +1,5 @@
+{% load i18n %}<form method="get" class="row mb-2" role="search">
+  <div class="input-icon" style="flex:1 1 240px">{% icon "search" 18 %}<label class="sr-only" for="adm-q">{% translate "بحث" %}</label><input id="adm-q" class="input" type="search" name="q" value="{{ request.GET.q }}" placeholder="{% translate "بحث..." %}"></div>
+  {% if choices %}<label class="sr-only" for="adm-f">{% translate "تصفية" %}</label><select id="adm-f" class="input" name="{{ choice_name }}" style="width:auto"><option value="">{% translate "الكل" %}</option>{% for v, l in choices %}<option value="{{ v }}" {% if request.GET|get_item:choice_name == v %}selected{% endif %}>{{ l }}</option>{% endfor %}</select>{% endif %}
+  <button class="btn btn--dark" type="submit">{% translate "بحث" %}</button>
+</form>

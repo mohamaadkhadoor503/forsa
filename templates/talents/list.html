@@ -1,0 +1,21 @@
+{% extends "listing_base.html" %}
+{% load i18n %}
+{% block title %}{% translate "المواهب والمستقلون" %} — {{ site_settings.site_name }}{% endblock %}
+{% block eyebrow %}{% translate "المواهب" %}{% endblock %}
+{% block heading %}{% translate "اكتشف" %} <span class="text-grad">{% translate "أفضل المواهب" %}</span>{% endblock %}
+{% block lead %}{% translate "ابحث بين المستقلين والباحثين عن عمل وصفّهم حسب المهارة والخبرة والتوفر." %}{% endblock %}
+{% block search_placeholder %}{% translate "الاسم، المسمى المهني، أو مهارة..." %}{% endblock %}
+{% block filters %}
+  {% include "partials/filter_categories.html" with current=request.GET.category %}
+  {% translate "حالة التوفر" as t1 %}{% include "partials/filter_radio.html" with title=t1 name="availability" options=availabilities current=request.GET.availability %}
+  {% translate "مستوى الخبرة" as t2 %}{% include "partials/filter_radio.html" with title=t2 name="level" options=levels current=request.GET.level %}
+  <div class="filters__group">
+    <span class="filters__title">{% translate "الخبرة والسعر" %}</span>
+    <div class="range-row">
+      <input class="input" type="number" min="0" name="min_years" value="{{ request.GET.min_years }}" placeholder="{% translate "سنوات +" %}" aria-label="{% translate "أقل عدد سنوات خبرة" %}">
+      <input class="input" type="number" min="0" name="max_rate" value="{{ request.GET.max_rate }}" placeholder="{% translate "$/ساعة حتى" %}" aria-label="{% translate "أقصى سعر بالساعة" %}">
+    </div>
+  </div>
+  {% include "partials/filter_skills.html" %}
+{% endblock %}
+{% block results %}{% include "talents/_results.html" %}{% endblock %}

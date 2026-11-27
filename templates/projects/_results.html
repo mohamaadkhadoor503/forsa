@@ -1,0 +1,9 @@
+{% load i18n %}{% translate "مشروع مفتوح" as noun %}
+{% include "partials/results_bar.html" with noun=noun with_view_toggle=True %}
+{% if projects %}
+  <div class="results" data-results-grid>{% for project in projects %}{% include "partials/project_card.html" %}{% endfor %}</div>
+  {% include "partials/pagination.html" %}
+{% else %}
+  {% translate "لا توجد مشاريع مطابقة" as t %}{% translate "جرّب تعديل الفلاتر أو عد لاحقاً، تُنشر مشاريع جديدة باستمرار." as tx %}{% translate "عرض كل المشاريع" as al %}
+  {% url 'projects:list' as au %}{% include "partials/empty.html" with title=t text=tx action_url=au action_label=al partial_link=True %}
+{% endif %}

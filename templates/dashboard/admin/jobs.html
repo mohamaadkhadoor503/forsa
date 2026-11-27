@@ -1,0 +1,21 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load i18n %}
+{% block title %}{% translate "إدارة الوظائف" %}{% endblock %}
+{% block dash_content %}
+<div class="dash__head"><div><h1>{% translate "إدارة الوظائف" %}</h1><p>{{ paginator.count }} {% translate "وظيفة" %}</p></div></div>
+{% include "dashboard/admin/_search.html" with choices=statuses choice_name="status" %}
+<div class="table-wrap"><table class="table table--stack">
+  <thead><tr><th>{% translate "الوظيفة" %}</th><th>{% translate "الشركة" %}</th><th>{% translate "الحالة" %}</th><th>{% translate "إجراءات" %}</th></tr></thead>
+  <tbody>{% for j in jobs %}<tr>
+    <td data-label="{% translate "الوظيفة" %}"><a href="{{ j.get_absolute_url }}" style="font-weight:700">{{ j.title }}</a><div class="muted" style="font-size:.8rem">{{ j.created_at|date:"j M Y" }}{% if j.is_featured %} · ★ {% translate "مميزة" %}{% endif %}</div></td>
+    <td data-label="{% translate "الشركة" %}">{{ j.company.name }}</td>
+    <td data-label="{% translate "الحالة" %}"><span class="badge badge--{{ j.status }}">{{ j.get_status_display }}</span></td>
+    <td><div class="row" style="gap:4px">
+      {% if j.status != 'published' %}{% translate "نشر" as l %}{% include "dashboard/admin/_action.html" with action="job_status" pk=j.pk value="published" label=l cls="btn--success" %}{% endif %}
+      {% if j.status != 'closed' %}{% translate "إغلاق" as l %}{% include "dashboard/admin/_action.html" with action="job_status" pk=j.pk value="closed" label=l cls="btn--danger" %}{% endif %}
+      {% if j.is_featured %}{% translate "إلغاء التمييز" as l %}{% include "dashboard/admin/_action.html" with action="job_feature" pk=j.pk value="0" label=l %}{% else %}{% translate "تمييز" as l %}{% include "dashboard/admin/_action.html" with action="job_feature" pk=j.pk value="1" label=l cls="btn--ghost" %}{% endif %}
+    </div></td>
+  </tr>{% empty %}<tr><td colspan="4" class="text-center muted">{% translate "لا توجد نتائج" %}</td></tr>{% endfor %}</tbody>
+</table></div>
+{% include "partials/pagination.html" %}
+{% endblock %}

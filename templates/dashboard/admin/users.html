@@ -1,0 +1,18 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load i18n %}
+{% block title %}{% translate "إدارة المستخدمين" %}{% endblock %}
+{% block dash_content %}
+<div class="dash__head"><div><h1>{% translate "إدارة المستخدمين" %}</h1><p>{{ paginator.count }} {% translate "مستخدم" %}</p></div></div>
+{% include "dashboard/admin/_search.html" with choices=roles choice_name="role" %}
+<div class="table-wrap"><table class="table table--stack">
+  <thead><tr><th>{% translate "المستخدم" %}</th><th>{% translate "النوع" %}</th><th>{% translate "التسجيل" %}</th><th>{% translate "الحالة" %}</th><th></th></tr></thead>
+  <tbody>{% for u in users %}<tr>
+    <td data-label="{% translate "المستخدم" %}"><div class="row" style="flex-wrap:nowrap">{% avatar u.display_name u.avatar 34 %}<div><strong>{{ u.display_name }}</strong><div class="muted" style="font-size:.8rem">{{ u.email }}</div></div></div></td>
+    <td data-label="{% translate "النوع" %}">{{ u.get_role_display }}{% if u.is_staff %} <span class="badge badge--violet">staff</span>{% endif %}</td>
+    <td data-label="{% translate "التسجيل" %}">{{ u.date_joined|date:"j M Y" }}</td>
+    <td data-label="{% translate "الحالة" %}">{% if u.is_active %}<span class="badge badge--green">{% translate "نشط" %}</span>{% else %}<span class="badge badge--red">{% translate "معطّل" %}</span>{% endif %}</td>
+    <td>{% if u != user %}{% if u.is_active %}{% translate "تعطيل" as l %}{% include "dashboard/admin/_action.html" with action="user_active" pk=u.pk value="0" label=l cls="btn--danger" %}{% else %}{% translate "تفعيل" as l %}{% include "dashboard/admin/_action.html" with action="user_active" pk=u.pk value="1" label=l cls="btn--success" %}{% endif %}{% endif %}</td>
+  </tr>{% empty %}<tr><td colspan="5" class="text-center muted">{% translate "لا توجد نتائج" %}</td></tr>{% endfor %}</tbody>
+</table></div>
+{% include "partials/pagination.html" %}
+{% endblock %}

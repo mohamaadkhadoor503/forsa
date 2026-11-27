@@ -1,0 +1,9 @@
+{% load i18n %}{% translate "شركة" as noun %}
+{% include "partials/results_bar.html" with noun=noun %}
+{% if companies %}
+  <div class="results results-3" data-results-grid>{% for c in companies %}{% include "partials/company_card.html" %}{% endfor %}</div>
+  {% include "partials/pagination.html" %}
+{% else %}
+  {% translate "لا توجد شركات مطابقة" as t %}{% translate "جرّب البحث باسم آخر أو إزالة الفلاتر." as tx %}{% translate "عرض الكل" as al %}
+  {% url 'companies:list' as au %}{% include "partials/empty.html" with title=t text=tx action_url=au action_label=al partial_link=True %}
+{% endif %}

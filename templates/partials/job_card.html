@@ -1,0 +1,31 @@
+{% load i18n humanize %}
+<article class="card card--hover card-glow job-card" data-tilt>
+  <div class="job-card__head">
+    <a href="{{ job.company.get_absolute_url }}" aria-label="{{ job.company.name }}">{% logo job.company 52 %}</a>
+    <div style="min-width:0">
+      <h3 class="card__title"><a href="{{ job.get_absolute_url }}">{{ job.title }}</a></h3>
+      <div class="job-card__company"><a href="{{ job.company.get_absolute_url }}"><bdi>{{ job.company.name }}</bdi></a>{% if job.company.is_verified %} <span class="verified" title="{% translate "شركة موثّقة" %}">{% icon "shield" 15 %}</span>{% endif %}</div>
+    </div>
+  </div>
+  <div class="row" style="gap:6px">
+    {% if job.is_featured %}<span class="badge badge--violet job-card__featured">{% icon "sparkles" 14 %}{% translate "مميزة" %}</span>{% endif %}
+    <span class="badge badge--{{ job.workplace }}">{{ job.get_workplace_display }}</span>
+    <span class="badge">{{ job.get_job_type_display }}</span>
+    <span class="badge">{{ job.get_experience_level_display }}</span>
+  </div>
+  <div class="meta">
+    <span>{% icon "map-pin" 15 %}{{ job.location }}</span>
+    <span>{% icon "clock" 15 %}{{ job.created_at|naturaltime }}</span>
+  </div>
+  {% if job.skills.all %}<div class="chips">{% for s in job.skills.all|slice:":4" %}<a class="chip" href="{% url 'jobs:list' %}?skill={{ s.slug }}">{{ s.name }}</a>{% endfor %}</div>{% endif %}
+  <div class="job-card__foot">
+    <div class="job-card__salary">{% if job.salary_display %}<bdi>{{ job.salary_display }}</bdi> <small>{% translate "/ شهرياً" %}</small>{% else %}<small>{% translate "الراتب حسب الخبرة" %}</small>{% endif %}</div>
+    <div class="row" style="gap:6px">
+      <form method="post" action="{% url 'jobs:toggle_save' job.slug %}" data-save-form data-login-url="{% url 'accounts:login' %}?next={{ request.path|urlencode }}">{% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+        <button type="submit" class="btn btn--ghost btn--icon btn--sm save-btn {% if job.pk in saved_ids %}is-saved{% endif %}" aria-pressed="{% if job.pk in saved_ids %}true{% else %}false{% endif %}" aria-label="{% translate "حفظ الوظيفة" %}">{% icon "bookmark" 18 %}</button>
+      </form>
+      <a class="btn btn--dark btn--sm" href="{{ job.get_absolute_url }}">{% translate "قدّم الآن" %}</a>
+    </div>
+  </div>
+</article>

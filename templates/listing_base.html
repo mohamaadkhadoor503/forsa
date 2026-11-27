@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block content %}
+<section class="page-hero">
+  <span class="orb orb--blue" aria-hidden="true"></span><span class="orb orb--violet" aria-hidden="true"></span>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="container page-fade">
+    <span class="eyebrow">{% block eyebrow %}{% endblock %}</span>
+    <h1>{% block heading %}{% endblock %}</h1>
+    <p class="lead mb-0">{% block lead %}{% endblock %}</p>
+    <div class="page-hero__search" role="search">
+      <div class="input-icon">{% icon "search" 18 %}<label class="sr-only" for="f-q">{% translate "بحث" %}</label><input id="f-q" class="input" type="search" name="q" form="filter-form" value="{{ request.GET.q }}" placeholder="{% block search_placeholder %}{% translate "كلمة مفتاحية..." %}{% endblock %}"></div>
+      {% block hero_location %}<div class="input-icon hide-sm">{% icon "map-pin" 18 %}<label class="sr-only" for="f-loc">{% translate "الموقع" %}</label><input id="f-loc" class="input" type="text" name="location" form="filter-form" value="{{ request.GET.location }}" placeholder="{% translate "المدينة أو الدولة" %}"></div>{% endblock %}
+      <button class="btn btn--primary" type="submit" form="filter-form"><span>{% translate "بحث" %}</span></button>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:8px">
+  <div class="container listing">
+    <div class="filters-backdrop"></div>
+    <form id="filter-form" class="filters" data-filter-form action="{{ request.path }}" method="get" aria-label="{% translate "تصفية النتائج" %}" data-error-text="{% translate "حدث خطأ أثناء تحميل النتائج، حاول مجدداً." %}">
+      <div class="filters__head">
+        <strong class="row" style="gap:8px">{% icon "filter" 18 %}{% translate "تصفية النتائج" %}</strong>
+        <a href="{{ request.path }}" class="muted" data-clear-filters style="font-size:.82rem;font-weight:700">{% translate "مسح الكل" %}</a>
+        <button class="icon-btn filters__close" type="button" data-filters-close aria-label="{% translate "إغلاق" %}">{% icon "x" 18 %}</button>
+      </div>
+      {% block filters %}{% endblock %}
+      <button class="btn btn--dark btn--block mt-2" type="submit">{% translate "تطبيق الفلاتر" %}</button>
+    </form>
+    <div data-results aria-live="polite">{% block results %}{% endblock %}</div>
+  </div>
+</section>
+{% endblock %}

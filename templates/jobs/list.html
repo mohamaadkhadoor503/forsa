@@ -1,0 +1,23 @@
+{% extends "listing_base.html" %}
+{% load i18n %}
+{% block title %}{% translate "الوظائف" %} — {{ site_settings.site_name }}{% endblock %}
+{% block meta_description %}{% translate "تصفح أحدث الوظائف في البرمجة والتصميم والتسويق والهندسة وغيرها، حضورياً أو عن بعد." %}{% endblock %}
+{% block eyebrow %}{% translate "الوظائف" %}{% endblock %}
+{% block heading %}{% translate "ابحث عن" %} <span class="text-grad">{% translate "وظيفتك القادمة" %}</span>{% endblock %}
+{% block lead %}{% translate "آلاف الفرص تنتظرك. استخدم الفلاتر للعثور على ما يناسب مهاراتك وطموحك." %}{% endblock %}
+{% block search_placeholder %}{% translate "المسمى الوظيفي، مهارة، أو شركة..." %}{% endblock %}
+{% block filters %}
+  {% include "partials/filter_categories.html" with current=request.GET.category %}
+  {% translate "طبيعة العمل" as t1 %}{% include "partials/filter_radio.html" with title=t1 name="workplace" options=workplaces current=request.GET.workplace %}
+  {% translate "نوع الوظيفة" as t2 %}{% include "partials/filter_radio.html" with title=t2 name="type" options=job_types current=request.GET.type %}
+  {% translate "مستوى الخبرة" as t3 %}{% include "partials/filter_radio.html" with title=t3 name="level" options=levels current=request.GET.level %}
+  <div class="filters__group">
+    <span class="filters__title">{% translate "الراتب الشهري ($)" %}</span>
+    <div class="range-row">
+      <label class="sr-only" for="f-smin">{% translate "من" %}</label><input id="f-smin" class="input" type="number" min="0" step="100" name="salary_min" value="{{ request.GET.salary_min }}" placeholder="{% translate "من" %}">
+      <label class="sr-only" for="f-smax">{% translate "إلى" %}</label><input id="f-smax" class="input" type="number" min="0" step="100" name="salary_max" value="{{ request.GET.salary_max }}" placeholder="{% translate "إلى" %}">
+    </div>
+  </div>
+  {% include "partials/filter_skills.html" %}
+{% endblock %}
+{% block results %}{% include "jobs/_results.html" %}{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load i18n static %}
+{% block title %}{% translate "من نحن" %} — {{ site_settings.site_name }}{% endblock %}
+{% block content %}
+<section class="page-hero" style="padding-bottom:60px">
+  <span class="orb orb--blue" aria-hidden="true"></span><span class="orb orb--violet" aria-hidden="true"></span><div class="bg-grid" aria-hidden="true"></div>
+  <div class="container hero__grid" style="align-items:center">
+    <div class="page-fade">
+      <span class="eyebrow">{% translate "من نحن" %}</span>
+      <h1>{% translate "نصنع جسراً بين" %} <span class="text-grad">{% translate "الموهبة والفرصة" %}</span></h1>
+      <p class="lead">{% translate "منصة عربية حديثة تجمع الباحثين عن عمل والمستقلين وأصحاب المهارات مع الشركات وأصحاب المشاريع، بتجربة بسيطة وشفافة وعادلة للجميع." %}</p>
+      <div class="row mt-3"><a class="btn btn--primary btn--lg" href="{% url 'accounts:choose_type' %}"><span>{% translate "انضم إلينا" %}</span></a><a class="btn btn--outline btn--lg" href="{% url 'core:contact' %}">{% translate "تواصل معنا" %}</a></div>
+    </div>
+    <div data-reveal="zoom"><img class="anim-float" src="{% static 'img/illustrations/team.svg' %}" alt="{% translate "فريق يتعاون على مشروع" %}" width="480" height="340"></div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-head section-head--center"><div class="section-head__text" data-reveal><span class="eyebrow">{% translate "قيمنا" %}</span><h2 class="h-section">{% translate "ما الذي يميزنا؟" %}</h2></div></div>
+    <div class="grid grid-3" data-stagger>
+      <div class="value-card">{% comment %}value{% endcomment %}<div class="value-card__icon">{% icon "shield" 24 %}</div><h3>{% translate "الشفافية والثقة" %}</h3><p class="muted mb-0">{% translate "إحصائيات حقيقية، وتقييمات لا تُكتب إلا بعد إنجاز عمل فعلي، وشركات موثّقة." %}</p></div>
+      <div class="value-card"><div class="value-card__icon" style="background:linear-gradient(135deg,#06B6D4,#2563EB)">{% icon "zap" 24 %}</div><h3>{% translate "السرعة والبساطة" %}</h3><p class="muted mb-0">{% translate "من التسجيل إلى التقديم في دقائق، مع فلاتر ذكية ومتابعة لحظية لحالة الطلب." %}</p></div>
+      <div class="value-card"><div class="value-card__icon" style="background:linear-gradient(135deg,#7C3AED,#EC4899)">{% icon "users" 24 %}</div><h3>{% translate "فرص للجميع" %}</h3><p class="muted mb-0">{% translate "وظائف بدوام كامل، عمل حر، تدريب، وعمل عن بعد — في مختلف التخصصات." %}</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section--tight">
+  <div class="container">
+    <div class="stats-band" data-reveal="zoom"><div class="stats-grid">
+      <div class="stat"><div class="stat__num" data-count="{{ stats.users }}">{{ stats.users }}</div><div class="stat__label">{% translate "مستخدم مسجل" %}</div></div>
+      <div class="stat"><div class="stat__num" data-count="{{ stats.seekers }}">{{ stats.seekers }}</div><div class="stat__label">{% translate "باحث عن عمل" %}</div></div>
+      <div class="stat"><div class="stat__num" data-count="{{ stats.employers }}">{{ stats.employers }}</div><div class="stat__label">{% translate "صاحب عمل" %}</div></div>
+      <div class="stat"><div class="stat__num" data-count="{{ stats.open_jobs }}">{{ stats.open_jobs }}</div><div class="stat__label">{% translate "وظيفة متاحة" %}</div></div>
+      <div class="stat"><div class="stat__num" data-count="{{ stats.completed_projects }}">{{ stats.completed_projects }}</div><div class="stat__label">{% translate "مشروع منجز" %}</div></div>
+      <div class="stat"><div class="stat__num" data-count="{{ stats.successful_hires }}">{{ stats.successful_hires }}</div><div class="stat__label">{% translate "توظيف ناجح" %}</div></div>
+    </div></div>
+  </div>
+</section>
+{% endblock %}

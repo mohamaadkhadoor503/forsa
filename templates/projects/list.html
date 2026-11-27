@@ -1,0 +1,27 @@
+{% extends "listing_base.html" %}
+{% load i18n %}
+{% block title %}{% translate "المشاريع الحرة" %} — {{ site_settings.site_name }}{% endblock %}
+{% block meta_description %}{% translate "مشاريع حرة مفتوحة لاستقبال العروض في البرمجة والتصميم والتسويق والمحتوى." %}{% endblock %}
+{% block eyebrow %}{% translate "العمل الحر" %}{% endblock %}
+{% block heading %}{% translate "مشاريع تنتظر" %} <span class="text-grad">{% translate "عرضك" %}</span>{% endblock %}
+{% block lead %}{% translate "اختر المشروع المناسب، حدّد سعرك ومدة التنفيذ، وقدّم عرضك مباشرة لصاحب المشروع." %}{% endblock %}
+{% block search_placeholder %}{% translate "عنوان المشروع أو مهارة..." %}{% endblock %}
+{% block hero_location %}{% endblock %}
+{% block filters %}
+  {% include "partials/filter_categories.html" with current=request.GET.category %}
+  {% translate "نوع الميزانية" as t1 %}{% include "partials/filter_radio.html" with title=t1 name="budget_type" options=budget_types current=request.GET.budget_type %}
+  {% translate "مستوى الخبرة" as t2 %}{% include "partials/filter_radio.html" with title=t2 name="level" options=levels current=request.GET.level %}
+  <div class="filters__group">
+    <span class="filters__title">{% translate "الميزانية ($)" %}</span>
+    <div class="range-row">
+      <input class="input" type="number" min="0" name="budget_min" value="{{ request.GET.budget_min }}" placeholder="{% translate "من" %}" aria-label="{% translate "من" %}">
+      <input class="input" type="number" min="0" name="budget_max" value="{{ request.GET.budget_max }}" placeholder="{% translate "إلى" %}" aria-label="{% translate "إلى" %}">
+    </div>
+  </div>
+  <div class="filters__group">
+    <label class="filters__title" for="f-days">{% translate "مدة التنفيذ القصوى (أيام)" %}</label>
+    <input id="f-days" class="input" type="number" min="1" name="max_days" value="{{ request.GET.max_days }}">
+  </div>
+  {% include "partials/filter_skills.html" %}
+{% endblock %}
+{% block results %}{% include "projects/_results.html" %}{% endblock %}

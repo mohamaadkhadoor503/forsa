@@ -1,0 +1,12 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load i18n %}
+{% block title %}{% if object %}{% translate "تعديل وظيفة" %}{% else %}{% translate "نشر وظيفة جديدة" %}{% endif %}{% endblock %}
+{% block dash_content %}
+<div class="dash__head"><div><h1>{% if object %}{% translate "تعديل الوظيفة" %}{% else %}{% translate "نشر وظيفة جديدة" %}{% endif %}</h1><p>{% translate "الإعلانات الواضحة والمفصلة تجذب مرشحين أفضل." %}</p></div><a class="btn btn--ghost" href="{% url 'dashboard:employer_jobs' %}">{% icon "arrow-right" 18 "flip-ltr" %}{% translate "رجوع" %}</a></div>
+<div class="panel">
+  <form method="post" novalidate>{% csrf_token %}
+    {% include "partials/form_fields.html" with wide_fields="title skills" %}
+    <div class="form-actions"><a class="btn btn--ghost" href="{% url 'dashboard:employer_jobs' %}">{% translate "إلغاء" %}</a><button class="btn btn--primary btn--lg" type="submit"><span>{% translate "حفظ الوظيفة" %}</span></button></div>
+  </form>
+</div>
+{% endblock %}

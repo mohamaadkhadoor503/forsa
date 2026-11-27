@@ -1,0 +1,27 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load i18n humanize %}
+{% block title %}{% translate "مراجعة المحتوى" %}{% endblock %}
+{% block dash_content %}
+<div class="dash__head"><div><h1>{% translate "مراجعة المحتوى" %}</h1><p>{% translate "اعتمد آراء المستخدمين قبل نشرها، وراجع الوظائف المعلّقة ورسائل التواصل." %}</p></div></div>
+<div class="panel mb-2">
+  <h2 style="font-size:1.05rem">{% translate "وظائف بانتظار الموافقة" %}</h2>
+  {% for j in pending_jobs %}<div class="list-row"><div class="list-row__main"><strong><a href="{{ j.get_absolute_url }}">{{ j.title }}</a></strong><small>{{ j.company.name }}</small></div>{% translate "موافقة ونشر" as l %}{% include "dashboard/admin/_action.html" with action="job_status" pk=j.pk value="published" label=l cls="btn--success" %}</div>
+  {% empty %}<p class="muted mb-0">{% translate "لا توجد وظائف معلّقة." %}</p>{% endfor %}
+</div>
+<div class="panel mb-2">
+  <h2 style="font-size:1.05rem">{% translate "آراء المستخدمين" %}</h2>
+  {% for t in testimonials %}
+    <div class="list-row" style="align-items:flex-start">{% avatar t.author.display_name t.author.avatar 40 %}
+      <div class="list-row__main"><div class="row"><strong>{{ t.author.display_name }}</strong>{% stars t.rating %}{% if t.is_approved %}<span class="badge badge--green">{% translate "منشور" %}</span>{% else %}<span class="badge badge--amber">{% translate "بانتظار المراجعة" %}</span>{% endif %}</div><p class="mb-0" style="font-size:.92rem;white-space:normal">{{ t.content }}</p><small>{{ t.role_title }} · {{ t.created_at|naturaltime }}</small></div>
+      <div class="row" style="gap:4px">{% if t.is_approved %}{% translate "إخفاء" as l %}{% include "dashboard/admin/_action.html" with action="testimonial" pk=t.pk value="0" label=l %}{% else %}{% translate "اعتماد" as l %}{% include "dashboard/admin/_action.html" with action="testimonial" pk=t.pk value="1" label=l cls="btn--success" %}{% endif %}{% translate "حذف" as l2 %}{% include "dashboard/admin/_action.html" with action="testimonial" pk=t.pk value="delete" label=l2 cls="btn--danger" %}</div>
+    </div>
+  {% empty %}<p class="muted mb-0">{% translate "لا توجد آراء بعد." %}</p>{% endfor %}
+</div>
+<div class="panel">
+  <h2 style="font-size:1.05rem">{% translate "رسائل التواصل" %}</h2>
+  {% for m in contact_messages %}
+    <div class="list-row" style="align-items:flex-start"><div class="list-row__main"><strong>{{ m.subject }}</strong><p class="mb-0" style="font-size:.9rem;white-space:normal">{{ m.message }}</p><small>{{ m.name }} · <a href="mailto:{{ m.email }}">{{ m.email }}</a> · {{ m.created_at|naturaltime }}</small></div>
+      {% if m.is_handled %}<span class="badge badge--green">{% translate "تمت المعالجة" %}</span>{% else %}{% translate "تمت المعالجة" as l %}{% include "dashboard/admin/_action.html" with action="contact_handled" pk=m.pk value="1" label=l %}{% endif %}</div>
+  {% empty %}<p class="muted mb-0">{% translate "لا توجد رسائل." %}</p>{% endfor %}
+</div>
+{% endblock %}

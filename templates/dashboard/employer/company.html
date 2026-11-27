@@ -1,0 +1,13 @@
+{% extends "dashboard/base_dashboard.html" %}
+{% load i18n %}
+{% block title %}{% translate "ملف الشركة" %}{% endblock %}
+{% block dash_content %}
+<div class="dash__head"><div><h1>{% translate "الملف التعريفي للشركة" %}</h1><p>{% translate "ملف شركة متكامل يزيد ثقة المرشحين بك." %}</p></div><a class="btn btn--outline" href="{{ company.get_absolute_url }}">{% icon "eye" 18 %}{% translate "معاينة" %}</a></div>
+<div class="panel">
+  <div class="row mb-2">{% logo company 72 %}<div><strong style="font-size:1.1rem">{{ company.name }}</strong>{% if company.is_verified %} <span class="badge badge--blue">{% icon "shield" 14 %}{% translate "موثّقة" %}</span>{% else %} <span class="badge">{% translate "غير موثّقة" %}</span>{% endif %}</div></div>
+  <form method="post" enctype="multipart/form-data" novalidate>{% csrf_token %}
+    {% include "partials/form_fields.html" with wide_fields="tagline" %}
+    <div class="form-actions"><button class="btn btn--primary btn--lg" type="submit"><span>{% translate "حفظ التغييرات" %}</span></button></div>
+  </form>
+</div>
+{% endblock %}
