@@ -63,18 +63,4 @@ apps/
   projects/      المشاريع الحرة والعروض
   messaging/     المحادثات
   notifications/ الإشعارات (قنوات قابلة للتوسعة)
-  reviews/       التقييمات، آراء المستخدمين، البلاغات
-  dashboard/     لوحات الباحث / صاحب العمل / الإدارة
-```
-مبادئ SOLID المطبقة:
-- **S**: منطق الأعمال في طبقة `services/` منفصلة عن الـ Views والقوالب.
-- **O**: الفلاتر (`core/filtering.py`)، قواعد اكتمال الملف، مزودو الملفات حسب الدور، معالجات البلاغات — كلها سجلات تُضاف إليها عناصر جديدة دون تعديل القديم.
-- **L/I**: Mixins صغيرة ومتخصصة (`RoleRequiredMixin`, `PartialTemplateMixin` ...).
-- **D**: `NotificationService` يعتمد على تجريد `NotificationChannel`، و`RecommendationService` يستقبل استراتيجية قابلة للاستبدال.
-
-## الإنتاج
-```
-DJANGO_SETTINGS_MODULE=config.settings.prod
-python manage.py collectstatic
-gunicorn config.wsgi   # على Linux
-```
+  reviews/       
